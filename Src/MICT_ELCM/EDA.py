@@ -49,7 +49,7 @@ class EAD(object):
         cols = list(temp_dict)
         print("Writing data to csv...")
         with open("C:\Code\MICT_ELCM\Data\GrouprByErrorMessage.csv", 'w') as f:
-            f.write(','.join(cols) + '\n')
+            f.write(str(','.join(cols)[1:]) + str('\n'))
             for date, errors in GroupByErrorMessage.items():
                 f.write(date + ',')
                 for c in cols[:-1]:
