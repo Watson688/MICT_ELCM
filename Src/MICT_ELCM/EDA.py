@@ -3,6 +3,13 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
+class TempDict(object):
+    def __init__(self, ErrorMessage):
+        self.dict = {}
+        for m in ErrorMessage:
+            self.dict[m[0].strip()] = 0
+
+
 class EAD(object):
     def __init__(self):
         pass
@@ -14,7 +21,7 @@ class EAD(object):
             print("Retrieving data from database")
             cursor = conn.cursor()
             q1 = "SELECT ERROR_TYPE, ERROR_MESSAGE, CONVERT(DATE, DATE_OCCURRED) AS date FROM [MICT_ELCM].[dbo].[FMDS_ERRORS]  where DATE_OCCURRED between '2017-01-01 15:13:51.0870000' AND '2018-01-01 17:05:29.8470000' ORDER BY DATE_OCCURRED"
-            AllErrorMessage = "SELECT Distinct ERROR_MESSAGE FROM dbo.FMDS_ERRORS"
+            AllErrorMessage = "SELECT Distinct ERROR_MESSAGE FROM dbo.FMDS_ERRORS WHERE DATE_OCCURRED BETWEEN '2017-01-01 15:13:51.0870000' AND '2018-01-01 17:05:29.8470000'"
             cursor.execute(q1)
             Errors = cursor.fetchall()
             cursor.execute(AllErrorMessage)
@@ -37,30 +44,34 @@ class EAD(object):
         # Start grouping by ErrorMessage
         print("Start grouping by ErrorType")
         # Construct initial dict
-        temp_dict = {}
-        for m in ErrorMessage:
-            temp_dict[m[0].strip()] = 0
         for row in Errors:
             if row[2] not in GroupByErrorMessage:
-                GroupByErrorMessage[row[2]] = temp_dict
+                GroupByErrorMessage[row[2]] = TempDict(ErrorMessage).dict
+                GroupByErrorMessage[row[2]][row[1].strip()] += 1
             else:
                 GroupByErrorMessage[row[2]][row[1].strip()] += 1
         # Write to csv
-        cols = list(temp_dict)
+        cols = [m[0].strip() for m in ErrorMessage]
         print("Writing data to csv...")
         with open("C:\Code\MICT_ELCM\Data\GrouprByErrorMessage.csv", 'w') as f:
-            for c in cols:
-                f.write(c)
-                f.write(',')
+            f.write('Date,')
+            for c in cols[:-1]:
+                try:
+                    print(c)
+                    f.write(c)
+                    f.write(',')
+                except UnicodeError:
+                    f.write('Power In-Feed DC/DC Converter G23 Error')
+            f.write(cols[-1])
+            f.write('\n')
             for date, errors in GroupByErrorMessage.items():
-                f.write(date + ',')
-                for c in cols[:-1]:
-                    f.write(errors[c] + ',')
-                f.write(errors[-1] + '\n')
-                    
-
+                temp_str = ""
+                temp_str += date + ','
+                for c in cols:
+                        temp_str += str(errors[c]) + ','
+                temp_str = temp_str[:-1] + '\n'
+                f.write(temp_str)
         # Plot            
-        print("Start grouping by ErrorMessage")
         M = []
         O = []
         R4 = []
