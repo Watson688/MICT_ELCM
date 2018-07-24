@@ -8,7 +8,7 @@ class EAD(object):
         pass
 
     def DailyError(self):
-        connection_string = "Driver={SQL Server};Server=DESKTOP-G79E7GF;Database=MICT_ELCM;UID=sa;PWD=password;"
+        connection_string = "Driver={SQL Server};Server=princeton;Database=MICT_ELCM;UID=sa;PWD=%5qlish!;"
         with pypyodbc.connect(connection_string, autocommit = True) as conn:
             # Retrieve data from database
             print("Retrieving data from database")
@@ -49,7 +49,9 @@ class EAD(object):
         cols = list(temp_dict)
         print("Writing data to csv...")
         with open("C:\Code\MICT_ELCM\Data\GrouprByErrorMessage.csv", 'w') as f:
-            f.write(str(','.join(cols)[1:]) + str('\n'))
+            for c in cols:
+                f.write(c)
+                f.write(',')
             for date, errors in GroupByErrorMessage.items():
                 f.write(date + ',')
                 for c in cols[:-1]:
