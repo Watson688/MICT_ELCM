@@ -97,12 +97,55 @@ class EAD(object):
             plt.show()
         """
 
+    def AllErrorTS(self):
+        AllErrorTS = {}
+        connection_string = "Driver={SQL Server};Server=princeton;Database=MICT_ELCM;UID=sa;PWD=%5qlish!;"
+        # Get all error messages and errors
+        with pypyodbc.connect(connection_string, autocommit = True) as conn:
+            print("Retrieving data from database")
+            cursor = conn.cursor()
+            q1 = "SELECT COUNT(ERROR_MESSAGE) as NumberOfError, ERROR_MESSAGE FROM dbo.FMDS_ERRORS GROUP BY ERROR_MESSAGE ORDER BY NumberOfError DESC"
+            q2 = "SELECT ERROR_MESSAGE, CONVERT(DATE, DATE_OCCURRED) AS date FROM dbo.FMDS_ERRORS ORDER BY date"
+            print("Retrieving error messages...")
+            cursor.execute(q1)
+            ErrorMessage = cursor.fetchall()
+            print("Retrieving all errors...")
+            cursor.execute(q2)
+            AllErrors = cursor.fetchall()
+        for row in AllErrors:
+            e = row[0].strip()
+            date = row[1]
+            if date not in AllErrorTS:
+                AllErrorTS[date] = TempDict(ErrorMessage).dict
+            AllErrorTS[date][e] += 1
+        # Write to csv
+        print("Writing to csv...")
+        cols = [m[1].strip() for m in ErrorMessage]
+        with open("C:\Code\ELCM\Data\AllErrorsTS.csv", 'w') as f:
+            f.write('Date,')
+            for c in cols[:-1]:
+                try:
+                    f.write(c)
+                    f.write(',')
+                except UnicodeError:
+                    f.write('Power In-Feed DC/DC Converter G23 Error')
+            f.write(cols[-1])
+            f.write('\n')
+            for date, errors in AllErrorTS.items():
+                temp_str = ""
+                temp_str += date + ','
+                for c in cols:
+                        temp_str += str(errors[c]) + ','
+                temp_str = temp_str[:-1] + '\n'
+                f.write(temp_str)
+
+
 
 def main():
     # Boot
     print("Start analyzing ELCM data")
     S = EAD()
-    S.DailyError()
+    S.AllErrorTS()
     print("Analyzing finished")
 
 
