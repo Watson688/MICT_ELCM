@@ -1,0 +1,2780 @@
+﻿TOTAL,(No column name),WO_WORKTYPE
+331,No TCP-IP Connect,CM10
+288,Hydraulic System - System Pressure Low,CM10
+277,Fuse Tripped - Oil Cooler inverter,CM10
+232,Navigation computer - Too far off travel path,CM10
+190,Inverter - Oil Cooler Error,CM10
+166,Navigation Computer - 'n' Transponders Not Found,CM10
+164,F-PLC - Lost Heartbeat Signal,CM10
+159,Navigation Computer - Expected Brake Path Too Long,CM10
+154,Navigation computer - Corrupted Route Data - Index,CM10
+144,Steering System - Steering Fault - F,CM10
+139,Steering System - Steering Fault - R,CM10
+135,AGV outside claim,CM10
+132,Navigation Computer - Main Contactor (-K51 / -K52) - Signal is Missing,CM10
+121,( OCCURRED ): Navigation Computer -  Corrupted Route Data - Index,CM10
+118,Driving TimeOut,CM10
+108,Navigation Computer - Lift Platforms not Raised,CM10
+104,E-Stop - Engaged - E-Stop Chain Not Ok,CM10
+93,AGV - Rack is Occupied,CM10
+90,Navigation Computer - Route Deviation too Big,CM10
+85,F-PLC - Heartbeat Error,CM10
+83,Navigation Computer - Transponders Not Found,CM10
+78,Transponders Not Found,CM10
+72,Safe Load Exchange - Timeout AGV,CM10
+70,Power In-Feed - Pre-Charging 720 V Fault,CM10
+68,Navigation Computer - Drive Tracking Error,CM10
+68,E-Stop - Engaged - Bumper - F,CM10
+67,AGV - Traction Battery Shutter Open While Battery On,CM10
+64,Navigation Computer - 'n' Transponder Not Found,CM10
+58,Speeding In Reduced Speed Area,CM10
+56,Hydraulic System - Hydraulic Temperature High Error,CM10
+52,Lost Heartbeat Signal,CM10
+51,Driving time out,CM10
+50,Navigation Computer - Main Switch signal from PLC is missing,CM10
+49,Transponder gemist,CM10
+48,F-PLC - Position difference F-PLC <-> Navigation,CM10
+46,Steering System - Steering Valve Difference - R,CM10
+45,AGV outside of Claim,CM10
+44,Inverter - Oil Cooler - Over Temperature Motor 28,CM10
+44,PLC - Power To Encoder Card is Off,CM10
+42,E-Stop - Engaged - Bumper - R,CM10
+41,Navigation Computer -  Corrupted Route Data - Index,CM10
+38,Rack is Occupied,CM10
+37,AGV - Lifting Functionality disabled,CM10
+36,Navigation Computer - Corrupted Route Data Index,CM10
+36,Outside of Claim,CM10
+36,Route-List-Response timeout,CM10
+34,( ON ): No TCP-IP connect,CM10
+34,Power In-Feed - Charging fault,CM10
+33,F-PLC - Implausible Axle Speeds - F&R,CM10
+33,Heartbeat Error,CM10
+30,Hydraulic System - Pressure Reservoir Low,CM10
+30,Navigation Computer - Position Unknown,CM10
+28,F-PLC - Implausible Steering Angle - F,CM10
+25,Safe Load Exchange - Unallowed Status - Brakes Opened,CM10
+25,Brake System - Brake Pressure Low - F,CM10
+25,Power in Feed - Charging Fault,CM10
+24,Hydraulic System - System Pressure Low Error,CM10
+24,Steering System - Steering Valve Difference - F,CM10
+24,Steering System - Steering Fault,CM10
+24,Navigation Computer - main Contactor (-K52 / -K53) - Signal is Missing,CM10
+24,Power in Feed Charging Fault,CM10
+23,TEAMS-error: Driving timeout,CM10
+23,Navigation Computer - Undetermined Lift Table State,CM10
+23,Drive Encoder - Losing Impulses - F,CM10
+22,NO TCP IP Connect,CM10
+22,Lift Platform - Mechanically Blocked - R,CM10
+21,Hydraulic System - Hydraulic Temperature Warning,CM10
+21,Navigation Computer - Navigation <-> PLC Communication Signal is Missing,CM10
+21,Traction Battery - Charge <= 20%,CM10
+20,Lift Platform Status: BothRaised,CM10
+20,Lift Platform Status: FrontRaisedRearLowered,CM10
+20,Traction Battery - At Least One Battery Pack is Too Low,CM10
+20,Navigation Computer - Undetermined Lift Platform State,CM10
+19,Staat met gelifte tafels voor het Rack,CM10
+19,Undetermined Lift Table State,CM10
+19,Steering System - Steering Traction Error - F,CM10
+19,Navigation Computer - signal from emergency relay is missing,CM10
+18,System Battery - System Battery Charging Error,CM10
+18,( OCCURRED ): F-PLC - Heartbeat Error,CM10
+18,F-PLC Lost Heartbeat Signal,CM10
+17,Inverter - Hydraulic Pump Error,CM10
+17,Position difference F-PLC <-> Navigation,CM10
+17,TEAMS-Error: AGV outside claim,CM10
+17,Staat met gelifte tafels onder het Rack,CM10
+17,E-Stop Engaged - Chain not Ok,CM10
+17,Too Far Off Travel Path,CM10
+17,Navigation Computer - 'n'Transponder Not Found,CM10
+17,CAN - CAN A - Navigation <=> PLC Connection Interrupted,CM10
+16,Load Mode Type Error,CM10
+16,Safe Load Exchange - Timeout Head Control,CM10
+16,( OCCURRED ): Navigation Computer - Expected Brake Path too Long,CM10
+16,Hydraulic System - Hydraulic Fluid Level Low Warning,CM10
+16,Power InFeed Charging Fault,CM10
+16,Hydraulic system pressure low,CM10
+15,PLC - Outputs Disabled,CM10
+15,Tire pressure 13 bar too high,CM10
+15,Inverter - F-Drive - Error,CM10
+15,Axel Weight Too High - F,CM10
+15,Power In-Feed - Circuit Breaker Error,CM10
+15,Main switch signal from PLC is missing,CM10
+15,Lift Platform - Cylinder Warnung - RMR,CM10
+14,Lifttafels willen niet zakken,CM10
+14,Lift Platform Status: MovingPlatformPosError,CM10
+14,AGV - Brakes Engaged while Driving,CM10
+14,Navigation Computer - brake path too short,CM10
+14,Brake System - Brakes Still Open - R,CM10
+14,Route deviation too big,CM10
+14,Fuse Tripped - Oil Cooler Error,CM10
+14,Transponder not Found,CM10
+14,E-Stop - Engaged - Hydraulic Cabinet (+L3),CM10
+14,Brake System - Brakes Still Open - F,CM10
+14,Lift Platform - Cylinder Warnung - FML,CM10
+14,Too many repositioning trials,CM10
+13,Navigation Computer: Main Switch signal from PLC is Missing,CM10
+13,Navigation Computer - MainSwitch Signal From PLC is Missing,CM10
+13,E-Stop Engaged - Bumper - F,CM10
+13,Power In-Feed - Electrical Protection Relay Error,CM10
+13,AGV - Bay is Occupied,CM10
+12,( ON ): TEAMS-Error: Driving timeout,CM10
+12,AGV speed implausible (F-PLC),CM10
+12,Inverter - Hydraulic Pump - Error,CM10
+12,Lift Platform - Lowering TimeOut - F,CM10
+12,Fuse Tripped - Oil Cooler inveter,CM10
+12,Navigation Computer - Signal from Safety Relay is Missing while not Driving,CM10
+12,F-PLC - Position Difference F-PLC,CM10
+12,AGV Stop Request,CM10
+12,Navigation Computer - Feedback Signal from Safety Relay is Missing,CM10
+12,AGV - Outside Claim,CM10
+11,Navigation Computer - Navigation<->PLC Communication Signal is Missing,CM10
+11,Navigation Computer - Task Error - MS Task not Running,CM10
+11,FrontRaisedRearLowered,CM10
+11,F-PLC-Heartbeat Error,CM10
+11,Lift Platform - Cylinder Value Irregularity,CM10
+11,Navigation Computer - Lift Platform not Raised,CM10
+11,SLX - Timeout Head Control,CM10
+11,Navigation Computer - Too Far of Travel Path,CM10
+10,CAN - CAN A - NS Communication Error,CM10
+10,Hydraulic System - Pressure Low,CM10
+10,Steering angle front implausible (F-PLC),CM10
+10,Fuse Tripped - Oil Cooler Inverter Error,CM10
+10,Position Difference F-PLC,CM10
+10,Hydraulic System - System Pressure Sensor Error,CM10
+10,Inverter - F-Drive - Overcurrent Error via PLC,CM10
+10,Lift Platform Status: Both Raised,CM10
+10,F-PLC Heartbeat Error,CM10
+10,Inverter - Oil Cooler - Pre-Charging 10,CM10
+10,( ON ): F-PLC - Lost Heartbeat Signal,CM10
+10,Hydraulic System - Pressure Reservoir Sensor Error,CM10
+10,Traction Battery - Charge <=20%,CM10
+9,Lift Platform - Cylinder Value Irregularity - FR,CM10
+9,Transponder Antenna - Error - F,CM10
+9,Fuse tripped Oil Cooler Inverter,CM10
+9,F-PLC- Heartbeat Error,CM10
+9,Lift Platform - Cylinder Value Irregularity - FMR,CM10
+9,Navigation Computer - Transponder Not Found,CM10
+9,Route-List Response timeout,CM10
+9,Lift Platform - Raising Timeout - F,CM10
+9,Axel Weight too High - R,CM10
+9,Drive encoder - Not Incrementing - FL,CM10
+9,AGV - Traction Battery Shutter Did Not Close,CM10
+9,Lift Platform - Cylinder Position is Incorrect - RR,CM10
+9,Navigation computer - Undetemined lift platform state,CM10
+9,AGV - Outside of Claim,CM10
+9,( OCCURRED ): Navigation Computer - Too Far off Travel Path,CM10
+8,Expected Brake Path Too Long,CM10
+8,F-PLC-Position difference F-PLC <-> Navigation,CM10
+8,Tire Pressure ->= 13 bar too High - FL,CM10
+8,Hydraulic System - Reserve Pressure Sensor Error,CM10
+8,Navigation Computer - PLC Communication signal is Missing,CM10
+8,Brakes Opened - Unallowed Status (SLX),CM10
+8,Traction Battery - Voltage Warning,CM10
+8,Drive Encoder - Losing Impulses - R,CM10
+8,Oil Cooler Motor not Working,CM10
+8,AGV rijd de BES niet uit,CM10
+8,Power In-Feed - Earth Ground Connection Error,CM10
+8,Navigation Computer - Watchdog Error - NS Sub-Program,CM10
+8,Lift Platform - Raising Timeout - R,CM10
+8,F-PLC-Lost Heartbeat Signal,CM10
+8,Inverter Oil Cooler Error,CM10
+8,E-Stop Engaged - Bumper - R,CM10
+8,( ON ): Navigation Computer - Main Contactor (-K51 / -K52) - Signal is Missing,CM10
+8,Lift Platform - Raising TimeOut,CM10
+7,Load Type - Sensor / Load Command Mismatch,CM10
+7,CAN - CAN B - Drive Inverter - R,CM10
+7,Lift Platform - Raising Timeout - F - R,CM10
+7,Inverter - Oil Cooler - Power Supply 15,CM10
+7,Lift Platform - Cylinder Value Irregularity - FML,CM10
+7,Navigation computer - drive contour line error,CM10
+7,Hydraulic Pump Error,CM10
+7,Transponders gemist,CM10
+7,Brake System - Brake Pressure Low - R,CM10
+7,Wire i/q ge bypassed,CM10
+7,F-PLC- Position difference F-PLC <-> Navigation,CM10
+7,SLX - Timeout AGV,CM10
+7,Niet zichtbaar in FMDS,CM10
+7,AGV- Rack is Occupied,CM10
+7,Brake System - Brakes Not Open - F,CM10
+7,Lift Platform Raising Time Out,CM10
+7,Lifting Functionality Disabled,CM10
+7,Power In-Feed-Pre-Charging 720 V Fault,CM10
+7,F-PLC - Implausible Steering Angle - R,CM10
+7,Brake System - Brake Resistor Temperature High Error,CM10
+7,Lift Platform - Lowering Timeout - R,CM10
+7,( ON ): Navigation Computer - Lift Platforms not Raised,CM10
+7,Power In-Feed - Earth Ground Connection Failure,CM10
+6,Outside claim,CM10
+6,Lift Platform Not Raised,CM10
+6,Driving Time-Out,CM10
+6,Steering System - Steering Fault -F,CM10
+6,Alloc error,CM10
+6,Route List Response Time-out,CM10
+6,Steering System - Steering Fault R,CM10
+6,Main switch signal from PLC missing,CM10
+6,F-PLC - Speeding in reduced speed area,CM10
+6,Lift Platforms Not Raised,CM10
+6,Lift Platform Raising TimeOut,CM10
+6,AGV - Driving TimeOut,CM10
+6,Navigation Computer - Main Contactor (-K52 / -K53) Signal is Missing,CM10
+6,Wil niet wegrijden onder het rack vandaan / Geen error in FMDS,CM10
+6,Management system - AGV stop request,CM10
+6,Lift tafels blijven omhoog staan,CM10
+6,Lift platform - Cylinder Warnung - RR,CM10
+6,Power in Feed - Pre Charging 720V Fault,CM10
+6,MovingPlatformPosError,CM10
+6,Navigation Computer - Main Contactor (-K51 / -K52) Signal is Missing,CM10
+6,Lift Platform - Cylinder Warnung - RL,CM10
+6,Lift Platform - Mechanically Blocked - F,CM10
+6,AGV in restricted Area,CM10
+6,Power Infeed - Charging Fault,CM10
+6,Navigation computer: Main Switch from PLC is Missing,CM10
+6,Lifttafels willen niet zakken (geen melding),CM10
+6,Lift Platform Status: RearRaisedFrontLowered,CM10
+6,E-Stop Engaged - E-Stop Chain Not Ok,CM10
+6,Power infeed fault,CM10
+6,F-PLC - Implausible Steering Angle,CM10
+6,Drive Encoder - Not Incrementing - RL,CM10
+6,Navigation computer: 'n' transponders not found,CM10
+6,Power in Feed - Pre-Charging 720 V Fault,CM10
+6,( ON ): Navigation Computer - Route Deviation too Big,CM10
+6,AGV - Multiple Error Resets,CM10
+6,Ultrasonic Sensor - Rack Occupied Sensors Error - F,CM10
+6,F-PLC- Lost Heartbeat Signal,CM10
+5,Drive encoder - Not Incrementing - RR,CM10
+5,E-Stop - Engaged - Bumper -F,CM10
+5,E-Stop - Engaged -Bumper - F,CM10
+5,Fuse Tripped,CM10
+5,"Wil container niet van Rack pakken, zonder error FMDS",CM10
+5,Tire Pressure - 13 bar too High FR,CM10
+5,( ON ): Driving timeout,CM10
+5,Axel Weight Too High,CM10
+5,Lift Platform - Raising Timeout - R - F,CM10
+5,Inverter - R-Drive - Error,CM10
+5,Power in Feed - Circuit Breaker Error,CM10
+5,Staat Rood met Tafels half omhoog zonder Melding in FMDS,CM10
+5,F-PLC - Heartbeat is missing,CM10
+5,Weight System - Weight Measurement Failure,CM10
+5,Traction Battery - Temperature High Error,CM10
+5,Brake Path Too Short,CM10
+5,Oil Cooler Inverter Error,CM10
+5,Multiple Error Resets,CM10
+5,Navigation computer - Main Contactor (K51 / K52) Signal is Missing,CM10
+5,( ON ): Power In-Feed - Pre-Charging 720 V Fault,CM10
+5,Lift Platform - Raising Timeout - F-R,CM10
+5,Inverter - F-drive - Device High Temperature Error 7,CM10
+5,Power In-Feed charging fault,CM10
+5,Lift Platform - Raising Timeout - F&R,CM10
+5,F-PLC- Implausible Axle Speeds - F&R,CM10
+5,Navigation Computer -Brake Path Too Short,CM10
+5,Steering Fault - R,CM10
+5,Navigation Computer - Main Contactor (-K51/-K52) Signal is missing,CM10
+5,E-Stop Chain Not OK,CM10
+5,( ON ): F-PLC - Heartbeat Error,CM10
+5,Power In-Feed - Pre-Charging Fault,CM10
+5,Moving Platform Position Error,CM10
+5,TBA zegt dat de executer opnieuw opgestart moet worden,CM10
+5,Door - Door Open - Power Infeed Cabinet (+L4),CM10
+5,Fuse Tripped - PLC - D01,CM10
+5,( OCCURRED ): Navigation Computer - 'n' Transponders Not Found,CM10
+5,Lift Platform - Cylinder Warnung - RML,CM10
+5,Lift Platform - Lowering timeout - F - R,CM10
+5,F-PLC - Position difference F-PLC <-> Naviagtion,CM10
+5,Route List Response Timeout,CM10
+5,AGV speed Implausible,CM10
+5,Lift Platform - Lowering TimeOut - F & R,CM10
+4,Inverter - R Travel Error,CM10
+4,Power Infeed - Earth Ground Connection Failure,CM10
+4,F-PLC- Implausible Axle Speerd - F&R,CM10
+4,Axle Weight too High - R,CM10
+4,Lift Platform - Cylinder Warnung - FR,CM10
+4,Steering System - Steering Valve Difference,CM10
+4,E-Stop Engaged - Bumper F,CM10
+4,Lift platform wil niet zakken,CM10
+4,hydraulic System- System Pressure low,CM10
+4,Lifttafel staat omhoog en zakt niet meer,CM10
+4,Naviagtion Computer - Corrupted Route Data - Index,CM10
+4,Teams error: Driving Timeout,CM10
+4,Inverter - R-Drive - Overcurrent Error via PLC,CM10
+4,Fuse Tripped - Drive Inverter Fan - R,CM10
+4,Lift Platform - Lowering Timeout - F&R,CM10
+4,Wire IQ Overbruggen,CM10
+4,AGV blijft met lifttafels omhoog bij het rack staan,CM10
+4,Direct Stop,CM10
+4,Routelist Response Time-Out,CM10
+4,Power in-Feed - Pre-Charging 720V Fault,CM10
+4,Oil Cooler Motor not working (I << Nominal Current),CM10
+4,Routelist Response TimeOut,CM10
+4,Tire Pressure 13 Bar Too High FR,CM10
+4,Navigation Computer - Too far off travel path.,CM10
+4,Brake System - Brake Pressure Sensor Error - F,CM10
+4,No Route list response on time out,CM10
+4,PLC ABB Error,CM10
+4,Steering Angle Front Implausible,CM10
+4,Tire Pressure - Not all Set,CM10
+4,AGV komt niet meer bij,CM10
+4,Driving Order Impossible,CM10
+4,Navigation Computer - Navigation <->PLC Communication Signal is Missing,CM10
+4,Route List Response Time Out,CM10
+4,Lift Platform - Mechanically Blocked F+R,CM10
+4,Traction Battery - Temperature >= 55 graden,CM10
+4,Navigation computer main switch singnal from plc is missing,CM10
+4,Navigation Computer - Main Switch From PLC is Missing,CM10
+4,Out Of Claim,CM10
+4,Fuse Tripped - Hydraulic Ventilator,CM10
+4,Axle Weight Too High - F,CM10
+4,(ON): No TCP-IP connect,CM10
+4,Too far Of Travel Path,CM10
+4,Drive Tracking Error,CM10
+4,E-Stop - Engaged - Bumper - F&R,CM10
+4,F-PLC - Implausible Value of Drive Encoders - R,CM10
+4,Load  Type - Sensor /Load Command Mismatch,CM10
+4,Navigation Computer - Signal from Safety Relais is missing,CM10
+4,No TCP-IP Connect / F-PLC - Lost Heartbeat Signal,CM10
+4,F-PLC Heartbeat signal lost,CM10
+4,Staat voor het Rack met gelifte Tafels,CM10
+4,Steering System - Valve and Encoder Steering Error - F,CM10
+4,Navigation Computer - Main Contactor (-K51/-K52) - Signal is Missing,CM10
+4,AGV Lifting Functionality Disabled,CM10
+4,Verkeerde WO,CM10
+4,Lift Platform - Raising Time Out,CM10
+4,Route Error,CM10
+4,AGV Driving TimeOut,CM10
+4,Fuse Tripped - PLC - D04/D06,CM10
+4,Inverter - F Travel - Overcurrent Error,CM10
+4,"Reageert niet, groene status in FMDS",CM10
+4,Navigation Computer - Main Contactor - (-K51 / -K52) Signal Is Missing,CM10
+4,E-Stop - Engaged - Bumper F + R,CM10
+4,AGV-Rack is occupied,CM10
+4,Power-In-Feed - Pre-Charging 720 V Fault,CM10
+4,Navigation Computer - Main Contactor Signal (K51/K52) is Missing,CM10
+3,Navigation Computer - Watchdog Error - NS Sub Program,CM10
+3,Oil Cooler Error,CM10
+3,Power In-Feed - Circuit Breaker Failure,CM10
+3,Traction battery - Charge <= 20 %,CM10
+3,"Driving Order Impossible, Invalid Route Rejected",CM10
+3,AGV - Transponders not found,CM10
+3,AGV - Lost HeartBeat signal,CM10
+3,Blijft met gelifte Tafels onder het Rack staan,CM10
+3,E-Stop - Engaged - E - Stop Chain Not Ok,CM10
+3,E-stop - E-Chain not ok,CM10
+3,( OCCURRED ): Brake System - Brake Pressure Low - F,CM10
+3,( OCCURRED ): Brake System - Brake Pressure Low - R,CM10
+3,Lift Platform - Cylinder Value Irregularity - FR - RML - RMR - RL,CM10
+3,Koppeling lek bij de hoofdslang,CM10
+3,Fuse Tripped - AGV Travel Lights,CM10
+3,F-PLC-Implausible Axle Speeds - F&R,CM10
+3,Fuse Tripped - Pressure Sensor,CM10
+3,Geen connectie (geen melding),CM10
+3,Heart Beat Error,CM10
+3,Hydraulic system pressure low error,CM10
+3,Traction Battery - Charge <= 25%,CM10
+3,Axel Weight Too High Front,CM10
+3,Controlled fleet stop,CM10
+3,F-PLC - Position difference,CM10
+3,Fuse Tripped - Traction Battery System,CM10
+3,Navigation Computer - 'n'Transponders Not Found,CM10
+3,E-Stop-Engaged - Bumper - R,CM10
+3,Door - Door Open - Inverter cabinet (+L2),CM10
+3,Lifttafel wilt niet zakken,CM10
+3,Moet container ophalen. Geen beweging.,CM10
+3,Traction Battery - Temperature >= 55 C,CM10
+3,Navigation Computer - Too Far From Travelpath,CM10
+3,PLC ABB error Category 4,CM10
+3,Ultrasonic Sensor - Rack Navigation Sensor Error - RR3,CM10
+3,Navigation Computer - Travel Lane Error - F,CM10
+3,Navigation Computer Transponders not found,CM10
+3,Navigation Computer -  Too Far off Travel Path,CM10
+3,Steering System - Steering Traction Error - R,CM10
+3,F-PLC - AGV in Restricted Area,CM10
+3,Wire / iq overbrugd,CM10
+3,AGV rijd niet onder het rek vandaan,CM10
+3,Hydraulic System - System  Pressure Low,CM10
+3,Fuse tripped-oil Cooler,CM10
+3,Inverter - F-Drive - UZK Too Small 4,CM10
+3,Lift Platform - Cilinder Value Irregularity,CM10
+3,"Navigation Computer - AGV Tables not Raised, AGV must not enter the rack",CM10
+3,Omvormer fout,CM10
+3,Drive Encoder - Not Incrementing - FR,CM10
+3,AGV wil niet wegrijden onder het Rack vandaan / Geen error in FMDS,CM10
+3,Wire / iq overbrugd.,CM10
+3,Traction Battery - Temperature >= 55C,CM10
+3,Stilstand met Lifttafels omhoog,CM10
+3,F-PLC - Lost Hearbeat Signal,CM10
+3,no tcp-ip connection,CM10
+3,( ON ): AGV - Traction Battery Shutter Open While Battery On,CM10
+3,Driving Timeout / F-PLC-Lost Heartbeat Signal,CM10
+3,E-stop Engaged Bumper F,CM10
+3,Fuse Tripped - Hydraulic inverter,CM10
+3,Traction Battery - Electrolyte Level Low,CM10
+3,Power in Feed - Pre-charging 720V Fault,CM10
+3,Wire IQ overbruggen ivm te lege battery,CM10
+3,Navigation computer too far off travel path,CM10
+3,Navigation Computer -  Main Contactor (-K52 / -K53) - Signal is Missing,CM10
+3,F-PLC Implausible Axle Speeds - F&R,CM10
+3,Inverter-Oil Cooler Error,CM10
+3,Lift Platform blocked - rear,CM10
+3,Lift platform mechanically Blocked,CM10
+3,F-PLC- Position difference F-PLC <-> Naviagtion,CM10
+3,Navigation Computer - Too Farr off Travel Path,CM10
+3,No TCP - IP Connect,CM10
+3,Route-List-Repsonse timeout,CM10
+3,Power In-Feed-Charging Fault,CM10
+3,Traction Battery - Charge < = 20%,CM10
+3,Inverter - R-Drive - UZK Too Small 4,CM10
+3,Hydraulic System - Pressure Resservoir Low,CM10
+3,Fuse Tripped - Lift Table - F,CM10
+3,Ops heeft geen communicatie met de AGV,CM10
+3,Navigation Computer - Main Contactor (K51/K52) Signal is Missing,CM10
+3,( OCCURRED ): F-PLC - Position difference F-PLC <-> Navigation,CM10
+3,Brake System - Brake Pressure Low,CM10
+3,E-Stop - Engaged - Bumper - F+R,CM10
+3,Drive Encoder - Not Incrementing,CM10
+3,Inverter - F - R - Drive - Overcurrent Error via PLC,CM10
+3,Inverter - F-Drive Error,CM10
+3,wilt niet verrijden (geen melding),CM10
+3,Staat niet op transponders,CM10
+3,Navigation Computer- Corrupted Route Data - Index,CM10
+3,Management System Stop,CM10
+3,Lift Platform - Cylinder Warnung - FMR,CM10
+3,Lift Platform - Mechanically Blocked,CM10
+3,Lifttafels willen niet automatisch zakken,CM10
+3,Oil Cooler - Over Temperature Motor 28,CM10
+3,Traction Battery - Wire IQ - Not Responding Error,CM10
+3,Power In Feed - Earth ground connection Error,CM10
+3,Power in Feed - Pre Charging 720 V Fault,CM10
+3,Steering System - Steering Traction Error F/R,CM10
+3,Management System - Direct Stop,CM10
+3,Hydraulic system -System pressure low,CM10
+3,Navigation computer- 'n' transponders missing,CM10
+3,F-PLC  - Lost heartbeat signal,CM10
+3,Fuse Tripped - PLC - D02,CM10
+3,Brake System - Brakes Not Open (F+R),CM10
+3,Lift Platform - Raising Timeout - F -R,CM10
+3,CAN - CAN B - Drive Inverter - F,CM10
+3,RearRaisedFrontLowered,CM10
+3,Traction Battery - Wire IQ - System Not Found,CM10
+3,E-Stop Engaged E-stop chain not OK,CM10
+3,F-PLC - Implausible Value of Drive Encoders - F,CM10
+3,E-Stop - Engaged - Bumper - F - R,CM10
+3,Dispatch krijgt de AGV's niet gealloceerd,CM10
+3,PLC - ABB Error - Category 4,CM10
+3,Navigation Computer - Corrupted Route Data - Indes,CM10
+3,Navigation Computer - Signal From Emergency Relais is Missing,CM10
+3,Inverter Oil Cooler - Over Temperature Motor 28,CM10
+3,Lift Platform - Cylinder Value Irregularity - RL,CM10
+3,E-Stop engaged,CM10
+3,Steering Encoder - Error - RR&RL,CM10
+3,Ultrasonic Sensor - Rack Navigation Sensor Failure - RR2,CM10
+3,Wire IQ overbruggen ivm te lage batteryspanning,CM10
+2,System Battery - System Battery Charger Failure,CM10
+2,Tire Pressure - System not Found,CM10
+2,Tranponders Not Found,CM10
+2,Fuse Tripped-Oil cooler Inverter,CM10
+2,Inverter - Oil Cooler - Error,CM10
+2,Lift Platform - Cylinder Warning - FML,CM10
+2,Lift Platform - Cylinder Warnung - FML - FMR,CM10
+2,Lift Platform - Raising Timeout F & R,CM10
+2,Lift Platform Status: Front Raised Rear Lowered,CM10
+2,Navigation Computer - To Far Off Travel Path,CM10
+2,Navigation Computer - Feedback Signal From emergency Relais is Missing,CM10
+2,Navigation Computer - Main Contactor signal is missing,CM10
+2,Outside of claime,CM10
+2,Navigation computer - 'n Transponders not found,CM10
+2,OPS krijgt de agv niet meer bij,CM10
+2,Emergency Stop ZL,CM10
+2,( ON ): Hydraulic System - Hydraulic Temperature High Error,CM10
+2,E-Stop - Engaged - Bumper - F + R,CM10
+2,AGV blijft met tafels omhoog staan,CM10
+2,Steering System - Steering Fault -R,CM10
+2,Traction Battery - Temperature >= 50 C,CM10
+2,Traction Battery - Temperature >= 55?C,CM10
+2,Tire Pressure - <= 8 bar too Low - RL,CM10
+2,S log trekken,CM10
+2,Safe Load Exchange - Unallowed Status - Brakes Opened.,CM10
+2,Navigation Computer - Main Contactor (-K51 / K52) - Signal is Missing,CM10
+2,Navigation computer main contactor K51 K52 signal missing,CM10
+2,Lift platform Cylinder Warnung - RL,CM10
+2,Lift Tafels willen niet zakken,CM10
+2,Inverter - R Travel - Overcurrent Error,CM10
+2,Lift Platform - Cilinder Warning - FML - FMR,CM10
+2,Hydraulic System- Pressure Resevoir Low,CM10
+2,E-Stop - Engaged- Bumper - R,CM10
+2,Brake System - Brake Pressure Low - F - R,CM10
+2,Brakes System - Brakes Still Open,CM10
+2,AGV rijd langzaam,CM10
+2,Wil container niet laten zakken op het rek - geen error in FMDS,CM10
+2,Wil niet Alloceren,CM10
+2,"Heeft de container opgepakt van het rek, maar de AGV rijd niet meer weg (Mod16)",CM10
+2,Hydraulic System - Pressure Resevoir Low,CM10
+2,Fuse Tripped - Drive Inverter Fan - F,CM10
+2,F-PLC - Position Difference <-> Navigation,CM10
+2,E-Stop - Engaged - Bumper - F/R,CM10
+2,Corrupted Route Data,CM10
+2,( ON ): F-PLC - Lost Heartbeat Signal / ( ON ): Route-List-Response timeout,CM10
+2,Navigation computer -undetermined state,CM10
+2,Navigation Computer - Main Contactor - (-K52 / -K53) - Signal Is Missing,CM10
+2,Op verzoek van Dispatch op de Parallelbuffer neerzetten,CM10
+2,Probleem met lifttafel (mod 8),CM10
+2,Transponder antenna - Failure -F,CM10
+2,Lift tafels blijven Raised,CM10
+2,Lift Platform - Mechanically Blocked - F & R,CM10
+2,MainContactor (-K52 / -K53) - Signal From Emergency Relay Is Missing,CM10
+2,Navigation Computer  - Corrupted Route Data - Index,CM10
+2,Navigation Computer - Undetemined lift table state,CM10
+2,Lift Platform - Cylinder Warnung,CM10
+2,Navigation computer drive contour line fault,CM10
+2,Power In-Feed - Pre Charging Fault 720 V Fault,CM10
+2,Power-In-Feed - Electrical Protection Relay Error,CM10
+2,Navigation Computer - Main Contactor (-K51 /-K52) - Signal is Missing,CM10
+2,Lift platform raising time-out,CM10
+2,Lift platforms both raised,CM10
+2,Inverter Hydraulic Pump Error,CM10
+2,Axle Weight Too High,CM10
+2,AGV rijd niet meer weg,CM10
+2,Inverter - F - Drive Error,CM10
+2,Inverter - F Drive - Error,CM10
+2,Fuse tripped oil cooler,CM10
+2,E-Stop - Engaged - Bumper F & R,CM10
+2,CommProfibus Fault RRU,CM10
+2,F-PLC - Implausible Steering Angle -R,CM10
+2,Steering Encoder - Error - FR & FL,CM10
+2,Inverter - Oil Cooler inverter,CM10
+2,Navigation Computer - Maximum Steering Angle is Incorrect,CM10
+2,Navigation Computer - Main Contactor (-K51 / -K52 ) signal is missing,CM10
+2,Navigation Computer 'n' Transponder Not Found,CM10
+2,Power In-Feed charging - fault,CM10
+2,Staat onder rack met gelifte tafels zonder error,CM10
+2,Opstartproblemen,CM10
+2,Wil niet wegrijden onder het Rack vandaan zonder error in FMDS,CM10
+2,TEAMS heeft geen connectie met de AGV,CM10
+2,( OCCURRED ): Inverter - R-Drive - Error,CM10
+2,AGV Outside Claim (Teams melding),CM10
+2,AGV rijd BES 1 niet uit,CM10
+2,Brake System : Brakes not open,CM10
+2,AGV geen connectie met Teams,CM10
+2,F-PLC - Lost Heartbeat Signal / Driving timeout,CM10
+2,F-PLC-Implausible Steering Angle,CM10
+2,Power In-Feed - Pre - Charging 720 V Fault,CM10
+2,Rear Raised Front Lowered,CM10
+2,Out of Claim order,CM10
+2,( ON ): E-Stop - Engaged - E-Stop Chain Not OK,CM10
+2,Navigation Computer - Main Contactor (-K51 / -K52) - Singal is Missing,CM10
+2,Navigatie Fout NS,CM10
+2,MovingPlatformPosError (Teams melding),CM10
+2,Lifttafel blijft omhoog staan,CM10
+2,Inverter - R - Drive - Error,CM10
+2,Lifttafels blijven omhoog staan,CM10
+2,Lifttafels blijven omhoog staan (geen melding),CM10
+2,Lift Platform - Cylinder Value Irregularity - RR,CM10
+2,Lift Platform - Pressure Release Valve Error - FMR,CM10
+2,Route - List - Response Timeout,CM10
+2,Traction Battery - Temperature >= 55? C (staat in de BES1),CM10
+2,TooFar Off Travel Path,CM10
+2,Steering system -steering fault,CM10
+2,Tire Pressure - 13 Bar too High FL,CM10
+2,Tyre pressure,CM10
+2,Verroeste en droge battery geleiding,CM10
+2,Transponders gemist. Thv mod. 12,CM10
+2,Wire IQ overbruggen ivm te lage accuspanning,CM10
+2,E-Stop-Egaged - Bumper - F-R,CM10
+2,Heartbeat error.,CM10
+2,Hydraulic System - Hydraulic Temperature High,CM10
+2,"Impossible (Driving order impossible, Invalid Route rejected)",CM10
+2,Inverter - R-Drive - Inverter 14,CM10
+2,Navigation Computer - Gyro Error,CM10
+2,Lift platform status BothRaised,CM10
+2,AGV bleef in BES1 staan na batterij wissel.,CM10
+2,AGV niet meer te alloceren na router crash,CM10
+2,Wire IQ Not Responding,CM10
+2,Wire IQ overbruggen ivm een te lage battery spanning,CM10
+2,Wire IQ overbruggen ivm een te lage batteryspanning,CM10
+2,Ultrasonic Sensor - Rack Occupied Sensors Error - F&R,CM10
+2,Traction Battery - Wire IQ - Not Responding Warning,CM10
+2,Tire Pressure - >= 13 bar to high - FL,CM10
+2,Tire Pressure - 13 Bar too High - FL,CM10
+2,Traction Battery - at least one battery pack is too low.,CM10
+2,Power in Feed - Pre- charging 720V Fault,CM10
+2,Navigation Computer - Undeterminded Lift Platform State,CM10
+2,Op parallelbuffer zetten op verzoek van dispatch,CM10
+2,Driving time out.,CM10
+2,E-Stop - Engaged - Bumper - F and R,CM10
+2,Lift Platform Mechanically Blocked F + R,CM10
+2,Inverter - R-Drive - Device High Temperature Error 7,CM10
+2,Door - Door open - Inverter cabinet,CM10
+2,Drive Encoder Not incrementing,CM10
+2,AGV verkeerd de BES ingereden,CM10
+2,AGV komt niet meer bij na Power In-Feed - Pre-Charging 720 V Fault,CM10
+2,Navigation Computer - Brake Path Too Long,CM10
+2,Navigation Computer - Maincontactor K52 - K53 Signal is missing,CM10
+2,"Navigation computer: Main switch signal from PLC is missing. (mod 9, PB)",CM10
+2,Wil niet rijden / Geen error in FMDS,CM10
+2,"Wil niet rijden, accepteert geen nieuwe orders",CM10
+2,Staat vast in de BES,CM10
+2,Weight System - Sensor Error - FR,CM10
+2,System Battery Charger Failure,CM10
+2,Tire Pressure - >= 13 Bar to high - FR,CM10
+2,Power In-Feed - Pre-Charging Fault 720 V Fault,CM10
+2,RouteList Response Time Out,CM10
+2,F-PLC - Implausible Axle Speeds F&R,CM10
+2,Fuse Tripped - PLC - D101,CM10
+2,AGV goed zetten,CM10
+2,F-PLC -Heartbeat Error,CM10
+2,F-PLC- Implausible Steering Angle - F,CM10
+2,AGV not allocated,CM10
+2,Navigation<-> PLC Communication Signal is Missing,CM10
+2,PLC- Power to Encoder Card is Off,CM10
+2,Staat onder het Rack met gelifte tafels en wil niet wegrijden,CM10
+2,Staat met liftafels omhoog in het rack,CM10
+2,Safe Load Exchange - Unallowed - Brakes Opened,CM10
+2,Speeding in reduces speed area,CM10
+2,Hydraulic System - Pressure resevoir Sensor Error,CM10
+2,Navigation Computer - Maincontactor K52/K53 Signal is missing,CM10
+2,Navigation computer Main contractor,CM10
+2,Navigation computer: Main switch signal from PLC is missing (mod 12),CM10
+2,management System,CM10
+2,Liftplatform Mechanically Blocked,CM10
+2,Steering System - Steering Fault - F&R,CM10
+2,Undetermined Lifting Table State,CM10
+2,Transponder Antenna - Error - R,CM10
+2,AGV rijd traag rond ( velocity -1.45),CM10
+2,AGV- Traction Battery Shutter Open While Battery On,CM10
+2,( ON ): Route-List-Response timeout,CM10
+2,E-Stop-Engaged-Bumper-F,CM10
+2,CAN - CAN A - NS Commication Error,CM10
+2,Container op ze rug met tafels omhoog,CM10
+2,"Gaat niet meer aan, geen melding",CM10
+2,PLC Communication Signal is Missing,CM10
+2,Navigation Computer - Expacted Brake Path too long,CM10
+2,Navigation Computer - Main Contactor (-K51 / -K52) -Signal is Missing,CM10
+2,Navigation Computer - main (-K51 / -K52) Signal Is Missing,CM10
+2,Liftplatformen both raised,CM10
+2,Lift Platform - Cylinder Value Irregularity -FL,CM10
+2,E-Stop - Engaged E- Stop Chain Not OK,CM10
+2,E-Stop Engaged - Bumper F & R,CM10
+2,Front Raised Rear Lowered,CM10
+2,Rack Occupied,CM10
+2,Tire Pressure - 13 bar too High - FR,CM10
+2,Steering System Fault,CM10
+2,Steering system- Steering fault R,CM10
+2,Traction Battery - Voltage Alert,CM10
+2,Traction Battery - Wire IQ not Responding,CM10
+2,Lift Platform - Cilinder Warning - FML,CM10
+2,Fuse Tripped -  Oil Cooler Inverter,CM10
+2,Inverter - F Travel Error,CM10
+2,Brake System - Brakes Still Open,CM10
+2,"Driving timeout, F-PLC- Lost Heartbeat Signal",CM10
+2,E - Stop Engaged - E-stop chain Not Ok,CM10
+2,E-Stop - Engaged - Chain Not Ok,CM10
+2,AGV: Corrupted Route Data Index,CM10
+2,AGV is niet te alloceren,CM10
+2,Position Difference F PLC - Navigation,CM10
+2,Navigation Computer - Udetemined Lift Platform State,CM10
+2,Order rejected (ops krijgt de agv niet bij),CM10
+2,Power In-Feed - Battery Contact Error,CM10
+2,Rechtzetten na herstart executer,CM10
+2,Staat niet goed op transponder,CM10
+2,Transponder fout,CM10
+2,Safe Load Exchange - Time Out Head Control,CM10
+2,Lift Platform - Cylinder Warnung - FMR/FML,CM10
+2,Brake System - Brake Still Open - F,CM10
+2,AGV wilt niet verrijden,CM10
+2,( ON ): AGV - Traction Battery Shutter did not close,CM10
+2,Navigation Computer - Main Contactor (-k53 / -k53) - Signal is Missing,CM10
+2,F-PLC position difference F-PLC <-> Navigation,CM10
+2,Navigation Computer -Undetermined lift table state,CM10
+2,PLC - Safety PLC Communication Error,CM10
+2,Power In-Feed - K52A no Response,CM10
+2,Steering Encoder - Error - RR & RL,CM10
+2,Steering System - Steering Fault - F - R,CM10
+2,Too many repositioning trails,CM10
+2,Power-In-Feed - Earth Ground Connection Error,CM10
+2,Staat in de Bes 1 wil batterij niet wisselen,CM10
+2,Lift Platform - Mechanically Blocked - F&R,CM10
+2,Naviagtion Computer - Corrupted Route Data Index,CM10
+2,Navigation computer,CM10
+2,Navigation Computer - Brake Path To Short,CM10
+2,AGV- Lifting Functionality Disabled,CM10
+2,Brake system Brakes not Open Front & Rear,CM10
+2,( OCCURRED ): Inverter - Hydraulic Pump - Error,CM10
+2,AGV verplaatsen opverzoek van dispatch,CM10
+2,F-PLC - Heartbeat Signal,CM10
+2,F-PLC - Position Diference F-PLC,CM10
+2,AGV staat niet op transponders.,CM10
+2,"Driving order impossible, Invalid Route rejected!",CM10
+2,Fuse Tripped - Oil Coller Inverter,CM10
+2,Inverter Oil cooler -over temperature mtor 28,CM10
+2,Steering system fault R,CM10
+2,Stop point handling:  LeaveBlocked: WaitForTransferFinished,CM10
+2,System Battery - System Battery Low (<22V),CM10
+2,TEAMS-error driving timeout,CM10
+2,Lifting Not Allowed,CM10
+2,Na de verstoring rijd de AGV niet meer,CM10
+2,Lifttafels staan omhoog terwijl de AGV op PB staat,CM10
+2,Lift Platform - Cylinder Value Irregularity- RMR,CM10
+2,Fuse Triped - Oil Cooler Inverter,CM10
+2,Fuse Tripped - Steering Control,CM10
+2,Navigation Computer - Gyro Failure,CM10
+2,Navigation Computer - Undetemined Lift Platform Status,CM10
+2,Navigation System - Transponders Not Found,CM10
+2,Power in Feed - Circuit Breaker Tripped,CM10
+2,Platform blijft omhoog en wil niet meer zakken,CM10
+2,Brake System - Brakes Not Open - F/R,CM10
+2,Dispatch krijgt AGV niet gealloceerd.,CM10
+2,Brake System Brakes Not Open Front And Rear,CM10
+2,( ON ): E-Stop - Engaged - Bumper - F,CM10
+2,Axel weight to high,CM10
+2,( ON ): Safe Load Exchange - Timeout AGV,CM10
+2,Wire IQ,CM10
+2,Position Difference F-PLC - Navigation,CM10
+2,Navigation computer transponder not found,CM10
+2,Steering Fault - F,CM10
+2,"Routing problem, Driving order state",CM10
+2,Inverter - F Drive Error,CM10
+2,F-PLC - Implausible Value of Drives Encoders - F,CM10
+2,E-Stop  - Engaged - E-Stop Chain Not OK,CM10
+2,Navigation Computer - main Contactor (-K52 ? -K53 -) Signal is Missing,CM10
+2,Power In Feed circuit breaker error,CM10
+2,Navigation Computer - Main Contactor (+K51 / K52) - Signal is missing,CM10
+2,PLC - Power To Encoder is Off,CM10
+2,( OCCURRED ): Inverter - F-Drive - Error,CM10
+2,( ON ): E-Stop - Engaged - Hydraulic Cabinet (+L3),CM10
+2,( ON ): Safe Load Exchange - Timeout Head Control,CM10
+2,AGV niet op transponder,CM10
+2,AGV handmatig uit de bes rijden,CM10
+2,AGV- Outside of Claims,CM10
+2,E-Stop - Engaged - Bumper - F-R,CM10
+2,E-Stop - Engaged - Bumper F,CM10
+2,E-Stop-Engaged-Bumper-R,CM10
+2,Expected Brakepath Too Long,CM10
+2,Dispatch kan AGV niet meer Alloceren,CM10
+2,Drive Encoder - Not Incrementing RR,CM10
+2,E-Stop - Engaged - Bumper R,CM10
+2,Inverter - F-Drive-Overcurrent Error via PLC,CM10
+2,F-PLC -Lost Heartbeat Signal,CM10
+2,Fuse Tripped - IO Box,CM10
+2,Inverter  -Oil Cooler Error,CM10
+2,Brake Pressure Low,CM10
+2,AGV multiple Error Resets,CM10
+2,Navigation Computer - Maincontactor K52- 53 signal is missing,CM10
+2,Teams Driving Time out,CM10
+2,Positie kwijt na batterij wissel,CM10
+2,Rijweg encoder wheel encoder verliest imp. As voor,CM10
+2,Staat met platform omhoog onder rek doet niks meer,CM10
+2,Steeering System - Steering Fault,CM10
+2,Navigation computer n Transponders Not found,CM10
+2,Navigation Computer Expected Brake Path Too Long,CM10
+2,Navigation Computer - Signal from safety relay is missing,CM10
+2,Navigation Compter - 'n' Transponders Not Found,CM10
+2,Navigation Computer - Expected Brake Path Too Short,CM10
+2,Lift platform zakt niet,CM10
+2,Transponder gemist. Op PB plaatsen.,CM10
+1,Travel Lane Errors,CM10
+1,"Lift tafel blijft omhoog staan onder het rek,",CM10
+1,Lift tafels blijven omhoog staan bij module 20 (W020B),CM10
+1,Liftplatform already raised,CM10
+1,Liftplatform willen niet meer zakken,CM10
+1,Load Cells:  Weight Difference  Too High,CM10
+1,Main Computer - Main Contactor (-K51 / -K52) Signal is Missing,CM10
+1,Management System - Controlled Fleet Stop,CM10
+1,"Melding PLC ABB, rode status",CM10
+1,Moving platform position Error. WO16B,CM10
+1,Navigation Computer - Main Contactor (K51/52) Signal is Missing,CM10
+1,Navigation Computer - Main Contactor Signal (K51- K52) is missing,CM10
+1,Navigation Computer  - Transponders not Found,CM10
+1,Navigation Computer - Cylinder Warnung - FMR,CM10
+1,Navigation Computer - MainContactor (-K51 / -K52) Signal is Missing,CM10
+1,Navigation Computer - Task Error MS Task not Running,CM10
+1,Navigation Computer - Undetermined Lifting Table State,CM10
+1,Navigation Computer- Expected Brake Path too Long,CM10
+1,Navigation computer -Main Contactor(-K51/ K52) Signal is missing,CM10
+1,"Navigation computer: Signal from emergency relay is missing (mod 8, PB)",CM10
+1,No TCP / IP connect,CM10
+1,No TCP-IP Connect / Alloc error,CM10
+1,No-TCP Ip Connect,CM10
+1,Platforms blijven omhoog staan,CM10
+1,PLC - Backup Battery Warning,CM10
+1,PLC- Outputs Disabled,CM10
+1,Steering System - Steering Fault F -Traction Error - F - Valve Difference -F,CM10
+1,Steering System - Steering Fault -R - Steering Valve Difference -R,CM10
+1,System pressure hydraulic low error,CM10
+1,"Staat onder het Rack, reageert nergens meer op, zonder melding in FMDS",CM10
+1,Staat Rood Zonder Error,CM10
+1,RearMoving (maar in fmds staan beide tafels lowerd),CM10
+1,Reflectieplaatjes (Batterij wissel) niet goed afgesteld,CM10
+1,Route Error - Blocking Reason,CM10
+1,Route List Response Time Out. (vast onder rack),CM10
+1,Scheef in Rack,CM10
+1,SLX TimeOut AGV,CM10
+1,Speeding in reduced area,CM10
+1,Staat met gelichte tafels bij het platform,CM10
+1,Position diffrence F-PLC Navigation,CM10
+1,Power in Feed - K53A No Response,CM10
+1,Power Infeed - Circuit Breaker Failure,CM10
+1,Tire Pressure = 13 Bar too high - FR mod 17,CM10
+1,Traction battery - battery pack is too low,CM10
+1,Traction Battery <20%. Handmatig batterij wisselen.,CM10
+1,Traction Battery Wire IQ Not responding Error,CM10
+1,Undetermined Lift Platform State,CM10
+1,Weight System - Sensor Failure,CM10
+1,Weight system messurement,CM10
+1,Wil niet rijden zonder error in FMDS,CM10
+1,Wil niet uit de BES komen geen foutmedling,CM10
+1,Wil niet wegrijden,CM10
+1,Wire /iq overbrugd.,CM10
+1,Wire IQ uitgezet (meerdere agv's),CM10
+1,AGV Not Connected,CM10
+1,AGV outside of claim (bargekade),CM10
+1,AGV reageert niet op opdrachten,CM10
+1,AGV rijd niet onder het rek vandaan (module 23),CM10
+1,AGV staat in deadlock nabij X-ray,CM10
+1,AGV staat vast onder het rack laan B,CM10
+1,AGV staat voor BES 2 met een high temp,CM10
+1,AGV stop request ivm agv 555,CM10
+1,AGV vast in de BES,CM10
+1,AGV wil niet meer rijden en ook geen  lifttafels bewegen - geen error in FMDS,CM10
+1,AGV wil niet rijden / zonder error in FMDS,CM10
+1,AGV530 komt niet op na een teams reset,CM10
+1,AGV545 geeft aan dat de batterij temp >=55 graden is.,CM10
+1,AGV's krijgen geen BEP ID's toegwezen,CM10
+1,AGV's not allocated met teams,CM10
+1,Batterij te laag om zelf naar de BES te rijden,CM10
+1,Blijft onder het Rack staan met een gelifte tafel / Geen error in FMDS,CM10
+1,Blokkade na fleetstop - Gaat niet meer aan,CM10
+1,Both lift platforms raised,CM10
+1,Brake System - Brakes Not Open R+F,CM10
+1,Bumpersensor Front moet worden afgesteld.,CM10
+1,Contact vet tbv spilkast,CM10
+1,Diverse Errors,CM10
+1,Driving Timeout / F-PLC Lost Heartbeat Signal,CM10
+1,Driving Timeout / Lost Heartbeat Signal,CM10
+1,E- Stop Enganged - Bumper F,CM10
+1,AGV 546 staat bij M19 op laan E deze doet niks meer,CM10
+1,AGV kan niet geallocceerd worden door ops,CM10
+1,AGV komt met communicatie problemen (disconnected from the FMDS),CM10
+1,AGV komt niet bij : user other control,CM10
+1,AGV Lubrication System Error,CM10
+1,( OCCURRED ): AGV - Rack is Occupied,CM10
+1,( ON ): Driving timeout / ( ON ): F-PLC - Lost Heartbeat Signal,CM10
+1,( ON ): Navigation Computer - Drive Tracking Error,CM10
+1,AGV - Bay is occupied (mod 8),CM10
+1,Inverter F-Drive Error,CM10
+1,Kan niet connecten met TEAMS,CM10
+1,Komt niet onder rack vandaan,CM10
+1,Lekke band Links achter,CM10
+1,Lift Platform - Cilinder Warning - RMR,CM10
+1,Lift Platform - Cylinder Position is Incorrect - FL,CM10
+1,Lift Platform - Waiting Time Out,CM10
+1,Lift Platform - Cylinder Value Irregularity- FMR,CM10
+1,Lift Platform - Cylinder Warnung - FMR & FML,CM10
+1,Lift Platform - Lowering Timeout - F+R,CM10
+1,Lift Platform - Lowering Timout - F-R,CM10
+1,Fuse Tripped - Oil Converter Error,CM10
+1,Fuse Tripped - Transponder Antenna Rear,CM10
+1,Fuse Tripped- oil Cooler Inverter/ Inverter-Oil Cooler Error,CM10
+1,Fuse Tripped PLC - D02,CM10
+1,"GateClose2Sent, AGV rijd niet uit BS2",CM10
+1,Handmatig batterij wisselen,CM10
+1,Hydraulic System - Hydraulic Fluid Level Low,CM10
+1,Hydraulic System - Hydraulic Fluid Level Low Error,CM10
+1,Hydraulic System - Hydraulic Ruid Level Low Warning,CM10
+1,Hydraulic system - Pressure pressure Low,CM10
+1,Inverter - Hydraulic Pump Error - Device High Temperature Error 7,CM10
+1,Inverter - F Drive - Overcurrent Error via PLC,CM10
+1,E-Stop Engaged - Bumper F&R,CM10
+1,F- PLC -Heartbeat Error,CM10
+1,AGV - Routing errors,CM10
+1,Drive encoder -Not incrementing -RL,CM10
+1,Driving Encoder - Losing Impulses - F,CM10
+1,Driving impossible,CM10
+1,"Driving time out ,OPS krijgt de AGV niet ingebruik",CM10
+1,Drivng TimeOut,CM10
+1,CAN-CAN A- Navigation <-> PLC Connection Interrupted,CM10
+1,CAN-CAN B- Drive Inveter - R,CM10
+1,Container gelift onder platform Laat tafel niet zakken,CM10
+1,Container op container gezet die op AGV stond,CM10
+1,Disconnected from FMDS,CM10
+1,Blijft zonder error met gelifte Tafels onder het Rack staan,CM10
+1,Both Raised,CM10
+1,Brake fout,CM10
+1,Brake System - Brake Resistor Temp. High,CM10
+1,Backplane I/O Safety Module uit AGV540 geleend,CM10
+1,Batterij fout. Accu wisselen,CM10
+1,Blijft hangen op stap 8 in BS2,CM10
+1,F- PLC - Lost Heartbeat Signal,CM10
+1,"F-PLC - Implausible Axle Speeds - F&R, Drive Encoder - Losing Impulses - F",CM10
+1,E-Stop Engaged - Bumper  -R,CM10
+1,E-Stop Engaged - Hydraulic Cabinet Error (+L3),CM10
+1,E-Stop - Engaged- Bumper - F,CM10
+1,E-Stop - Engaged Bumper Front,CM10
+1,E-Stop - Engaged-Bumper-R,CM10
+1,E-Stop- Engaged - Bumper - R,CM10
+1,AGV Remote Controle 4 stekker vervangen.,CM10
+1,AGV rijd niet naar de BES voor een batterij wissel,CM10
+1,AGV route rejected,CM10
+1,AGV staat half in de bes met een heartbeat error,CM10
+1,AGV staat met Invalid Route rejected,CM10
+1,AGV staat met tafels gelift in het rack.,CM10
+1,AGV staat nog op manual (mod 3),CM10
+1,AGV staat onder het rek van module 9 maar rijd niet weg,CM10
+1,AGV stond met een direct stop in de BES 1,CM10
+1,AGV uit zijn claim gereden vanaf PB t.h.v. mod. 17,CM10
+1,AGV wil batterij niet wisselen in de BES1,CM10
+1,AGV wil niet alloceren in teams,CM10
+1,AGV wilt BES2 niet uit rijden,CM10
+1,AGV531 onder de kraan zetten,CM10
+1,AGV546 mist transponder ter hoogte van stack 10 TPA,CM10
+1,AGV heeft een transponder gemist.,CM10
+1,AGV is doorgereden op de knik van de BQC kade,CM10
+1,AGV kan niet automatisch uit BES rijden,CM10
+1,AGV krijgt geen opdracht (geen melding),CM10
+1,AGV laat lift tafels niet zakken.,CM10
+1,AGV niet te alloceren door dispatch,CM10
+1,AGV - Traction Battery Shutter Open While Battery On (BS2),CM10
+1,AGV 552 Slipmelding gekregen,CM10
+1,24Volt systeem batterij fout,CM10
+1,( ON ): Inverter - Oil Cooler - Switching Power Supply 40,CM10
+1,Positie onbekend agv 513,CM10
+1,Navigation Computer - main Contactor (-K51/-K52 signal is missing0,CM10
+1,Navigation Corrupted Route Data - Index,CM10
+1,Not on router grid,CM10
+1,Op verzoek van OPS de AGV op Parralel buffer zetten,CM10
+1,Platform wil niet zakken - geen error,CM10
+1,PLC - ABB error - Category 3/4 (driving time out),CM10
+1,Power In-Feed  - Electrical Protection Relay Error,CM10
+1,Power IN-Feed- Earth Ground Connection Error,CM10
+1,Power-In-Feed-Charging Fault,CM10
+1,Remote control 5 defect,CM10
+1,Reserved (Error 61),CM10
+1,Route - List - Repsonse Timeout,CM10
+1,Routelist Time Out (Teams melding),CM10
+1,Navigation Computer - Maximum Steering Angle is Incorrect -RL,CM10
+1,Navigation Computer - Navigation<-> PLC Communication Signal is Missing,CM10
+1,Navigation computer - Route Deviation,CM10
+1,Navigation Computer - Transponder Antenna Signal Interference,CM10
+1,Navigation computer -Lift Platforms not Raised,CM10
+1,Navigation Computer- Signal From Emergency Relay is Missing,CM10
+1,Navigation Computer - Main Contactor  (-K51 / -K52) Signal is Missing,CM10
+1,Navigation Computer - Main contactor,CM10
+1,Lift Platform - Mechanically Blocked - F-R,CM10
+1,Kraan stuk het stack in rijden. Operatie krijgt geen beweging in de kraan.,CM10
+1,Lekkage hydrauliek koppelingen,CM10
+1,Inverter - R-Drive - Overccurent Error via PLC,CM10
+1,Inverter - R-Drive - Overcurrent Errod via PLC,CM10
+1,F-PLC- Implausible Steering Angle -F,CM10
+1,Fuse Not Ok Fan Middlevoltage Area,CM10
+1,Fuse Tripped - PLC - D100/D03,CM10
+1,Hydraulic System - System Pressure Low    in de BES,CM10
+1,Hydraulic system- hydraulic temprature warning,CM10
+1,"Geen foutmelding, lifttafels zakken niet.",CM10
+1,Fuse tripped Drive Inverter Fan,CM10
+1,Fuse Tripped Lifttable R,CM10
+1,Inverter - F&R Drive - Overcurrent Error via PLC,CM10
+1,Inverter - F+R Travel - Overcurrent Error,CM10
+1,Inverter - Oil Coller Error,CM10
+1,Inverter Oil cooler pre charching 10,CM10
+1,inverter oil-Cooler Error,CM10
+1,Kan niet worden verreden door teams,CM10
+1,Lift Platform Raising Timeout - F & R,CM10
+1,Liftplatform Raising Timeout,CM10
+1,Lifttafels niet meer omhoog,CM10
+1,Lifttafels willen niet omhoog (geen melding),CM10
+1,Lifttafels willen zakken,CM10
+1,Lifttafels zakken niet,CM10
+1,Load Mode Type Warning,CM10
+1,Log trekken uit agv,CM10
+1,Lost Hearbeat Signal,CM10
+1,Na AGV Stop Request wilde AGV niet meer bijkomen,CM10
+1,Naigation Computer - Too Far off Travel Path,CM10
+1,Signal from Emergency Relay is Missing,CM10
+1,Speeding in reduced speeds area,CM10
+1,Staat met gelifte tafels onder het rack zonder error in FMDS,CM10
+1,Staat met platform omhoog zonder error,CM10
+1,Staat Stil Met diverse Can Bus fouten,CM10
+1,Staat vast In BS1 stap 1,CM10
+1,Steer system - Steering Fault - F,CM10
+1,Steering System - Steering Fault - R and F,CM10
+1,Steering System - Steering Valve Difference/Fault - R,CM10
+1,Stekker vast in container,CM10
+1,Systeem accu's leeggelopen,CM10
+1,Systeem battery onder 22 volt waarschuwing,CM10
+1,System Battery - System Battery Charing Error,CM10
+1,TEAMS-Error driving time out,CM10
+1,TEAMS-Error: Stop point error,CM10
+1,Thv Mod 5-6 Transponder gemist,CM10
+1,Tire Pressure - <= 8 bar too Low - RR,CM10
+1,Power - In-Feed - Pre-Charging 720 V Fault,CM10
+1,Tire Pressure -> 13 bar too High - FR,CM10
+1,Tire Pressure > 13 Bar too High - FR,CM10
+1,Tire Pressure ->= 13 bar too High - FR (pb mod 5),CM10
+1,Tire Pressure FR 13 bar too High,CM10
+1,Wil niet meer aan / geen error in FMDS,CM10
+1,Wil niet wegrijden onder het Rack vandaan/geen error in FMDS,CM10
+1,Wilde niet meer rijden.,CM10
+1,Transponder Antenna Error - F&R,CM10
+1,Uit de bocht gevolgen,CM10
+1,Undetermined Table State,CM10
+1,Watchdog error - NS sub-program,CM10
+1,Wielen staan scheef zonder error,CM10
+1,WireIQ overbrugd ivm batterijwissel.,CM10
+1,Traction battery - Low voltage < 20%,CM10
+1,Traction Battery At least one battery pack is too low,CM10
+1,( ON ): Temperature Monitor - Too Cold - Inverter Cabinet (+L2),CM10
+1,24v dc/dc converter,CM10
+1,40 FT container moet goed gezet worden op AGV,CM10
+1,( ON ): CAN - CAN A - NS Communication Error,CM10
+1,Brakes system brakes not open,CM10
+1,CAN-CAN-A-NS Communication Error,CM10
+1,Batterijen gewisseld van AGV 518 en 533,CM10
+1,Batterijwissel handmatig voltooien,CM10
+1,Brake path to short,CM10
+1,Brake System - Brake Resistor Temperatrure High Warning,CM10
+1,AGV has lost connection,CM10
+1,AGV herpakt opdracht niet,CM10
+1,AGV is met tafels omhoog het rack in gereden.,CM10
+1,AGV Mini Terminal,CM10
+1,AGV outside of claim (mod 17),CM10
+1,AGV platform laten zaken,CM10
+1,AGV rijd niet weg - Wait for lower platform,CM10
+1,"AGV staat met de tafels gelift, maar wil het rack niet inrijden",CM10
+1,AGV staat met een heartbeat error in de BES,CM10
+1,"AGV staat met tafels gelift bij mod. 14, maar rijd niet weg.",CM10
+1,"AGV staat onder het rek bij module 16, maar de lift tafels zakken niet meer",CM10
+1,AGV staat voor rack B maar rijd het rack niet in,CM10
+1,AGV start niet op,CM10
+1,AGV stond scheef in de BES,CM10
+1,AGV transponder gemist,CM10
+1,AGV uit BES gehaald,CM10
+1,"AGV wil container niet op het rack AS181 zetten, geen foutmelding.",CM10
+1,AGV wil geen battery wisselen,CM10
+1,AGV wil niet wegrijden bij MO9 rack B,CM10
+1,AGV wil wederom batterij wisselen,CM10
+1,AGV wilt z'n batterij niet wisselen,CM10
+1,AGV515 Inverter-F travel Error,CM10
+1,AGV537 geeft alarm aan bij module 9,CM10
+1,AGV547 niet op transponders,CM10
+1,AGV-Multiple Error Resets,CM10
+1,"Allocation is failed, code is no position",CM10
+1,Antenne achter vervangen,CM10
+1,E-Stop Engaged - Bumper R & F,CM10
+1,F-PLC Lost Heartbeat Signal / Driving timeout,CM10
+1,Direct stop in BES2,CM10
+1,Disconnected from the FMDS,CM10
+1,"Dispatch krijgt AGV niet gealloceerd, AGV heeft geen fout.",CM10
+1,Driving Time out (Teams fault),CM10
+1,E - Stop - Engaged - E - Stop Chain Not Ok,CM10
+1,E-chain not oke,CM10
+1,Fuse Tripped - Transponder A Right,CM10
+1,Fuse Tripped - Ultrasonic Sensors F & R,CM10
+1,Fuse tripped oil cooler inverter error,CM10
+1,Fuse Tripped-Pressure Sensor,CM10
+1,Geen connectie met Teams,CM10
+1,Had geen verbinding meer (wifi),CM10
+1,Heart Beat fout,CM10
+1,Hydraulic System - Reserve Pressure Reservoir Low Error,CM10
+1,Hydraulic System - System oil level,CM10
+1,Hydraulic System Hydraulic Pressure Low,CM10
+1,Hydraulic Systems - System Pressure Low,CM10
+1,Hydraulic ventilator,CM10
+1,Incomplete container status. AGV container update not succesvol,CM10
+1,Inverter - F-R-Drive Overcurrent Error via PLC,CM10
+1,Inverter - Oil Cooler - UZK too Small 4,CM10
+1,Inverter - Oil Cooler Error - Over temperature Motor 28,CM10
+1,Platformen blijven raised staan bij module ASC03.1,CM10
+1,PLC ABB Error van AGV's,CM10
+1,PLC-ABB-Error Category 3,CM10
+1,Position Difference PLC F - Navigation,CM10
+1,Power In -Feed - Charging fault,CM10
+1,Power in Feed - Pre-Charging Fault,CM10
+1,Power in feed -cicruit,CM10
+1,Route List Response timeout (mod 11),CM10
+1,Route order fail,CM10
+1,RRC desk 13 wil niet meer dis connecten van QC103,CM10
+1,Safe Load Exchannge - TimeOut Head Control,CM10
+1,Staat in BES 1 met een direct stop,CM10
+1,Staat met gelifte tafels zonder error in FMDS/TEAMS,CM10
+1,Staat met tafels gelift voor mod. 17,CM10
+1,Staat niet op transponders doordat AGV503 uit de bocht is gegaan.,CM10
+1,Staat onder AGV en wilt niet weg rijden,CM10
+1,No route list response timeout,CM10
+1,NO TC IP connected,CM10
+1,Oil cooler inverter error.,CM10
+1,Olie niveau sensor defect,CM10
+1,Omvormer fout diverse agv's,CM10
+1,One battery pack is to low,CM10
+1,Navigation Computer - Undetermined Lift tabel state,CM10
+1,Navigation Computer / Mainswitch Signal from PLC is Missing,CM10
+1,Navigation Computer : Deviation Too Big,CM10
+1,"Navigation Computer, Navigation Route Too Big",CM10
+1,Navigation computer-Lift platforms Not raised,CM10
+1,Navigation Computer - Main Contactor (-K51 / -K52) Signal is Missinfg,CM10
+1,Navigation Computer - Main Contactor Signal (k51/52) is missing,CM10
+1,Navigation Computer - Maincontactor (k51 - K52) is Missing,CM10
+1,Navigation Computer - 'n Transponder Not Found,CM10
+1,F- PLC Position Difference - Navigation,CM10
+1,Kan niet uit Maintenance laan rijden.,CM10
+1,Langzaam rijdende AGV,CM10
+1,Lift Platform - Cilinder Warnung - RML,CM10
+1,Lift Platform - Cylinder warnung RR-RL,CM10
+1,Lift Platform - Mechanically Blocked Blocked,CM10
+1,Lift platform both raised,CM10
+1,Lift platformen blijven omhoog staan,CM10
+1,"Lift tafels staan omhoog, agv staat op de PB terhoogte van mod 15",CM10
+1,"Lift tafels staan omhoog, agv staat op PB",CM10
+1,Lifttafels willen ziet automatisch zakken,CM10
+1,Load Type - Invalid Sensor States,CM10
+1,"Main switch from PLC is Missing, hydraulic cabinet door open.",CM10
+1,MainContactor (-K52 / -K53) - Signal is missing,CM10
+1,Manegement System - AGV Stop Request,CM10
+1,Melding Brake Fault,CM10
+1,Na N4 update willen AGV 545 en 504 niet alloceren. Terminal Untrusted,CM10
+1,Nacontrole i.v.m. diverse storingen afgelopen tijd,CM10
+1,Navgation Computer - Brake Path too Short,CM10
+1,Naviagtion computer Corrupted route data,CM10
+1,Navigatie computer IP adres weg,CM10
+1,Navigation computer - Corrupted route data -  index,CM10
+1,Liftplatform - Cylinder Position is Incorrect,CM10
+1,LiftPlatformStatus: FrontRaisedRearLowered,CM10
+1,Moving Platform Pos Error,CM10
+1,Tire Pressure - <= 9 Bar - RR,CM10
+1,Tire Pressure error,CM10
+1,Tire pressure to high Front right,CM10
+1,Stopped because of overlap of claim with a blocked area,CM10
+1,Traction Battery - Shutter Open While Battery On,CM10
+1,Navigation Computer - Too Far off Travel Path. (mod 16),CM10
+1,Steer Encoder - Error - RR & RL,CM10
+1,Steer Encoder Error - FR & FL,CM10
+1,Power-In-Feed - Circuit Breaker Error,CM10
+1,Problemen lifttafel,CM10
+1,Reageert niet op opdracht,CM10
+1,Rijdt niet onder het rack vandaan bij Mod20 laan B,CM10
+1,Traction Battery - Temperature >= 55? C,CM10
+1,Traction Battery Voltage warning,CM10
+1,Traction Battery -Voltage Warning,CM10
+1,Traction Battery. Temperature 55 Celcius,CM10
+1,Transponder Antenna - Error - F and R,CM10
+1,Transponder gemist moet verplaatst worden,CM10
+1,"Transponders not found pos:QC102 laan 2 / X:10400,6 / Y:222424,3",CM10
+1,Ultrasonic Sensor - Rack Occupied Sensors Error - F + R,CM10
+1,Undetemined Lift patform state,CM10
+1,Viewstrip oil cooler,CM10
+1,Wil niet alloceren na Teams Reset,CM10
+1,Wil niet meer alloceren/ geen verbinding meer,CM10
+1,Wil niet meer rijden,CM10
+1,Wil niet rijden nadat deze handmatig uit de BES is gereden,CM10
+1,Wire / iq overburgd,CM10
+1,Wire IQ not Responding Warning,CM10
+1,Wire iq overbrugd,CM10
+1,Inverter R Travel Error (806),CM10
+1,Kan AGV niet in gebruik nemen(staat in BES),CM10
+1,Lift cilinder - RML - kabelbreuk,CM10
+1,Lift Platform - Cylinder Position Is Incorrect,CM10
+1,Lift Platform - Cylinder Value Irregularity - FML - FL - FMR - FR,CM10
+1,Lift Platform - Cylinder Value Irregularity -FML,CM10
+1,Fuse Tripped - Oil cooler inverter.,CM10
+1,Fuse Tripped - PLC-D100/D03,CM10
+1,Inverter - Overcurrent Error,CM10
+1,Lift tafels blijven omlaag staan onder het rack,CM10
+1,Lifttafels omhoog,CM10
+1,Lifttafels stonden gelift in het rack.,CM10
+1,Lifttafels willen niet automatisch zakken (geen melding),CM10
+1,Lift Platform - Raising Timeout -F-R,CM10
+1,Lift platform blijven omhoog,CM10
+1,Lift Platform Mechanically Blocked - R,CM10
+1,Error Route impossible,CM10
+1,AGV staat vast in BES1 BEP2,CM10
+1,AGV stond met beide lifttafels gelift in het rack.,CM10
+1,F-PLC Implausible steering,CM10
+1,F-PLC-Implausible Steering Angle - R,CM10
+1,Handmatig op buffer gezet,CM10
+1,Hydrolic System System Pressure low Error,CM10
+1,Inverter - F-Dive - Error,CM10
+1,Inverter - F-Drive - Overcurrent via PLC,CM10
+1,Inverter - F-R-Drive - Overcurrent Error via PLC,CM10
+1,Fuse Tripped - IO box -R (+5),CM10
+1,E-Stop - Engaged - Bumper - R - F,CM10
+1,E-Stop - Engaged - E stop Chain Not OK,CM10
+1,AGV wil batterij niet wisselen in de BES,CM10
+1,AGV wil de bes2 niet uitrijden,CM10
+1,AGV wil een container niet neerzetten bij module 11,CM10
+1,AGV wilt niet verrijden (geen melding),CM10
+1,AGV wilt niet weg rijden na reset,CM10
+1,AGV wilt zijn lifttafels niet laten zakken,CM10
+1,AGV zet de container niet neer op het rek bij mod 24,CM10
+1,AGV's naar BQC Mini Terminal gereden,CM10
+1,Allocation Error (staat in de Bes bij stap 8),CM10
+1,Beeldscherm van 501 overgezet naar 531,CM10
+1,Blijft staan in BES 1,CM10
+1,( ON ): Navigation Computer - Navigation<->PLC Communication Signal is Missing,CM10
+1,Accu wil niet wisselen,CM10
+1,AGV 503 Storing omvormer rijmotor,CM10
+1,AGV 523 Management System - Direct Stop,CM10
+1,AGV 527 en 536 weigeren te bewegen. Zitten dichtbij Blocked Area,CM10
+1,AGV 538 part of deadlock with AGV 512,CM10
+1,AGV heeft geen foutmelding maar rijd niet onder het rack vandaan,CM10
+1,AGV kan niet gealloceerd worden. Untrusted terminal.,CM10
+1,AGV kom niet meer bij (afkomstig uit de X-ray),CM10
+1,CAN A - NS Communication Error,CM10
+1,CAN-CAN- A- NS communication Error,CM10
+1,"Cancelled ( Order canceled!, Change of ownership )",CM10
+1,"Direct Stop, tijdens het rack inrijden",CM10
+1,Door diverse storingen stil gevallen,CM10
+1,Door Open - Power Infeed Cabinet (+L4),CM10
+1,Drive Encoder - Losing Impulse - F,CM10
+1,Drive Encoder - Not Incrementing - FL - RL,CM10
+1,Drive encoder Not Incrementing RR,CM10
+1,AGV- Lost HeartBeat Signal,CM10
+1,AGV staat bij module 12 maar wil niet wegrijden,CM10
+1,AGV Staat met tafels gelift in het rack.Geen foutmelding,CM10
+1,Brake System - Brake Pressure Low -F,CM10
+1,Brake system brake not open,CM10
+1,Brake system Brake still open F,CM10
+1,Navigation Computer - Corrupted Route Date - Index,CM10
+1,Navigation Computer - Drive Contour Line Error thv mod 6,CM10
+1,Navigation Computer - Main Contaactor (K51/K52) Signal is Missing,CM10
+1,Navigation Computer - Main Contactor (-K51/ -K52) - Signal is Missing,CM10
+1,Load Types - Invalid Sensor States,CM10
+1,Moet op transponder gezet worden,CM10
+1,Na reset teams door dispatch alloceert AGV niet meer.,CM10
+1,Lift Platform - Mechanically Blocked - R - L,CM10
+1,Navigation Computer : Signal From Emergency Relay Is Missing,CM10
+1,Navigation Computer - Main Conttactor (_K52 / -K53) - Signal is Missing,CM10
+1,Navigation Computer - Maximum Steering Angle is Incorrect.,CM10
+1,Navigation Computer - Maximum Steering Angle Reached - FR,CM10
+1,Navigation Computer - 'n' Transponders not found (mod 6),CM10
+1,Staat maintenance pos. Geeft rode error (brake test Fault),CM10
+1,Staat met een Direct Stop in BS 2,CM10
+1,Staat module 26 Rack is occupied,CM10
+1,Staat rood met ongeveer 30 meldingen,CM10
+1,Power-In-Feed-Circuit Breaker Error,CM10
+1,Proportion of front encoder implausible (F-PLC),CM10
+1,Rechtzetten opverzoek van Dispatch in de sluis,CM10
+1,Plc cat.3 fout,CM10
+1,Position Difference F-PLL,CM10
+1,Power in feed -Circuit breaker fault error,CM10
+1,"Navigation Computer: Main Switch Signal from, PLC is Missing",CM10
+1,Navigation computerLift pltaforms not raised,CM10
+1,NO TCP-IP,CM10
+1,NO-TCP-IP connect,CM10
+1,Olie lekkage AGV,CM10
+1,Op Parallelbuffer zetten,CM10
+1,Steering system  2x 20ft twinhijs lossing,CM10
+1,Transponder gemist THV module 12,CM10
+1,Transponder gemist. Thv mod. 8,CM10
+1,Twin lading te ver uit elkaar op AGV,CM10
+1,Power In-Feed - Pre Charging 720 V Fault,CM10
+1,Staat voor het Rack met gelifte tafels en reageert nergens op / Geen Error in FMDS,CM10
+1,Teams error AGV outside claim,CM10
+1,Terug plaatsen 50 polige kabel van navigatie computer,CM10
+1,Tire Pressure - <= 8 Bar Too Low - FR,CM10
+1,Tire Pressure >= 13 bar too High -  FL,CM10
+1,Tire Pressure 13 Bar too High - FR,CM10
+1,Tire pressure front left 13 BAR too high,CM10
+1,Ultrasonic Sensor - Rack navigation Sensor Failure - FL2,CM10
+1,Ultrasonic Sensor - Rack Occupied Sensor Error - FR,CM10
+1,Ultrasonic Sensor - Rack Occupied Sensors Error - F+R,CM10
+1,Watchdog Error - NS Sub - Program,CM10
+1,Weight System - Sensor Error - FR - Gele Melding,CM10
+1,Wil niet rijden zonder error FMDS,CM10
+1,Wilt niet bijkomen,CM10
+1,Zekering defect,CM10
+1,PLC to encoder Card is off (mod 9),CM10
+1,Power In-Feed  Charging fault,CM10
+1,Not connected.,CM10
+1,PLC - IP Adress Structure Navigation Computer <-> ABB PLC Not Correct,CM10
+1,Power infeed pre charging  720 V Fault,CM10
+1,Railbrake LS1 not released,CM10
+1,RailBrake1 brake 2 landside release fault,CM10
+1,Route list response time out.,CM10
+1,Navigation computer: Route deviation too Big,CM10
+1,Navigation somputer n transponders not found,CM10
+1,Niet gealloceerd,CM10
+1,No TCP -IP Connect,CM10
+1,Fuse Tripped - IO Box - R (+L5),CM10
+1,Navigation Computer - Too Far off Travel Pathh,CM10
+1,Navigation Computer - Transponder Signal Interference,CM10
+1,Navigation Computer -Transponders Not Found,CM10
+1,Navigation Computer - Positon Unknown,CM10
+1,Navigation Computer - Route Data Error - Difference to 36,CM10
+1,Navigation Computer - Route Deviaton too Big,CM10
+1,Navigation Computer  - Too Far Off Travel Path,CM10
+1,Navigation Computer - Lift Plaforms not raised,CM10
+1,Navigation Computer - Main Contactor (-K52 / - K53) - Signal Is Missing,CM10
+1,Tire Pressure - Data Receiver Not Responding - F,CM10
+1,Power In-Feed - Charging Fault.,CM10
+1,Staat met Direct Stop in BES 2,CM10
+1,"Staat met Gelifte Tafels wil niet wegrijden, geen error in FMDS",CM10
+1,Steering system  steering valve difference R,CM10
+1,Stopt halverwege de opdracht met rijden ter hoogte van stack 5,CM10
+1,TEAMS-Error : Stop point error,CM10
+1,Tire pressure to high front left,CM10
+1,Tirepressure 13 bar too high,CM10
+1,Traction Battery - Charge  <= 20%,CM10
+1,Traction Battery Temperature => 55 celcius,CM10
+1,Transponders gemist thv mod 14 WS,CM10
+1,Uit claim gereden. Thv mod. 16,CM10
+1,Ultrasonic Sensor - Rack Occupied Sensor Error - F,CM10
+1,Verplaatsen naar Bes reach stacker batt < 20%,CM10
+1,Wil niet bijkomen na TEAMS reset Dispatch,CM10
+1,Wil niet rijden na Reset Error / Geen Error in FMDS,CM10
+1,Wil niet rijden zonder error,CM10
+1,Zet container niet neer op Rack (thv Module 16),CM10
+1,( ON ): Navigation Computer - Feedback Signal from Safety Relay is Missing,CM10
+1,AGV 519 start niet met batterijwissel in Bes 2,CM10
+1,"AGV heeft 2 containers op de rug, maar zitten de stackers nog in.",CM10
+1,AGV heeft een container van het rek getikt bij module 7,CM10
+1,AGV kan niet in operatie genomen worden na storing,CM10
+1,AGV onder rack vandaan rijden,CM10
+1,AGV rack is occupied,CM10
+1,AGV staat scheef,CM10
+1,AGV staat stil in BES1,CM10
+1,AGV staat voor het rek met zn tafel omhoog,CM10
+1,AGV stil gevallen met diverse storingen,CM10
+1,AGV uit z'n claim gereden,CM10
+1,AGV wil niet uit de sluis rijden,CM10
+1,AGV wil niet wegrijden van PB,CM10
+1,AGV wisseld batterij niet,CM10
+1,AGV wisselt zijn batterij niet in BS2,CM10
+1,AGV zijn connectie verloren. Stil nabij X-ray,CM10
+1,AGV532/505steering fault system,CM10
+1,AGV's inschakelen tbv TEAMS TEST.,CM10
+1,AGV's mini terminal aanzetten,CM10
+1,Batterij moet handmatig worden vervangen. AGV reageert niet,CM10
+1,Beide lift tafels staan omhoog,CM10
+1,Blijft zonder reden onder het Rack staan / Geen error in FMDS,CM10
+1,CAN-CAN A-NS Communication Error,CM10
+1,CMS Remote Room is vastgelopen,CM10
+1,Communication Signal is Missing,CM10
+1,De agv wil niet meer  Allocated,CM10
+1,Diverse Navigatie fouten ivm sneeuw op AGV veld,CM10
+1,Drive Encoder _ Losing Impulses,CM10
+1,Lift Platform - Cylinder Warnung - RR -RL,CM10
+1,Lift Platform - Lowering Time Out,CM10
+1,Lift Platform - Raising Time - R,CM10
+1,Lift platform Cylinder value irregulularity FMR,CM10
+1,LiftPlatform - Lowering TimeOut - F,CM10
+1,Lifttafel omhoog willen niet zakken,CM10
+1,"Lifttafels omhoog, wilt niet zakken (geen melding)",CM10
+1,Lifttafels werken niet naar behoren,CM10
+1,LOCC BOX 726459 Luetze defect,CM10
+1,Lost heartbeat,CM10
+1,Mainswitch From PLC is missing,CM10
+1,N' transponder not found,CM10
+1,Navigation Computer  - Signal from Safety Relay is Missing while not Driving,CM10
+1,Inverter F- Drive Error - Overcurrent via PLC,CM10
+1,Inverter R Drive Error,CM10
+1,Lift Platform - Clyinder Warnung  - RMR,CM10
+1,F-PLC - Position difference F-PLC <-> Navigaton,CM10
+1,E-stop Engaged - Bumper F - R,CM10
+1,AGV -Rack is Occupied,CM10
+1,Fuste Tripped - Oil Cooler Inverter,CM10
+1,Geen verbinding mogelijk met Teams.,CM10
+1,Hydraulic - Hydraulic Temperature High Error,CM10
+1,Hydraulic System - System Pressure Low & Pressure Reservoir Low,CM10
+1,Hydraulic System- hydraulice Temperature warning,CM10
+1,Invalid Configuration for Job.,CM10
+1,Inverter - F-Drive  - UZK too smal,CM10
+1,Speeding in Reduced speed area.,CM10
+1,Staat met lifttafels omhoog in het Rack,CM10
+1,Traction Battery - at least one batterty pack is too low,CM10
+1,Traction Battery - Temperature > 55 graden celsius,CM10
+1,Traction Battery - Temperature >= 55,CM10
+1,Traction Battery - Temprature >= 55C,CM10
+1,Transponder Antenna - Error - F & R,CM10
+1,Transponder gemist mod 8 thv laan A,CM10
+1,Transponder gemist ter hoogte van Module 6,CM10
+1,Transponder gemist thv mod 3,CM10
+1,Transponder gemist thv Mod. 11,CM10
+1,Transponder gemist tussen Module: 9 en 10,CM10
+1,Trying to allocate,CM10
+1,Trying to allocate ...,CM10
+1,Tyre pressure < 9 bar.,CM10
+1,Tyre pressure too high,CM10
+1,Uit de bocht gevlogen ter hoogte van BQC veld,CM10
+1,Unditermined Lift Table State,CM10
+1,Weight System - Sensor Error - RR,CM10
+1,Weight system - Sensor Failure - FR,CM10
+1,Wil niet automatisch uit de bes rijden,CM10
+1,"Wil niet onder het Rack vandaan rijden,. Geen error in FMDS",CM10
+1,Wil niet rijden / Staat met gelifte Tafels voor het Rack / Geen melding FMDS,CM10
+1,Wil niet uit de BES rijden na Router Crash,CM10
+1,Wilt lifttafels niet laten zakken,CM10
+1,Staat rood zonder melding onder het rek Mod.16,CM10
+1,Staat scheef,CM10
+1,Staat scheef (transponder gemist),CM10
+1,Start charge sent,CM10
+1,Steer Encoder - Error RR & RIL,CM10
+1,Steering Systeem - Steering Fault - F,CM10
+1,Steering System - SSI Transmission Failure,CM10
+1,Steering system Fault F,CM10
+1,Stop Point Error,CM10
+1,Sttering system - Steering Fault - R,CM10
+1,THV BES Handmatig Starten,CM10
+1,Tire Pressure - 13 Bar,CM10
+1,Tire Pressure - 13 Bar too High - RR,CM10
+1,Tire Pressure -> = 13 bar too High - FR,CM10
+1,"Tire pressure fault, Charging fault",CM10
+1,Tire Pressure->= 13 bar too High - FR,CM10
+1,Too Far From Travelpath,CM10
+1,Rijdt niet vanaf buffer BEP 102 naar PB,CM10
+1,Route TimeOut,CM10
+1,Power in Feed - Pre-Charging 72 V Fault,CM10
+1,Navigation Computer - 'n'  Transponder Not Found,CM10
+1,Navigation Computer - Power too encoder card is off,CM10
+1,Navigation Computer - Too Far off Travel Patch,CM10
+1,Navigation error on rek,CM10
+1,Op verzoek van OPS de agv handmatig op PB gezet,CM10
+1,Lifting Platform Cylinder Value Irregularity,CM10
+1,Liftplatform wil niet zakken,CM10
+1,Lifttafel achterzijde wilt niet liften (geen melding),CM10
+1,Lifttafel instellingen kwijt,CM10
+1,Lifttafel problemen,CM10
+1,Lifttafels wilt niet zakken,CM10
+1,Management System - Direct Stop - Block alarm bes 1,CM10
+1,Melding bandenspanning,CM10
+1,Navigation - Too Far Off Travel Path,CM10
+1,Navigation Compute - Main Switch Signal From PLC is missing,CM10
+1,Navigation Computer - Communication Error with PLC,CM10
+1,Navigation Computer - Coorupted Route Data Index,CM10
+1,Lift tafels gaan niet omhoog,CM10
+1,Lift tafels in unknown position,CM10
+1,Navigation Computer - Corrupter Route Data - Index,CM10
+1,Navigation Computer - E-Stop Engaged,CM10
+1,Navigation Computer - Main Contactor K51 /K52 Signal is Missing,CM10
+1,Navigation Computer - Main Contactor Signal (K51/K51) is Missing,CM10
+1,Navigation Computer - Main contactor Signal (k51-K52) is missing,CM10
+1,AGV is Outside claim,CM10
+1,AGV kan met teams zijn container niet synchroniseren,CM10
+1,AGV komt na disassociaten niet meer bij,CM10
+1,AGV komt na een Disassociate niet bij,CM10
+1,AGV komt niet meer bij na een Reset,CM10
+1,AGV maakt herie tijdens het rijden,CM10
+1,AGV moet van de lader worden gehaald,CM10
+1,AGV Outside claime,CM10
+1,AGV - Rack  Is Occupied,CM10
+1,AGV 550 van transponders af,CM10
+1,AGV blijft bij het rack staan thv module 19,CM10
+1,"AGV blijft hangen in stap 6 in BS1, geen foutmelding",CM10
+1,AGV blijft op EXC step 8 hangen in BES2,CM10
+1,AGV in en uit schakelen,CM10
+1,AGV in maintenance lock geplaatst,CM10
+1,AGV is niet meer bij te krijgen door Dispatch,CM10
+1,AGV515 is niet zichtbaar in teams.,CM10
+1,( ON ): Steering System - Steering Fault - R,CM10
+1,( ON ): Steering System - Steering Valve Difference - F,CM10
+1,"AGV ter plaatse nagelopen en deze handmatig op PB gezet, continu OPS",CM10
+1,AGV- Traction Battery Shuter Open While Battery On,CM10
+1,AGV update Navi en PLC,CM10
+1,AGV wil niet wegrijden na direct stop.,CM10
+1,AGV rijd niet weg vanuit het rack,CM10
+1,AGV staat bij module 5 maar laat zijn lifttafels niet zakken,CM10
+1,"AGV staat half onder het rek , agv doet niks meer",CM10
+1,AGV staat vast in BES1 BEP1,CM10
+1,AGV start wel maar wil niet rijden.,CM10
+1,( OCCURRED ): Hydraulic System - System Pressure Low,CM10
+1,( OCCURRED ): Navigation Computer - Drive Tracking Error,CM10
+1,( ON ): Driving timeout / ( ON ): No TCP-IP connect / ( ON ): F-PLC - Lost Heartbeat Signal,CM10
+1,( ON ): Lift Platform - Pressure Release Valve Error - FMR,CM10
+1,E-Stop - Engaged - Hydraulic Cabine +L3,CM10
+1,E-Stop - Engaged -Bumper - F-R,CM10
+1,E-Stop Enganged - Chain not Ok,CM10
+1,F - PLC - Position Difference F-PLC,CM10
+1,Axel Weight too High - Front,CM10
+1,F-PLC -Position difference F-PLC,CM10
+1,Brake system - Not open,CM10
+1,CAN A - Navigation <-> PLC Connection Interrupted,CM10
+1,CAN-CAN B - Drive Inverter - R,CM10
+1,Container scheef op AGV,CM10
+1,Diverse foutmeldingen (FMDS:287/387/388 - TEAMS:3359),CM10
+1,Door dispatch niet te alloceren.,CM10
+1,Drive Encoder - Not Incremerting -RL,CM10
+1,Drive order impossible,CM10
+1,Driving time out (agv staat tussen module 6&7),CM10
+1,Driving Time out. (mod. 13 PB),CM10
+1,"Invalid Route, Prepaired Route Rejected",CM10
+1,"Geen storing, maar staat scheef en rijd niet meer weg",CM10
+1,Lift Platform - Cylinder Warnung - RL - RMR,CM10
+1,Lift Platform - Lowering Timeout - F -R,CM10
+1,Inverter - Oil Cooler Error - Inverter 14,CM10
+1,Inverter - R/F-Drive - Overcurrent Error via PLC,CM10
+1,Inverter F+R Drive - Overcurrent Error via PLC,CM10
+1,Inverter R travel error,CM10
+1,Traction Battery Shutter Open While Battery Is On,CM10
+1,Transponder gemist ter hoogte van module 11,CM10
+1,Transponder gemist thv Mod. 12,CM10
+1,Transponder not found op de barge kade,CM10
+1,Twinhijs op de agv staan te ver uit elkaar,CM10
+1,Tyre pressure boven 13 bar is 3 keer voorgekomen in de dagshift,CM10
+1,Ultrasonic Sensor - Rack Navigation Sensor Error,CM10
+1,Ultrasoon sensor rv1 fout,CM10
+1,Waiting for route AGV did not sent a route reply ( yet ),CM10
+1,Weight system -weight measurement error,CM10
+1,Wil container niet pakken van het rek Module 19,CM10
+1,Wil niet bijkomen na SoftStop - Lost Heartbeat Signal,CM10
+1,Wil niet rijden na 2 keer router Crash,CM10
+1,Wilde het rack niet inrijden,CM10
+1,Wilt BES niet uitrijden (geen melding),CM10
+1,Wilt lifttafels niet omhoog gooien (geen melding),CM10
+1,Wire IQ handmatig overbrugd. AGV kon z'n weg vervolgen,CM10
+1,Steering system -steering Fault R,CM10
+1,Temperature high error,CM10
+1,TimeOut AGV,CM10
+1,Traction Battery - Battery Door Open - agv staat onder de BQC202,CM10
+1,Rear platform moving,CM10
+1,Traction Battery - Temperature High Warning,CM10
+1,Fuse Tripped - Battery Monitoring,CM10
+1,E-Stop Engaged - Hydraulic Cabinet,CM10
+1,Lift Platform - Cylinder Value Irregularity -FR-RMR-RL,CM10
+1,Lift Platform - Lowering Rimeout - F- R,CM10
+1,Lift Platform - Mechanichally Blocked - F&R,CM10
+1,Lift Platform - Raising Timeout - F - R -FML,CM10
+1,Lift platform -Cylinder Warning RL,CM10
+1,Lift Platform Status: RearMoving,CM10
+1,Lift Platform: Front lowered Rear Raised,CM10
+1,Lift tafels laten zakken voor het rack.,CM10
+1,Liftplatform blijft omhoog,CM10
+1,Liftplatfrom bothlowered,CM10
+1,Lifttafel blijft omhoog,CM10
+1,Lifttafels komen niet omhoog,CM10
+1,Load Status Mismatch,CM10
+1,Main Contactor (-K52 / -K53) Signal is Missing,CM10
+1,Maintenance positie gereden,CM10
+1,Management System - DirectStop,CM10
+1,Manueel uit de BES rijden op PB zetten,CM10
+1,Meeting Mini Terminal,CM10
+1,Module 10 met container op rug in de highway,CM10
+1,Motor stop tijden het rijden.,CM10
+1,Navigation Computer - Main Contactor (-K51 / -K52) -  Signal is Missing,CM10
+1,Navigation Computer - Corrupted Route Data-Index,CM10
+1,Mutiple Error Resets,CM10
+1,Na reset van dispatch komt AGV niet meer bij,CM10
+1,Naviagtion Computer - 'n' Transponder Not Found,CM10
+1,Naviagtion Computer - Signal from safety Relay is Missing while not Driving,CM10
+1,Navigation - 'n'Transponders Not Found,CM10
+1,Navigation Computer - Main Contactor (K51/ K52) Signal is Missing,CM10
+1,Navigation Computer - Main Contactore (-K51 / -K52) signal is missing,CM10
+1,Navigation Computer - Main Switch Signal from PLC in Missing,CM10
+1,Navigation Computer - Maincontactor (k51/52) signal is missing,CM10
+1,Navigation Computer - Main Contactor (-K51 / -K52)- Signal is Missing,CM10
+1,Navigation Computer - Signal from safety Relay is Missing while not,CM10
+1,Navigation Computer - Undetermined Lift Platform Sate,CM10
+1,Navigation Computer -Undetemined lift table state,CM10
+1,No route response,CM10
+1,No TC IP connect,CM10
+1,No TCP/IP Connect,CM10
+1,No TCP-IP connect (error 10000),CM10
+1,"Position difference F-PLC <-> Navigation, Steering angle front implausible (F-PLC)",CM10
+1,Power In - Feed - Earth Ground Connection Error,CM10
+1,Power In Feed - Earth Ground Connenction Failure,CM10
+1,Power in feed Electrical Protection Relay Error,CM10
+1,Power In-Feed - Earth Groun Connection Error,CM10
+1,Power In-Feed - K52B no Response,CM10
+1,Power In-Feed - Pre-Charging Error,CM10
+1,Power InFeed Charging Fault - Staat in de BES,CM10
+1,Operating Switch not in Auto,CM10
+1,OPS krijgt AGV niet gealloceerd.,CM10
+1,PLC ABB Error - Category 3 en 4,CM10
+1,Route List Time out,CM10
+1,Staat achteruit in de BES,CM10
+1,"Staat met gelfite Tafels onder het Rack, reageert nergens op / Geen error in FMDS",CM10
+1,Staat met zijn tafels gelift in het rack.,CM10
+1,Staat vast in BES1 BEP 2,CM10
+1,Steer Encoder - Error RR & RL,CM10
+1,Geen connectie met dispatch,CM10
+1,Heartbeat probleem,CM10
+1,High temperatur warning / error,CM10
+1,Hydraulic System - High Temperature High Error,CM10
+1,Hydraulic System - Hydfraulic Fluid Temperature Sensor - Error,CM10
+1,Implausible Steering Angle - F,CM10
+1,Impossibly route error,CM10
+1,Inverter - Oil Cool Error,CM10
+1,Inverter - Oil Cooler - UZK too Big 3,CM10
+1,Inverter -F-Drive - Error,CM10
+1,Is te ver doorgeschoten op de BQC kade,CM10
+1,K51 K52 signal is missing,CM10
+1,Krijgt via TEAMS de melding engine is off,CM10
+1,Lift Platform - Cilinder Value Irregularity - FMR,CM10
+1,Lift Platform - Cylinder Value Irregularity - FL,CM10
+1,Controlled Fleet Stop (fuse tripped PLC),CM10
+1,Corrupted Route Data - Index,CM10
+1,Diverse AGV's met route problemen,CM10
+1,Diverse meldingen achter elkaar,CM10
+1,Drive Achterwielen defect,CM10
+1,CAN - CAN A - Steering Controller,CM10
+1,AGV - Rack Not Occupied,CM10
+1,F-PLC - Speeding in Reduced Area,CM10
+1,F-PLC -Heartbeat Error / Drive Encoder - Not Incrementing - RR,CM10
+1,F-PLC Implausible steering fault,CM10
+1,Drive fault,CM10
+1,Driving Order Impossible / Onder het Rack,CM10
+1,Driving timeout (teams error),CM10
+1,( OCCURRED ): AGV - Traction Battery Shutter Open While Battery On,CM10
+1,( OCCURRED ): Drive Encoder - Not Incrementing - RL,CM10
+1,AGV komt niet onder platform vandaan,CM10
+1,Agv niet meer te alloceren,CM10
+1,AGV rijd niet onder het rek vandaan mod19c,CM10
+1,AGV rijd traag,CM10
+1,Agv blijft bij stap 10 hangen,CM10
+1,AGV denies lifting due to technical state (battery CB was open),CM10
+1,AGV geeft de status 'arrived parallelbuffer 145' maar hij staat nog op de highway,CM10
+1,AGV handmatig uit de BES1 rijden,CM10
+1,AGV in storing tijdens batterij wisselen,CM10
+1,AGV is niet meer te alloceren,CM10
+1,AGV komt niet in beweging,CM10
+1,AGV uit BES2 rijden. Rijd niet automatisch uit BES2 maar geen foutmelding.,CM10
+1,AGV Wil de BES niet uitrijden,CM10
+1,AGV wil geen batterij wisselen maar claimt wel een laan,CM10
+1,"AGV wil het rack niet uitrijden bij ASC21.1, geen foutmelding.",CM10
+1,AGV wil niet de BES uitrijden.,CM10
+1,AGV wil niet onder rack vandaan rijden,CM10
+1,AGV rijdt de BES1 niet uit,CM10
+1,AGV staat bij M03 maar rijd niet weg (geen storing),CM10
+1,AGV staat met zn lifttafels omhoog voor Rack E bij M23,CM10
+1,AGV wilt de Sluis niet uit rijden,CM10
+1,AGV wilt niet wegrijden onder rack,CM10
+1,AGV wilt z'n liftplatforms niet laten zakken,CM10
+1,AGV zet de container niet neer op het rek,CM10
+1,AGV's wilden de BES niet in rijden,CM10
+1,Axle Weight too high F,CM10
+1,Brake System - Brake Pressure Low-F,CM10
+1,Brake System - Brakes Not Open - F & R,CM10
+1,Buffer AGV komt niet meer bij,CM10
+1,Buffer TEAMS test,CM10
+1,Traction Battery - wire IQ not responding Error,CM10
+1,Untrusted voor dispatch.,CM10
+1,Wil niet verrijden,CM10
+1,Wilt niet rijden (geen melding),CM10
+1,Steering system  steering Traction Error F,CM10
+1,Traction Battery - Temperature more than 55 C,CM10
+1,Tire pressure -> 13 bar too high,CM10
+1,Tire Pressure 13 Bar Too High FL,CM10
+1,Tire Pressure 13 Bar too High -FL,CM10
+1,Tire pressure data receiver not responding F+R,CM10
+1,Tire Pressure to High,CM10
+1,Traction Battery - at least one battery pack it too low,CM10
+1,Traction Battery - Charge < 20%,CM10
+1,Traction Battery - 'n' Transponders Not Found,CM10
+1,Transponder gemist moet worden verplaatst,CM10
+1,Transponder gemist thv mod.12,CM10
+1,Transponder gemist zie foto,CM10
+1,Transponder gemist. AGV komt uit maintenance lock.,CM10
+1,Tyre pressure to high front right,CM10
+1,Ultrasonic Sensor - Rack Navigation Sensor Error - RL2/3,CM10
+1,Ultrasonic Sensor - Rack Occupied Sensor Error - F & R,CM10
+1,Ultrasonic Sensor nakijken,CM10
+1,Liftplatform not Raised,CM10
+1,Lifttafel achterzijde wilt niet zakken,CM10
+1,Lifttafel willen niet zakken,CM10
+1,Maakt een raar geluid,CM10
+1,Navigation Computer - Corrupted Route Data - Index + Offset,CM10
+1,Navigation Computer - Main Contactor (K52 / K53) - Signal is Missing,CM10
+1,Navigation comuter - Transponders not Found,CM10
+1,Navigation computer main contrator K51/K52 Signal is missing,CM10
+1,Navigation Computer - Mismatch Interface ID of PLC/Navi Software,CM10
+1,Navigation Computer - Route deviation to big,CM10
+1,Navigation Computer - Signal From Safey Relay is Missing While Not Driving,CM10
+1,Hydraulic system - Reserve pressure reservoir low (pb mod 5),CM10
+1,Lift Platform - Cylinder Value Irregularity - RML - RL,CM10
+1,Lift Platform Mechanically Blocked F-R,CM10
+1,Lift Platform Statuts: FrontRaisedRearLowered,CM10
+1,LiftPlatform - Mechanically Blocked,CM10
+1,Inverter - Hydraulic Pump - Device High temperature Error 7,CM10
+1,Inverter - Hyudraulic Pump - Error,CM10
+1,Inverter - Oil Cooler,CM10
+1,Inverter R Travel - overcurrent error,CM10
+1,Inverter R-Drive -Error,CM10
+1,Lege Systeem Accu (24V),CM10
+1,Lift Platform - Cylinder value,CM10
+1,Staat met de neus in de BES maar komt met een heartbeat error,CM10
+1,Staat met gelifte tafel voor het Rack / Geen Error in FMDS,CM10
+1,"Staat met gelifte tafels onder het Rack, wil niet wegrijden",CM10
+1,Staat met gelifte tafels voor het Rack - Zonder melding FMDS,CM10
+1,Staat met platform omhoog voor rack,CM10
+1,Staat onder het Rack Lift platforms omhoog wil niet rijden - geen melding FMDS,CM10
+1,Power-In-Feed - Pre-charging Fault,CM10
+1,Staat out of operation in de BES 1 (om onbekende reden),CM10
+1,staat stil op Barge Kade zonder enige melding,CM10
+1,Steering angle front implausible(F-PLC),CM10
+1,Steering Fault Rear,CM10
+1,Steering System - Steering Fault  - R,CM10
+1,TEAMS Error: Too many resopsitioning trials,CM10
+1,Teams-Error - Outside of claim,CM10
+1,TEAMS-Error: Route-List-Response timeout,CM10
+1,PLC- Power To EncoderCard Is Off,CM10
+1,Position difference F-PLC Navigation,CM10
+1,Power in feed fault,CM10
+1,Power in Feed Pre charging,CM10
+1,Rechtzetten,CM10
+1,Route is not found.,CM10
+1,Route Reply is not Send Back,CM10
+1,Safe Load Exchange - Time out,CM10
+1,Navigaton Computer - Drive Contour Line Error,CM10
+1,No TCP-IP connect - driving timeout,CM10
+1,Not on routergrid,CM10
+1,Oil cooler converter error,CM10
+1,Oil cooler over temperature motor 28,CM10
+1,Op verzoek van OPS of we de AGV op PB willen zetten,CM10
+1,"Order rejected, herstart executer",CM10
+1,Outside of Claim (mod 12),CM10
+1,AGV op Parallelbuffer zetten ivm Untrusted Terminal na Herstart Executer,CM10
+1,AGV rijd bes2 niet uit (invaled route rejected),CM10
+1,AGV speed impausible,CM10
+1,AGV staat in de BS niet gekoppeld aan BMS,CM10
+1,"AGV staat met gelifte tafels maar maakt zijn opdracht niet af, geen error.",CM10
+1,AGV staat onder rack B bij M19 maar blijft met zn lifttafels omhoog staan (geen foutmelding in fmds),CM10
+1,AGV staat op laan 6 en rijd niet weg,CM10
+1,"AGV staat Rood zonder error, staat ook scheef",CM10
+1,AGV wil zijn platform niet laten zakken voor het Rack,CM10
+1,AGV wilt niet alloceren,CM10
+1,AGV wilt niet meer Alloceren,CM10
+1,AGV540 wilt Bes 2 Bep 3 niet uit rijden (geen melding),CM10
+1,AGV's ingeschakeld tbv Mini Terminal,CM10
+1,Batterij status onder 20 %,CM10
+1,Batterij wordt niet omgewisseld in BEP2,CM10
+1,"Batterijwissel handmatig uitvoeren ivm """"Couldnotpickbattery""""",CM10
+1,Blijft voor het Rack met gelifte tafels staan,CM10
+1,Brake System - Brake Pressure Low - F and R,CM10
+1,Brake System - Brakes Not Open - F - R,CM10
+1,(Navigation Computer - Main Contactor (-K51 / -K52) - Signal is Missing,CM10
+1,AGV - Operation Mode Switch not in 'AUTO',CM10
+1,AGV - Too Far of Travel Path,CM10
+1,AGV - Traction Battery Shutter Open While Battery is on,CM10
+1,AGV 501 4G connectie verloren in de Bes 01,CM10
+1,AGV 523 Inverter - Oil Cooler Error,CM10
+1,AGV 540 handmatig uit bes 01 rijden,CM10
+1,AGV alloceren n.a.v. NO TCP-IP Connect,CM10
+1,AGV door HZ 01 gereden,CM10
+1,CAN - CAN B - IO Box - R (+L5),CM10
+1,CAN - CAN B- Drive Inverter - R,CM10
+1,CAN Error - Drive Inverter - R,CM10
+1,Door - Door Open - Hydraulic Cabinet,CM10
+1,Door Open - Power Infeed Cabinet,CM10
+1,Drive Encoder - Not Incremeting - FR,CM10
+1,Driving Time out in de bes 2,CM10
+1,F-PLC -Implausible Steering Angle - F,CM10
+1,F-PLC Implausible Steering Angle - F,CM10
+1,F-PLC Lost Heartbeat Error,CM10
+1,F-PLC Lost Heartbeat signaal,CM10
+1,FrontRaisedRearLowered (teams melding),CM10
+1,AGV laat zn lifttafels niet zakken,CM10
+1,AGV moet geborgen worden,CM10
+1,AGV neemt geen automatische opdrachten aan,CM10
+1,Emergency Stop 1 Lashing Platform button Channel 1 or 2 Safety System,CM10
+1,E-stop - engaged - E-Stop Chain Not Oke,CM10
+1,Geen verbinding meer met TEAMS,CM10
+1,Geen verbinding meer met teams.,CM10
+1,Hydraulic System - Pressure Reservior Sensor Error,CM10
+1,"Hydraulic system, system pressure low",CM10
+1,I.V.M. BES storing AGV uit BES gereden,CM10
+1,Inverter - F - Drive - Error,CM10
+1,Inverter - F - R Travel - Overcurrent Error,CM10
+1,Inverter - F+R Drive - Overcurrent Error,CM10
+1,( OCCURRED ): F-PLC - Implausible Steering Angle - F,CM10
+1,Fuse Tripped - Oil Cooler,CM10
+1,E-Stop engaged E-stop chain not ok.,CM10
+1,E-Stop-Engaged-Hydraulic Cabinet (+L3),CM10
+1,F - PLC - Lost Heartbeat Signal,CM10
+1,Route-List Response Time Out,CM10
+1,Safe Load Exchange - Unallowed Satus - Brake Opened,CM10
+1,Signal From Safety Relay is Missing,CM10
+1,Staat bij module 26 onder een rek om een doos af te zetten,CM10
+1,"Staat onder het Rack, doet niks meer, geen Error in FMDS",CM10
+1,Power-In-Feed - Pre-Charging 720V Fault,CM10
+1,Restant eerdere olie lekkage,CM10
+1,RFID Tag testveld defect,CM10
+1,Route data error difference to 36,CM10
+1,Tire Pressure => 13 bar too High - FL,CM10
+1,Tire Pressure >= 13 bar too High - RL (achter X-ray),CM10
+1,Tire pressure fault.,CM10
+1,Too Far Off of Travel Path,CM10
+1,Traction batt. temp > 55C,CM10
+1,TEAMS-Error: Route List-Response timeout,CM10
+1,Tire Pressure - >= 12 bar - FL,CM10
+1,Wil de BES niet uit BEP1,CM10
+1,Traction Battery - Wire IQ not Responding Warning,CM10
+1,Transponder gemist Mini Terminal,CM10
+1,Transponder gemist thv Mod. 6,CM10
+1,Ultrasonic Sensor - Rack Occupied Sensors Erro - F,CM10
+1,Untrusted. Niet zichbaar voor dispatch. Wellicht verplaatsen,CM10
+1,Wil niet wegrijden zonder error,CM10
+1,Wil ze tafel niet laten zakken zonder melding,CM10
+1,Navigation computer-Corrupted oute Data -Index,CM10
+1,Navigation System - Main Switch Signal from PLC Is Missing,CM10
+1,Navigaton Computer- 'n' Transponders Not Found,CM10
+1,No Connection between TEAMS and BMS,CM10
+1,Navigation computer- Too far off travel path,CM10
+1,Navigation Computer -Too Far off Travel Path,CM10
+1,Navigation Computer Too Far off Traverl Path,CM10
+1,Navigation Computer: Brake Path Too Short,CM10
+1,PLC Connection Interrupted,CM10
+1,No TC/IP connect.,CM10
+1,OPS krijgt de agv niet meer ingebruik,CM10
+1,Power in Feed - K52A No Response,CM10
+1,Power in feed cicuit breaker error,CM10
+1,Power in feet - charging fault,CM10
+1,Navigation Computer - Maximum Steering Angle is Incorrect - RL,CM10
+1,Navigation computer - 'n' transponders not found. (mod 16),CM10
+1,Navigation Computer - PLC signal is missing,CM10
+1,Navigation Computer - Singal From Emergency Relais is Missing,CM10
+1,Navigation Computer -'n' Transponders Not Found thv Mod 12,CM10
+1,Navigation Computer - Main contactor (K51 - K52) - Signal is Missing,CM10
+1,Navigation Computer - Main Contactor -(K51 / -K52() - Signal Is missing,CM10
+1,Navigation Computer - Main Contactor (-K52 / -K53) - Signal Missing,CM10
+1,Navigation Computer - Main Contactor Signal(K52 - K53) is Missing,CM10
+1,Nav comp. Main switch signal from PLC is missing,CM10
+1,Naviagtion Computer - Lift Platform not Raised,CM10
+1,Lift Platform - Raising Timeout - F + R,CM10
+1,AGV krijgt op BEP101 een direct stop,CM10
+1,AGV Out Of Claim (melding in TEAMS),CM10
+1,"AGV rijd niet weg, staat op de PB ter hoogte van module 12/13",CM10
+1,AGV rijdt de BES niet uit,CM10
+1,AGV staat half in de sluis,CM10
+1,AGV Transponder gemist thv mod 4.,CM10
+1,"AGV vast in de Bes. """"Gate open sent""""",CM10
+1,AGV wil platform niet laten zakken,CM10
+1,AGV wil platform niet omlaag brengen,CM10
+1,AGV wil zijn Platform niet laten zakken,CM10
+1,AGV 518/551 willen niet uit de bes rijden dit waarschijnelijk door de Xray,CM10
+1,AGV blijft met lifttafels omhoog staan,CM10
+1,AGV gedealloceerd.,CM10
+1,AGV handmatig uit BES1 naar buiten rijden.,CM10
+1,"AGV is uit zijn claim gereden, dispatch kreeg AGV niet meer in de claim.",CM10
+1,"Driving order impossible, Invalid Route rejected (teamsmelding)",CM10
+1,Driving order impossible. Invalid route rejected.,CM10
+1,Door AGV 544 in claim gevallen. Thv mod 3,CM10
+1,Drive Encoder - Not Incrementing -FR,CM10
+1,Drive encoder - not incrementing-RR,CM10
+1,Drive encoder losing impulses - R,CM10
+1,( ON ): No TCP-IP connect / ( ON ): TEAMS-Error: Driving timeout,CM10
+1,Container staat op AGV met stekker gelocked op AGV,CM10
+1,De AGV rijd de BES niet uit,CM10
+1,Blijft met platform omhoog in Rack staan (geen melding),CM10
+1,Bonkend geluid bij rijden.,CM10
+1,Botsing met AGV 549 bij knik BQC kade,CM10
+1,Brake Pressure Low F + R,CM10
+1,Brake Resistor Temperature Sensor Error,CM10
+1,Brake System - Brake Not Open - F - R,CM10
+1,Inverter - R-Drive Error,CM10
+1,Inverter Travel overcurrent Error,CM10
+1,Lift Platform - Mechanically Blocked - R - F,CM10
+1,Lift platform tafels blijven omhoog staan,CM10
+1,Load status missmatch,CM10
+1,Is zijn positie kwijt bij ASC202,CM10
+1,Lift Platform - Cilinder Position is Incorrect - RR,CM10
+1,Lift Platform - Cylinder Value Irregularity - FL- FMR-FML,CM10
+1,F-PLC Position Difference - Navigation,CM10
+1,F-PLC -Implausible Axle Speeds - F&R,CM10
+1,E-Stop - Engaged - Bumper - R en F,CM10
+1,E-Stop - E-Stop Chain Not Ok,CM10
+1,E-Stop Engaged - Bumper R,CM10
+1,E-Stop Engaged - E-Chain Not Oke,CM10
+1,E-stop engaged Bumper R,CM10
+1,E-stop Engaged- Bumper R,CM10
+1,E-Stop-Engaged - Hydraulic Cabinet (+L3),CM10
+1,F- PLC - Speeding in Reduced Speed Area,CM10
+1,F-PLC - Heart beat Error,CM10
+1,F-PLC - Implausible Rotation Direction of Drive Encoder - R,CM10
+1,F-PLC - Los HeartBeat Signal,CM10
+1,F-PLC - Position difference - F-PLC <-> Navigation,CM10
+1,Fuse Tripped -Pressure error,CM10
+1,"Fuse tripped, lift table",CM10
+1,G Traction Battery - Battery door open,CM10
+1,"Geen foutmelding, ops krijgt hem niet gealloceerd.",CM10
+1,Handmatig uit Bes gereden. Kan niet worden gealloceerd,CM10
+1,Heartbeat Error en Wire IQ aan,CM10
+1,HeartBeat Timeout Cam-PLC,CM10
+1,Hydraulic System - Hydraulic Fluis level low warning,CM10
+1,Inverter - F+R - Drive - Overcurrent Error via PLC,CM10
+1,Inverter - F-Drive High Temperature Error 7,CM10
+1,Inverter - Hydraulic Pump - UZK too Small 4,CM10
+1,Inverter - Oil Cooler - int ES comm. 21,CM10
+1,Inverter - Oil Cooler - Switching Power Supply 40,CM10
+1,"Op verzoek van TBA, de agv uitgebruik nemen, en daarna weer opstarten.",CM10
+1,OPS krijgt AGV niet meer bij,CM10
+1,PLC ABB error -  Category 4,CM10
+1,PLC ABB Error categorie 4,CM10
+1,PLC Lost heartbeat signal,CM10
+1,PLC start niet op,CM10
+1,Position Difference F-PLC <-> Navigation.,CM10
+1,Navigation computer Brake Path too Short,CM10
+1,Navigation Computer - Main Contactor (-K52 / -K53 ) - Signal is Missing,CM10
+1,Navigation Computer - Main Contactor (-K52 / -K563) - Signal is Missing,CM10
+1,Navigation Computer - MainContactor (-K51 / -K52) - Signal is Missing,CM10
+1,Navigation Computer - MainContactor (-K52 / -K53) - Siganl Is Missing,CM10
+1,Navigation Computer - Safe Load Exchange,CM10
+1,Navigation computer main contactor,CM10
+1,No PCP ip connect,CM10
+1,Noodstop defect,CM10
+1,Olie lekkage ventielenblok,CM10
+1,Onderzoek olie lekkage,CM10
+1,Safe Load Exchange - Unallowed Status - Brakes Openend,CM10
+1,Safe Load Exchange Timeout,CM10
+1,Staan onder het Rack zonder error in Teams en FMDS,CM10
+1,"Staat met gelifte tafels onder Rack, reageert niet",CM10
+1,Start na storing niet meer op,CM10
+1,Steering - Steering Fault - F,CM10
+1,Traction Battery - at least one battery is too low,CM10
+1,Tire Pressure not al set,CM10
+1,TEAMS heeft geen verbinding met de agv,CM10
+1,Tire Pressure - 8 Bar too Low - FL,CM10
+1,Tire pressure / E-stop engaged E-stop chain not OK,CM10
+1,Tire Pressure ->= 13 bar too High - FR (mod 3),CM10
+1,Power-in-Feed - Circuit Breaker Tripped,CM10
+1,"Rijd Bes niet uit, roldeuren waren niet gesloten",CM10
+1,Route - List- Response time out,CM10
+1,Route Deviation to Big,CM10
+1,Route list navigation error,CM10
+1,Traction battery too low,CM10
+1,Transponders gemist thv Mod 17,CM10
+1,Uit claim gereden thv mod 3/4,CM10
+1,Ultrasonic Sensor - Rack Navigation Sensor failure - RR1,CM10
+1,Ultrasonic Sensor -Rack navigation Sensor Failure,CM10
+1,Traction Battery - Temperature ? 55 degrees,CM10
+1,Verplaatsen ivm mini terminal vergroten,CM10
+1,Wire i/q overbrugd,CM10
+1,AGV position does not allow lifting (TAG_NOT_FOUND),CM10
+1,AGV rijd niet weg,CM10
+1,AGV staat stil op highway,CM10
+1,AGV wil BES niet uit,CM10
+1,AGV wil niet bijkomen,CM10
+1,"Batterij handmatig wisselen, naar BES 2",CM10
+1,Batterijwissel AGV's,CM10
+1,Blijf hangen op stap 1,CM10
+1,Blijft hangen op Exc step 3,CM10
+1,Blijft onder rack staan module 7,CM10
+1,Blijft staan in de BES,CM10
+1,Blijft zonder Error in de BES staan,CM10
+1,AGV blijft met tafels omhoog bij het rack staan,CM10
+1,AGV blijft onder het rack staan,CM10
+1,AGV kan niet opnieuw alloceren,CM10
+1,AGV komt na een reset van OPS niet meer bij (agv heeft geen storing),CM10
+1,AGV Laat zijn lifttafels niet zakken.,CM10
+1,( ON ): Inverter - F-Drive - Error,CM10
+1,( ON ): No TCP-IP connect / ( ON ): Route-List-Response timeout,CM10
+1,( ON ): Traction Battery - Wire IQ - System Not Found,CM10
+1,AGV - Standby Mode Active,CM10
+1,CAN-CAN B-Drive Inverter - R,CM10
+1,Cilinder Value Irregulartity - RR,CM10
+1,Com Profibus Fault RRU,CM10
+1,Controleren waarom deze AGV onder de QC104 blijft staan,CM10
+1,DC/DC Converter G23 Error,CM10
+1,Dispatch krijgt AGV niet geallocereerd,CM10
+1,Driving time out - No TCP-IP Connect,CM10
+1,"Driving timeout, F-PLC-Lost Heartbeat Signal",CM10
+1,E - Stop - Engaged - Bumper - F,CM10
+1,Error 506 : Power In-Feed - Charging fault,CM10
+1,E-Stop Engaged - Hydraulic Cabinet (+L3),CM10
+1,F-PLC Implausible Value of Drive Encoders - F,CM10
+1,F-PLC- Implausible Value of Drive Encoders - R,CM10
+1,F-PLC-Implausible Steering Angle - F,CM10
+1,Fuse Tripped - Ultrasonic Sensors,CM10
+1,Fuse Tripped - Ultrasonic Sensors - F -R,CM10
+1,Fuse tripped. Transponder antenne,CM10
+1,Lifttafel gaan niet omhoog,CM10
+1,"Na herstart executer, krijgen ze AGV niet gealloceerd.",CM10
+1,Na TEAMS herstart is AGV niet meer te alloceren,CM10
+1,Naviagtion Computer - Naviagtion <-> PLC Communication Signal is Missing,CM10
+1,Navigation compter -signal from safety relay  is missing while not driving,CM10
+1,Lift Platform - Cylinder Value Irregularity - RMR,CM10
+1,Lekkage bij hydroliek pomp,CM10
+1,Lift platfom Raising,CM10
+1,Lift Platform - Both Raised,CM10
+1,Lift Platform - Cylinder Position in Incorrect - RR,CM10
+1,Lift Platform - Mechanically Blocked - F/R,CM10
+1,Lift Platform - Pressure Release Valve Error - FL,CM10
+1,Lift Platform blijft omhoog staan / geen error,CM10
+1,Lift Platform Lowering Time out F,CM10
+1,Incomplete container status. AGVContainerUpdate required,CM10
+1,Inverter - D-Drive - Overcurrent Error via PLC,CM10
+1,Inverter - F-Drive - Overccurent Error via PLC,CM10
+1,Inverter - F-Drive - Overcurrent Error via PCL,CM10
+1,Inverter - F-drive - Power supply 15,CM10
+1,Inverter - Oil Cooler - Over Temperatue Motor 28,CM10
+1,Inverter - Oil Cooler Error(UZK too small 4),CM10
+1,Inverter - Oil Cooler Warning,CM10
+1,Hydraulic System - Reserve Pressure Resevoir Low Error,CM10
+1,Hydraulic system -Pressure Ressevoir sensor error,CM10
+1,Implausible steering angle,CM10
+1,Transponders gemist. Thv mod. 3,CM10
+1,Werkzaamheden storing oliekoeler,CM10
+1,Wil niet Alloceren na Reset Dispatch,CM10
+1,Wil niet onder het Rack vandaan rijden,CM10
+1,Wil niet onder rack vandaan rijden na router crash,CM10
+1,"Wil niet rijden met teams, ook niet naar reset",CM10
+1,Tyre pressure to high,CM10
+1,Uit de Sluis halen,CM10
+1,Ultrasonic Sensor - Rack Navigation Sensor Error - FR1,CM10
+1,Ultrasonic Sensor - Rack Occupied Sensor Error - FL,CM10
+1,Untrusted Registration state due to Teams failure,CM10
+1,Verkeerde lift tafel status,CM10
+1,Tire Pressure ->= 13 bar too High - FR,CM10
+1,Tire Pressure >= 13 bar too high - FR,CM10
+1,Tire Pressure 13 bar Too High - FL,CM10
+1,Storing omvormer aandrijfmotor bij opstarten,CM10
+1,Temperatuur monitor,CM10
+1,Tire Pressure - <= 8 bar too Low - FL,CM10
+1,Traction Battery - Battery Door Open. (mod. 6)Traction Battery powerpack >20%,CM10
+1,Traction Battery - Charge < 25%,CM10
+1,Traction battery - Temperate High Error,CM10
+1,Traction Battery - Temperature > = 55C,CM10
+1,Traction Battery - Temperature >= 50 - 55 graden,CM10
+1,Traction Battery - Temperature >=55C,CM10
+1,Transponders gemist (thv mod 15),CM10
+1,Lift Platform - Raising Timeout - F and R,CM10
+1,Lift Platform - Raising Timeout - F+R,CM10
+1,Lift Platform / Cylinder Warnung - RR & RL,CM10
+1,Lift Platform Blocked - Front,CM10
+1,Lift platform Cylinder Warnung - RR,CM10
+1,Lift platform status - FrontRaisedRearLowered,CM10
+1,Lift Platform Status: Both platforms raised,CM10
+1,Lekkage Hydrauliekpomp op Kniekoppeling,CM10
+1,Lift Platform - Cyinder Warnung - RMR,CM10
+1,Lifttafel probleem,CM10
+1,Lifttafel staat omhoog en zakt niet meer AGV535,CM10
+1,Lifttafels blijven omhoog,CM10
+1,Multiple Error Resets (Speeding In Reduced Speed Area),CM10
+1,"n Transponder not found (staat in laan 6 onder QC105 locatie 2002,78,120,0)",CM10
+1,Na reset dispatch wil deze niet bijkomen,CM10
+1,Nav comp - main switch signal from PLC is missing,CM10
+1,Nav. Computer - Main Switch Signal From PLC missing,CM10
+1,Naviagtion Computer - Undetemined Lift Platform State,CM10
+1,Navigation Computer - Main contactor (-K51/-K52)- signal is missing,CM10
+1,Navigation Computer - Main Contactot (-K51/-K52- Signal is Missing),CM10
+1,Navigation Computer - Main Switch Singnal from PLC is Missing,CM10
+1,Navigation Computer - MainContactor (-K51/-K52) - Signal is Missing,CM10
+1,Navigation Computer - n Transponder Not Found thv mod. 15 laantje B thv door rij straat,CM10
+1,Navigation computer - 'N' Transponders not found (mod 17),CM10
+1,Navigation Computer - 'n' Transponders not found (mod 7),CM10
+1,Navigation Computer - Navigation <=> PLC Communication Signal is Missing,CM10
+1,Navigation Computer - Signal from Safety Relais is Missing While Driving,CM10
+1,Navigation Computer - Singal from Emergency Relay is Missing,CM10
+1,Navigation Compiten - Expected Brake Path Too Long,CM10
+1,Navigation Computer -  Route Deviation too Big,CM10
+1,Lost heart beat singal in de BS2,CM10
+1,Navigation Computer <-> PLC Communication Signal is Missing,CM10
+1,Navigation Computer -'n' Transponders Not Found thv Mod 6,CM10
+1,Navigation computer-route deviation too big,CM10
+1,Not allocated. Geen foutmelding bekend.,CM10
+1,Op parallelbuffer zetten thv module 16,CM10
+1,Platform BothRaised,CM10
+1,PLC - Power To EncoderCard is Of,CM10
+1,PLC heartbeat error,CM10
+1,PLC-Power to Encoder Card is Off,CM10
+1,Power infeed - Charging fold,CM10
+1,Rolluiken gaan niet open,CM10
+1,Power infeed charging fault.,CM10
+1,Power In-Feed Circuit Breaker Failure,CM10
+1,Power In-Feed-Earth Ground Connection Error,CM10
+1,PowerInfeed Charging Fault,CM10
+1,Service Switch - AGV Drive-Prevention Active - Navigation Cabinet (+L1),CM10
+1,Staat met gelfite tafels wil niet laten zaken zonder error,CM10
+1,Staat scheef op de Bargekade zonder error,CM10
+1,Staat vast in Bes1 Bep 2 (geen melding),CM10
+1,Staat voor de helft in de BES en deze gaat er niet meer uit,CM10
+1,Steer Encoder - Error FR & FL,CM10
+1,Steering Angle Front Plausible,CM10
+1,Steering System - Steering Fault - F and R,CM10
+1,Steering System - Steering fault Fault - R,CM10
+1,Fuse Tripped - Drive Inverter Fan- F,CM10
+1,Fuse Tripped - Inverter Oil Cooler error,CM10
+1,Fuse Tripped - IO Box - F,CM10
+1,Fuse Tripped - Lift Table - R,CM10
+1,Fuse Tripped - Tyre pressure system,CM10
+1,Fuse Tripped - Ultrasonic Sensors - F,CM10
+1,Fuse tripped ssi encoder,CM10
+1,Geen connectie mogelijk met teams,CM10
+1,Geen systeem spanning,CM10
+1,Heeft div. fout meldingen,CM10
+1,Hydraulic  System - Hydraulic Temperature High Error,CM10
+1,Hydraulic System - Hydraulic Fluid Temperature Sensor - Error,CM10
+1,Hydraulic System - Hydraulic Pressure Error,CM10
+1,Hydrauliek druk te laag,CM10
+1,Inverter - F&R - UZK too Small 4,CM10
+1,Inverter - F&R-Drive - Overcurrent Error via PLC,CM10
+1,Inverter - F-Drive error -  R - drive error,CM10
+1,F-PLC Implausible Axle Speeds,CM10
+1,F-PLC Speeding in reduced area,CM10
+1,Brake System - Brake Pressure Low - F&R,CM10
+1,Brake System - Brake Resistor Temperature Sensor Error - F,CM10
+1,E-Stop engaged / Bumper / R,CM10
+1,E-stop- Engaged-Bumper R,CM10
+1,Fault DP-Slave,CM10
+1,F-PLC - Implausible Axle Speed - F & R,CM10
+1,"AGV is Rood, maar heeft geen storingsmelding in FMDS of Teams.",CM10
+1,AGV Lifting Functionality disabled ( Nachtdienst 13-09-2016),CM10
+1,AGV niet op terminal?,CM10
+1,Dispatch krijgt AGV niet gealloceerd,CM10
+1,Dispatch krijgt AGV niet meer gealloceerd.,CM10
+1,Diverse PLC errors,CM10
+1,Drive interter R-drive,CM10
+1,Driving TimeOut / No TCP-IP Connect,CM10
+1,E-Stop - Engaged -Bumper R,CM10
+1,Brake System -Brake Pressure Low - R,CM10
+1,Brakes Engaged during Drive Operation,CM10
+1,Can Error - IFM Cabinet Module -F (+L6),CM10
+1,Can Error - IFM Cabinet Module -R (+L5),CM10
+1,Can Error - NS Communication Error,CM10
+1,Corrputed Route Data Index,CM10
+1,CouldNotPickBattery,CM10
+1,De lifttafels blijven omhoog staan geen foutmelding thv M19,CM10
+1,Deo Order Without Load,CM10
+1,AGV rijd BES2 niet uit,CM10
+1,AGV rijd niet automatisch BES 2 uit,CM10
+1,AGV staat met een management direct stop in BS1,CM10
+1,AGV wil een container niet oppakken van het rek,CM10
+1,AGV wil niet alloceren.,CM10
+1,AGV wil niet uit BES 1 rijden,CM10
+1,AGV Wil niet wegrijden onder het Rack vandaan,CM10
+1,AGV wilt geen batterij wissel uitvoeren,CM10
+1,AGV540 staat niet op transponders => start niet op.,CM10
+1,AGV's van Mini Terminal gewisseld,CM10
+1,Battery is not in centering pin! (weight is too low),CM10
+1,BothRaised,CM10
+1,Brake presure sensor error,CM10
+1,( OCCURRED ): Drive Encoder - Losing Impulses - F,CM10
+1,( OCCURRED ): Inverter - Oil Cooler Error,CM10
+1,( ON ): Steering System - Steering Fault - F,CM10
+1,24v accu leeg - te ver ontladen,CM10
+1,( ON ): AGV - Brakes Engaged while Driving,CM10
+1,AGV - Traction Batterij Shutter Open While Battery On,CM10
+1,AGV 502 komt niet meer bij,CM10
+1,AGV 502 Te lagen batterij om de laatste container af te zetten,CM10
+1,AGV 542 staat in BS1 met Navigation Computer - Navigation<->PLC Communication Signal is Missing,CM10
+1,AGV 544 wil niet bij komen,CM10
+1,AGV blijft in de BES hangen,CM10
+1,AGV Error platform status in error mode.,CM10
+1,Teams:Error Driving Timeout,CM10
+1,Traction Battery - at least one battery pack is too low (th van mod 16),CM10
+1,Traction Battery - Charge <- 20,CM10
+1,Traction Battery - Temperature <=5 graden,CM10
+1,Traction Battery pack is too low,CM10
+1,Traction Battery -temperature High warning,CM10
+1,Transponder Antenna - Error - F+R,CM10
+1,Uit Claim gereden,CM10
+1,Ultrasonic Sensor - Rack Occupied Sensor Error - F&R,CM10
+1,Verkeerde lifttafel omhoog,CM10
+1,Voerde opdracht niet volledig uit,CM10
+1,Wil niet rijden / Geen Error,CM10
+1,Wil niet rijden na reset,CM10
+1,Wil niet wegrijden onder het rack vandaan,CM10
+1,Wil niet wegrijden voor het Rack vandaan,CM10
+1,Wilt container niet neerzetten,CM10
+1,Wilt niet liften,CM10
+1,"Platform gelift in het rack zonder container, geen foutmelding.",CM10
+1,PLC - ABB Error,CM10
+1,PLC - Power to Encoder Card is of,CM10
+1,PLC2:VIP communication (ParamMain) to CS1 fault,CM10
+1,Steering Angle Front implausible (F - PLC),CM10
+1,Steering System - Steering Valve Difference -R	B	WO141362,CM10
+1,Steering System - Valve Difference,CM10
+1,Steerings system fault,CM10
+1,"Stond met lifttafels omhoog voor het rack, zonder storingsmelding.",CM10
+1,Proportion of front encoder implausible,CM10
+1,RouteList Response TimeOut / Lost Heartbeat Signal,CM10
+1,Safe Load Exchage - Timeout AGV,CM10
+1,Safe Load Exchange - AGV timeout,CM10
+1,Slog Pile eruit gehaald,CM10
+1,Speeding reduced speeding area,CM10
+1,Staat in de BES 2 vast na softstop,CM10
+1,Staat in Storing,CM10
+1,"Staat met gelifte tafels voor het Rack, Wil niet wegrijden",CM10
+1,Navigation computer-transponder missed.,CM10
+1,No TCP-IP Connect (AGV539),CM10
+1,OPS krijgt via de AGV niet weg in teams onder de QC103,CM10
+1,Navigation computer- Corrupted route data -Index,CM10
+1,Navigation Computer- Main Switch Signal form PLC is Missing.,CM10
+1,Navigation Computer- 'n' Transponder Not Found,CM10
+1,Navigation Computer - Main Contactor (K52 / K53) Signal is Missing,CM10
+1,Main Contactor Signal is missing,CM10
+1,Navigation Computer - Maximum Steering Angle is Incorrect - FR,CM10
+1,Navigation computer - 'n' transponders missing (mod 17),CM10
+1,Inverter - R-Drive-Error,CM10
+1,Inverter F-Drive - Overcurrent Error Via PLC,CM10
+1,Kan niet uit BES01 rijden,CM10
+1,Lift Platform - Cilinder Warning - RL,CM10
+1,Naviagtion computer -Drive tracking error,CM10
+1,Navigation Compouter - Main Contactor (-K51 / -K52) - Signal is Missing,CM10
+1,Navigation Compuer - Main Contactor -(-K51/-K52) - Signal Is Missing,CM10
+1,Navigation Computer - AGV too far off travel path.,CM10
+1,Navigation Computer - F-PLC Brake Path too short,CM10
+1,Inverter - Hydraulic Pump Error (BQC203),CM10
+1,Inverter - Oil Cooler - ON in spite of inhibitor 39,CM10
+1,Inverter - F-Drive - Inverter 14,CM10
+1,Hydraulic System Hydraulic Temperature High Error,CM10
+1,"Impossible ( Empty platform raised for a RackJob,  )",CM10
+1,In storing gevallen met diverse inverter Error's,CM10
+1,Lift Platform - Lowering Timeout F/R,CM10
+1,Lift Platform - Lowering Timeout F-R,CM10
+1,Lift Platform - Meachanically Blocked - F - R,CM10
+1,Lift Platform - Raising Timeout -F en R,CM10
+1,Lift Platform - Raising Timeout -R,CM10
+1,Lift Platform Blocked - Front - Rear,CM10
+1,Lift platformen both raised,CM10
+1,Lift platforms gaan niet naar beneden,CM10
+1,Liftcilinders vervangen door TEREX,CM10
+1,LiftPlatform - Cilinder Value Irregularity,CM10
+1,LiftPlatform Raising TimeOut F+R,CM10
+1,Lifttafels willen niet meer zakken,CM10
+1,"Driving order impossible, logic order has no driving order.",CM10
+1,"Driving timeout, hierna No TCP-IP connect",CM10
+1,E-Stop - Engaged - Bumper - F & R,CM10
+1,E-Stop  Engaged Bumper - R - E-Stop Chain Not Ok,CM10
+1,AGV - Bay is Occupied (onder het rek bij module 17),CM10
+1,E-Stop- Engaged - E Stop Chain Not Ok,CM10
+1,E-Stop Engaged - E-Stop Chain Not Oke,CM10
+1,Fault Opening Brake / Fault Closing brake,CM10
+1,Fuse Trip Lifttafel,CM10
+1,Fuse Tripped -  Transponder Antenne R,CM10
+1,Fuse tripped steering control,CM10
+1,Fuse Tripped -Transponder antenne - F,CM10
+1,Fuse tripped transponder antenne - F,CM10
+1,Heartbeat Signal is Missing,CM10
+1,Hydraulic - System - System Pressure Low,CM10
+1,Hydraulic  System - System Pressure Low,CM10
+1,Hydraulic Fluid Level Low Warning,CM10
+1,CAN - CAN B - Drive Inverter -R,CM10
+1,CAN-CAN-A- Gateway Fuse Box,CM10
+1,Cilinder Value Irregularity FR,CM10
+1,Containers worden niet op AGV gezet.,CM10
+1,Direct stop 2 keer achter elkaar gehad,CM10
+1,Diverse agv's voor rack plaatsen na systeem problemen,CM10
+1,Diverse Can Storingen,CM10
+1,Diverse fouten PLC,CM10
+1,AGV blijft met zijn lifttafel omhoog staan,CM10
+1,AGV komt met meerdere rode meldingen waardoor hij niet meer rijd,CM10
+1,AGV komt niet bij na dissacosatie van IT,CM10
+1,AGV laat tafel niet meer zakken,CM10
+1,AGV Lifting Functionality disabled (Avonddienst 11-09-2016),CM10
+1,AGV op manueel na herstart Executor,CM10
+1,AGV op PB plaatsen,CM10
+1,AGV rijd niet naar buiten bij BS1 na het wisselen van zijn batterij.,CM10
+1,AGV rijd verticaal van PB naar de kraan,CM10
+1,AGV staat bij het rek en pakt geen container op omdat de rear raised staat,CM10
+1,AGV staat in de bes en genereerde iedere keer een centering pin fout,CM10
+1,AGV staat in de BES en wil er niet uit,CM10
+1,AGV staat met z'n bumper half in de bes 1.,CM10
+1,AGV staat Rood Zonder melding FMDS/TEAMS,CM10
+1,AGV staat ter hoogte van de X-ray en doet nix meer,CM10
+1,AGV wil de sluis niet uitrijden,CM10
+1,AGV wil niet uit de BES rijden,CM10
+1,AGV501 Wilt niet meer alloceren,CM10
+1,AGV519 blijft hangen op stap 8 in BS1,CM10
+1,Aloc Error in BES2,CM10
+1,AVG - Lifting Functionality Disabled,CM10
+1,Batterij heeft een rode status,CM10
+1,Blijft met beide tafels omhoog staan en reageert nergens op,CM10
+1,Blijft vast staan in de BES,CM10
+1,Steering Encoder - Error -RR&RL,CM10
+1,Steering Fault - Steering Fault - F,CM10
+1,Steering System - Steering Fault -F - R,CM10
+1,Stop tijdens rijden,CM10
+1,System Battery- System Battery low (<22v),CM10
+1,Tafels willen niet liften,CM10
+1,F-PLC Lost heartbeat  Singal,CM10
+1,F-PLC-Lost Heartbeat Signal / Oil Cooler Motor not working,CM10
+1,E-stop Engaged-Bumper- F en R,CM10
+1,Fault weight system,CM10
+1,"Fout in opdracht, tank staat op achter ipv voor",CM10
+1,Foutieve wo,CM10
+1,F-PLC - Implausible - F&R,CM10
+1,Defecte lift cilinder - links - vervangen,CM10
+1,AGV rijd de bes niet in,CM10
+1,( OCCURRED ): Navigation Computer - Corrupted Route Data - Index + Offset,CM10
+1,Drive encoder losing impuls -F,CM10
+1,E- Stop - Engaged - E - Stop Not Ok,CM10
+1,Geen connectie met TEAMS mogelijk,CM10
+1,HeartBeat Error onder het Rack,CM10
+1,Hydraulic System -  system Pressure Low Error,CM10
+1,Hydraulic System - Hydraulic Temperature High Warning,CM10
+1,Hydraulic System / System Pressure Low,CM10
+1,Hydraulic System: Reserve Pressure reservoir low error,CM10
+1,Incomplete Container Status,CM10
+1,Inverter - F  Drive Error,CM10
+1,Inverter - F-Drive - Error & Device High Temperature Error 7,CM10
+1,Inverter - F-R - Drive Error,CM10
+1,Inverter - Hydaulic Pump Error,CM10
+1,Inverter - F- Drive - Error,CM10
+1,Fuse Tripped - Tire Pressure System,CM10
+1,Fuse Tripped - Ultra Sonic Sensors - F + R,CM10
+1,"AGV rijd niet weg bij het rack, geen foutmelding",CM10
+1,AGV rijdt niet onder rack vandaan. Tables both raised.,CM10
+1,AGV staat bij module 26 met zn lifttafels omhoog en laat deze niet meer zakken,CM10
+1,AGV staat onder rack bij van M6 met een verkeerde platform status,CM10
+1,AGV staat vast in BES1,CM10
+1,AGV wil de BES niet uit rijden,CM10
+1,AGV wil niet Alloceren,CM10
+1,AGV wilt niet uit de BS1 rijden,CM10
+1,"AGV zet zijn twinhijs niet op rack, geen foutmelding",CM10
+1,AGV540 staat vast in BS1 op stap 10,CM10
+1,AGV552:Driving time out,CM10
+1,AGV-Driving TimeOut,CM10
+1,AGV's onder rack vandaan rijden na router crash,CM10
+1,AGV's uitzetten Mini Terminal,CM10
+1,Axel Weight Difference Too High Front,CM10
+1,Bay is occupied,CM10
+1,"beide platformen gelift in het rack, geen melding. AGV rijd niet weg.",CM10
+1,Blijft staan in BES 2,CM10
+1,"Brake system: brake not open front, brake not open rear",CM10
+1,( ON ): AGV outside claim,CM10
+1,( ON ): F-PLC - Lost Heartbeat Signal / ( ON ): Driving timeout,CM10
+1,AGV Outside Claims,CM10
+1,( ON ): Transponder Antenna - Error - F,CM10
+1,Accu's leeg 5%<,CM10
+1,"AGV - Operations Mode Switch not in 'AUTO""""",CM10
+1,AGV blijft met lifttafels omhoog onder het rack staan,CM10
+1,AGV blijft onder het rack staan met gelifte tafels / Geen error in FMDS,CM10
+1,AGV blijft onder rack staan met tafels gelicht.,CM10
+1,AGV heeft grote olie lekkage onderkant,CM10
+1,AGV in storing door problemen met de BES,CM10
+1,AGV laat zijn lifftafels niet zakken,CM10
+1,AGV na reset dispatch stilgevallen thv module 22 en QC107,CM10
+1,Komt niet meer bij,CM10
+1,Komt Niet Meer Bij na reset Dispatch,CM10
+1,Lift Platform  - Raising TimeOut,CM10
+1,Lift Platform - Cylinder Position is Incorrect - FMR,CM10
+1,Lift Platform - Lowering Timeout - F-R,CM10
+1,Lift platform  Mechanically Blocked,CM10
+1,Lift platform Mechanically Blocked R,CM10
+1,Lift platform pos error,CM10
+1,Lower: AGV detected load conflicts with command!,CM10
+1,Main Contactor (-K51 / -K52) - Signal is Missing,CM10
+1,Main switch singnal van PLC is missing,CM10
+1,Navigation Computer - Main Cotactor (-K51 / -K52) - Signal is missing,CM10
+1,Navigation Computer : Undetermined Lift Table State,CM10
+1,Navigation computer Corrupt Route data,CM10
+1,Opstart problemen op afstand,CM10
+1,Parallel buffer: Fuse tripped - Transponder Antenne -R,CM10
+1,PLC start niet meer op,CM10
+1,Position diffrence F-PLC <-> Navigation,CM10
+1,Multiple Errors,CM10
+1,Na FCS gebied lukt het dispatch niet om AGV te alloceren,CM10
+1,Na untrusted terminal krijgt dispatch AGV niet meer bij. Staat scheef.,CM10
+1,Lift tafels gaan niet naar beneden,CM10
+1,Lifttafel achterzijde wilt niet zakken (geen melding),CM10
+1,Navigation Computer - Feedback Signal from Emergency Relay is Missing,CM10
+1,Reset geven ivm rode status terwijl deze goed is,CM10
+1,Rolluik niet automatisch open,CM10
+1,Route list response time out (Teams fault),CM10
+1,Signal From Relay is Missing,CM10
+1,SLX - Unallowed Status - Brakes Opened,CM10
+1,Staat met gelifte tafel onder het Rack,CM10
+1,Staat met platforms gelift voor het Rack,CM10
+1,Staat onder het Rack met gelifte tafel voor,CM10
+1,Staat onder het Rack Wil niet wegrijden,CM10
+1,Staat op TP maar Spreader wilt container niet oppakken,CM10
+1,Staat stil in de BES,CM10
+1,Staat stil in de BES zonder Error,CM10
+1,Steering Angle - SSI Transmission Error - F,CM10
+1,Power In-Feed Earth to Ground Connection failure,CM10
+1,Navigation computer too far of travel path,CM10
+1,No TC-IP connect,CM10
+1,Power in Feed  Pre Charging 720 Volt,CM10
+1,Power In-Feed - Pre - Charging 720 V Fault.,CM10
+1,Traction Battery Charge =20%,CM10
+1,Traction Battery-Charge <=20%,CM10
+1,Transponder gemist - AGV556,CM10
+1,"Transponder gemist, op PB gezet.",CM10
+1,Transponder gemist. Plaatsen op PB. (mod. 7/8),CM10
+1,Transponder gemist. Thv Mod 14,CM10
+1,Tyre pressure to high front rear,CM10
+1,Uitlijnen - AGV moet bijsturen om recht te rijden,CM10
+1,Ultrasonic Sensor- Rack Navigation Sensor Error - FR1,CM10
+1,Weight System - Weight Measurement Error,CM10
+1,Wil geen batterij wisselen,CM10
+1,Wil niet Rijden / Zonder Error in FMDS en Teams,CM10
+1,Wil niet wegrijden - Engine off signaal,CM10
+1,Wilt lifttafels niet laten zakken (geen melding),CM10
+1,TEAMS Error: AGV outside claim,CM10
+1,Terminal inspecteren op lekkende AGV,CM10
+1,Tire pressure >= 13 bar too high,CM10
+1,Tire pressure errors,CM10
+1,"Tire Pressure, 13 bar too High FR",CM10
+1,Traction battery - => 55 graden,CM10
+1,Traction Battery - Temperature => 55C,CM10
+1,"Traction Battery - Temperature > = 50 - 55 graden, Wire IQ not Responding Warning",CM10
+1,Steering system steereing fault F,CM10
+1,Sttering system - Steering Fault - F,CM10
+1,Staat rood zonder melding in TEAMS/FMDS,CM10
+1,Staat scheef zonder melding,CM10
+1,Staat vast in de BES - geen foutmelding verder,CM10
+1,TEAMS- Error: Driving timeout,CM10
+1,Teams-Error: AGV outside of claim,CM10
+1,Time-out headcontrol (SLX),CM10
+1,Tire Pressure - 13 Bar too High - FR thv mod. 15,CM10
+1,Tire Pressure Too High,CM10
+1,Tire pressure-13 bar too high-FR,CM10
+1,Traction Battery - Temperature => 50 - 55 AB5070,CM10
+1,Traction Battery -charge <20 %,CM10
+1,Navigation Computer - Undetermind Lift Platfrom State,CM10
+1,Navigation Computer -Computed route data-Index,CM10
+1,Navigation Computer -Drive Tracking Error,CM10
+1,Navigation computer main contactor -K51-K52,CM10
+1,Navigation Computer - AGV tables not raised. AGV must not enter the rack,CM10
+1,Navigation Computer - corrupted Route Data,CM10
+1,Navigation Computer - Corrupted Rpute data - Index,CM10
+1,Navigation Computer - Earth Ground Connection Error,CM10
+1,Lifttafels blijven verkeerde waardes aangeven,CM10
+1,Main switc signal plc is missing,CM10
+1,Na herstart Executor niet goed gealloceerd,CM10
+1,Navigation compter - Transponders not found,CM10
+1,Lift platform - Raising Timeout F and R,CM10
+1,Lift Platform - Raising Timeout -F and R,CM10
+1,Lift Platform - Raising Timeout F/R,CM10
+1,Lift Platform Cilinder Warnung - FML,CM10
+1,Liftafels willen niet zakken,CM10
+1,Liftt tafels blijven geraised,CM10
+1,Lift tafel blijft omhoog staan - AGV staat onder het rek bij module 19,CM10
+1,hydrauliek system pressure low,CM10
+1,Inverter - Hydraulic Pump UZK Too Small 4,CM10
+1,Inverter - Overcurrent Error Via PLC,CM10
+1,Komt niet bij na een update,CM10
+1,Krijg hem niet aan op afstand,CM10
+1,Lift Cylinder L/A/M fout,CM10
+1,Lift Platform - Cylinder Value Irregularity - FMR - FML,CM10
+1,Uitgebruik genomen door Dispatch reden onbekend,CM10
+1,Ultrasonic Sensor - Rack Occupied Sensor - Error - FL,CM10
+1,Ultrasonic Sensor - Rack Occupied Sensor Error - FMR,CM10
+1,Ultrasonic Sensor - Rack Occupied Sensors Error - F-R,CM10
+1,Ultrasoon sensor,CM10
+1,Unable to deallocate,CM10
+1,Verschillende AGV's met low battery errors,CM10
+1,Vervolgd zn route niet meer,CM10
+1,Weight System - Sensor Failure RL,CM10
+1,Weight system -Weight,CM10
+1,Werkzaamheden Mini Terminal,CM10
+1,Wil niet onder het Rack vandaan rijden / zonder error,CM10
+1,Wil zijn Lifttafels niet laten zakken,CM10
+1,Wilde lifttafels niet liften (geen melding),CM10
+1,Wilt niet wegrijden (geen melding),CM10
+1,R Travel Error,CM10
+1,Rear lift table is moving,CM10
+1,Route-List-Response timeout / Lost Heartbeat signal,CM10
+1,Opduwen van Stackkraan AS051,CM10
+1,OPS krijgt de AGV niet ingebruik,CM10
+1,OPS krijgt de agv niet verreden,CM10
+1,PLC - Heartbeat Error,CM10
+1,Portal doet niks,CM10
+1,Navigation Computer - Main contactor (-K52/K53) signal is missing,CM10
+1,Navigation Computer - Pre Charging Fault 720V,CM10
+1,Op verzoek van Dispatch lift platforms laten zakken,CM10
+1,Navigation fout,CM10
+1,NO - TCP IP connect,CM10
+1,No TCP -Ip ConnectNo TCP -Ip Connect,CM10
+1,No -TCP-Ip connect,CM10
+1,AGV blijft met zijn lifttafels gelift in het rack staan,CM10
+1,AGV ging niet uit de bes,CM10
+1,AGV handmatig uit BES2/BEP3 naar buiten rijden.,CM10
+1,AGV handmatig uit BS1 gereden.,CM10
+1,AGV is verkeerdom BEP2 ingereden.,CM10
+1,AGV komt niet meer bij / zonder melding en TEAMS en FMDS,CM10
+1,AGV laat zijn lifttafels niet zakken onder platform,CM10
+1,AGV niet te alloceren na een No TCP IP Connect,CM10
+1,AGV not on transponders,CM10
+1,AGV op transponders plaatsen,CM10
+1,AGV opnieuw op transponders plaatsen,CM10
+1,AGV rijd de BES niet in (PLC - ABB Error),CM10
+1,AGV rijd niet uit BS1 na batterij wissel.,CM10
+1,AGV rijdt op halve snelheid,CM10
+1,AGV staat stil bij module 12 na een teams reset.,CM10
+1,AGV staat stil bij stap 8,CM10
+1,AGV wil niet allocceren in teams.,CM10
+1,AGV wil niet onder rack vandaan rijden met container. (mod 15),CM10
+1,AGV wil niet uit het rack rijden,CM10
+1,Agv wil niet wegrijden voor de BES,CM10
+1,"AGV wilde niet weg rijden, stond op TP bij de BES",CM10
+1,AGV wilt BES 2 niet uitrijden,CM10
+1,AGV wilt BES niet uit rijden,CM10
+1,AGV wissel Miniterminal,CM10
+1,AGV zet een container niet neer op het Rack,CM10
+1,AGV559:No TCP-IP connect,CM10
+1,AGV'S recht zetten i.v.m Route Currently Impossible>,CM10
+1,AGV's van Mini Terminal wisselen.,CM10
+1,Axel Weight too High F+R,CM10
+1,Batterij verkeerd in AGV,CM10
+1,Blijft met zijn Platform omhoog staan onder het Rack / Geen error in FMDS,CM10
+1,Blijft vast staan in BES1,CM10
+1,Brake System - Brake Pressure Low - F & R,CM10
+1,Difference of distance Measurement is greater than Max. Side B,CM10
+1,Diverse AGV's zonder beweging,CM10
+1,E - Stop - Engaged - E-stop Chain Not Ok,CM10
+1,E chane not ok,CM10
+1,Brake system brakes not open,CM10
+1,Brakes opened - unnalowed status (SLX),CM10
+1,CAN-CAN A - Navigation <-> PLC Connection,CM10
+1,Communiceert niet meer met Teams,CM10
+1,Container gelift onder platform. Laat tafel niet zakken.,CM10
+1,E-Stop Engaged - Bumper - Rear,CM10
+1,F-PLC -  Lost Heartbeat Signal,CM10
+1,F-PLC  Lost Heartbeat Signal,CM10
+1,Fuse Tripped - IO Box - F (+L6),CM10
+1,Fuse Tripped - Multi IO Board,CM10
+1,F-PLC - Position F-PLC <-> Navigation,CM10
+1,Fuse Tripped - PLC - D100/D03 (mod 16),CM10
+1,Fuse Tripped - SSI Encoder,CM10
+1,Fuse Tripped - Transponder antenne -R,CM10
+1,Hydraulic System - Return Filter Dirty - 100%,CM10
+1,Hydraulic System - System pressure,CM10
+1,Hydraulic System system pressure low,CM10
+1,Hydraulic system  Pressure low,CM10
+1,Wil niet alloceren na Teams Reset Dispatch,CM10
+1,Wil niet Alloceren na update,CM10
+1,Wil niet Alocceren na TEAMS update,CM10
+1,Wil niet uit de sluis rijden,CM10
+1,Wil zijn Lifttafels niet laten zakken / Geen error in FMDS,CM10
+1,Wilt niet wegrijden voor BES 1,CM10
+1,Uit BES gereden en op de buffer gezet.,CM10
+1,Waiting For Interchange Zone Landside,CM10
+1,AGV speed implausible (f/plc),CM10
+1,AGV staat bij mod. 16 met een container op zijn rug maar rijd niet weg.,CM10
+1,AGV staat bij Module 18 weigert te gaan rijden,CM10
+1,AGV staat haaks op rijrichting,CM10
+1,AGV staat met gelifte Tafels onder het Rack,CM10
+1,AGV staat met zn lifttafels omhoog,CM10
+1,"AGV staat onder het rek van module 21, opdracht blijft hangen (geen foutmelding)",CM10
+1,AGV stilgevallen in BES1,CM10
+1,AGV uit BES gereden positie A,CM10
+1,AGV uit de BES rijden,CM10
+1,AGV vastgelopen tijdens stap 8 van batterijwissel,CM10
+1,AGV was zijn transponders kwijt,CM10
+1,AGV - Traction Battery Shutter Open While  Battery On,CM10
+1,AGV Batterij semi automatisch gewisseld.,CM10
+1,AGV blijft hangen op stap 6 in BS1,CM10
+1,AGV blijft met lifttafels omhoog staan in Rack,CM10
+1,AGV door dispatch niet te alloceren,CM10
+1,AGV op Mini Terminal zetten,CM10
+1,AGV rijd de bes2 niet uit,CM10
+1,Breaks not open front and rear,CM10
+1,Can - Can 2 Battery Wire IQ - System Not Found,CM10
+1,Brake System - Brake Pressure Low - F+R,CM10
+1,"Batterij te laag, direct naar BES met WireIQ overbrugging",CM10
+1,Batterijen wisselen van AGV's tbv Mini Terminal.,CM10
+1,( OCCURRED ): Hydraulic System - System Pressure Sensor Error,CM10
+1,Allocation error,CM10
+1,"Allocation for AGV534 fail, code = other control.",CM10
+1,AVG stond in storing met diverse fouten in Teams,CM10
+1,Axel Weight too High - R - Load Mode Type Error,CM10
+1,( OCCURRED ): Steering Encoder - Error - RR & RL,CM10
+1,( ON ): Brake System - Brakes Still Open - F,CM10
+1,( ON ): Lift Platform - Mechanically Blocked - F,CM10
+1,( ON ): TEAMS-Error: AGV outside claim,CM10
+1,443-Reserve Pressure Sensor Error,CM10
+1,E-stop - Engaged -bumper F,CM10
+1,E-Stop - Engaged Bumper -F,CM10
+1,E-Stop- Engaged-E-Stop Chain Not Ok,CM10
+1,Hydraulic system pressure sensor error,CM10
+1,Inverter - F-Drive - Excess Rotation Speed 17,CM10
+1,Hydraulic System - Hydraulic Temperature Warning (waarschuwingsmelding),CM10
+1,hydraulic System fluid level low warning,CM10
+1,Lift Platform - Cylinder Value Irregulatiry - FR,CM10
+1,Inverter - R-Dive - Overcurrent Error via PLC,CM10
+1,Lift Platform blocked - front & rear,CM10
+1,Lift platform cylinder Value Irregularity - FR,CM10
+1,Lift Platform - Lowering Timeout - F + R,CM10
+1,Lift platform - Lowering Timeout F & R,CM10
+1,Diverse AGV's in storing na update TEAMS,CM10
+1,Diverse meldingen ivm lege batterij,CM10
+1,Drive Encoder -Losing Impulse,CM10
+1,Drive encoder-Not Incremeting,CM10
+1,Driving Timeout (Lekkage geconstateerd),CM10
+1,Driving timeout / F-PLC Heartbeat Error,CM10
+1,E- Stop Engaged - Bumper - F,CM10
+1,E Stop Engaged - chain not Ok,CM10
+1,F-PLC  - Heartbeat Error,CM10
+1,F-PLC-Implausible Steering Angle -R,CM10
+1,Fuse Tripeed - Oil Coller Inverter,CM10
+1,Fuse Tripped - Lift Table R,CM10
+1,Fuse Tripped - Oi Cooler Inverter,CM10
+1,Fuse Tripped - PLC D05 D06,CM10
+1,Fuse Tripped - R Drive Inverter,CM10
+1,Fuse Tripped - Ultrasonic Sensors - F-R,CM10
+1,Fuse Tripped / Oil Cooler inverter,CM10
+1,Fuse tripped- transponder antenne,CM10
+1,Hydraulic  pressure low,CM10
+1,Liftplatforms BothRaised willen niet zakken,CM10
+1,Load type Invalid sensor States,CM10
+1,Low Oil Level Hydraulic Tank,CM10
+1,Multiply Error Reset,CM10
+1,Naigation Computer - Corrupted Route Data - Index,CM10
+1,Navigation Computer - Expected BrakePath Too Long,CM10
+1,Navigation Computer - Hydraulic Cabinet (+L3),CM10
+1,Navigation Computer - Main Contactor (+K52 / K53) - Signal is missing,CM10
+1,Lift Platform Cylinder Warnung - RMR,CM10
+1,Lift platform Mechanically blocked F,CM10
+1,Lift Platform status: FrantRaisedRearLowered,CM10
+1,Lift Platfrom - Mechanically Blocked - F,CM10
+1,Lift tafel problemen,CM10
+1,Lift tafel wil niet zakken ook niet hand matig,CM10
+1,Navigation computer main switch signal from PLC is missing,CM10
+1,Navigation computer to far from travel path,CM10
+1,Navigation Computer: Too Far Off Travel Path,CM10
+1,Niet meer in gebruik te nemen door dispatch,CM10
+1,OPS krijgt de agv niet onder de kraan vandaan staat op laan 2 onder de QC102,CM10
+1,Outside claime,CM10
+1,Platform AGV zakt schuin,CM10
+1,Platform both raised,CM10
+1,Platform both raised. Driving order impossible.,CM10
+1,PLC - ABB Error - Category 3,CM10
+1,Positie onbekend,CM10
+1,Navigation Computer - Maincontractor K52 - K53 Signal is missing,CM10
+1,Navigation Computer - Maximum Steering Angle is Incorrect - FL,CM10
+1,Navigation Computer - Pre-Charging 720 V Fault,CM10
+1,Navigation Computer - Route Navigation too big,CM10
+1,Navigation computer Corrupted route data,CM10
+1,Power Infeed - Circuit Breaker Error,CM10
+1,Safe Load Exchange - Unallowed Satus - Brakes Opened,CM10
+1,Speeding In Reduced Speeding Area,CM10
+1,SPS:  TPS laser warning,CM10
+1,Steering fault,CM10
+1,Steering System - SSI Transmission Error - R,CM10
+1,Rope tension : Pump on fault,CM10
+1,Power InFeed - Electrical Protection Relay Error,CM10
+1,Reageert niet,CM10
+1,Reageert niet staat zonder melding,CM10
+1,Tire Pressure = 13 Bar too high - FL mod 11,CM10
+1,Traction batterij onder 20 %,CM10
+1,Traction Battery - Charge < = 25%,CM10
+1,Traction Battery - Charge <= 25 %,CM10
+1,Steering system- valve and encoder steering error F,CM10
+1,Storing in Ultrasoon sensor RA2,CM10
+1,TEAMS - Error - driving time out,CM10
+1,TEAMS - error driving time out,CM10
+1,Teams error- Driving Time out,CM10
+1,Teams issue: Front moving. (vast onder rack),CM10
+1,Traction Battery-Traction Battery powerpack >20%,CM10
+1,Transponder Antenna - Error F&R,CM10
+1,Transponder Antenna Error - R,CM10
+1,Transponder gemist. Thv mod. 10,CM10
+1,AGV blijft met zijn liftplatformen gelift staan,CM10
+1,AGV blijft met zn lifttafels omhoog staan voor het rek en rijd het rek niet in,CM10
+1,AGV claimt BEP 4,CM10
+1,AGV did not send route reply yet,CM10
+1,AGV Is At Unknown Position,CM10
+1,AGV is niet te allocceren in TEAMS,CM10
+1,AGV is niet te allocceren in teams.,CM10
+1,AGV kan niet worden gealloceerd.,CM10
+1,AGV kwam uit de X-ray maar weigerde daarna weg te rijden,CM10
+1,AGV laat zijn lifttafels niet zakken,CM10
+1,AGV not allocated.,CM10
+1,AGV not on route grid thv mod 12,CM10
+1,AGV outside claim (Lekkage),CM10
+1,AGV rijd niet weg staat onder het rek bij module 10,CM10
+1,AGV rijdt niet onder rack vandaan,CM10
+1,AGV speeding in reduced area,CM10
+1,"AGV staat """"off terminal""""",CM10
+1,AGV staat scheef voor het rack,CM10
+1,AGV Tafel blijft omhoog staan - Hydraulisch druk te laag,CM10
+1,AGV uit claims gereden,CM10
+1,AGV uit de BES 1 rijden op verzoek van Dispatch,CM10
+1,AGV wil de sluis niet uit rijden - PLC ABB error,CM10
+1,AGV wil na herstart Teams niet meer uit de bes rijden,CM10
+1,AGV wil niet weg rijden van PB,CM10
+1,AGV505 niet op transponders,CM10
+1,AGV544 Traction Battery Wire IQ not responding,CM10
+1,AGV548 wil de bes niet uit rijden,CM10
+1,AGV's van Mini Terminal wisselen,CM10
+1,Batterij ontbreekt,CM10
+1,Batterij spanning te laag,CM10
+1,E-Stop - Engaged - E-Stop Chain Not OK F+R,CM10
+1,E-Stop - Engaged - E-stop chain not ok.,CM10
+1,E-Stop - Engaged-Bumper-F,CM10
+1,E-Stop - Hydraulic Cabinet,CM10
+1,F-PLC - Position defference F-PLC <-> Navigation,CM10
+1,F-PLC Implausible Value of Drive Encoder - F,CM10
+1,F-PLC- Position diffrence F-PLC <-> Navigation,CM10
+1,F-PLC -Position Diffrence F-PLC <-> Navigation,CM10
+1,Fuse Tripped - F Drive Inverter,CM10
+1,Fuse Tripped - Transponder Antenne - R,CM10
+1,Fuse tripped F-drive converter,CM10
+1,( ON ): Hydraulic System - Hydraulic Temperature Warning,CM10
+1,( ON ): No TCP-IP connect / ( ON ): Driving timeout / ( ON ): F-PLC - Lost Heartbeat Signal,CM10
+1,( OCCURRED ): Oil Cooler Motor not working (I << Nominal Current),CM10
+1,( ON ): CAN - CAN A - Navigation <=> PLC Connection Interrupted,CM10
+1,AGV - Traction Battery Shutter Open While Battery,CM10
+1,AGV - Traction Traction Battery Shutter Open While Battery On,CM10
+1,Control Fleet Stop,CM10
+1,Direct Stop in de BS1,CM10
+1,Diverse AGV's met storingen,CM10
+1,Drive Encoder - Not Incrementing FL,CM10
+1,Drive Encoder - Not Incremeting - FL,CM10
+1,Drive Encoder Losing Impulses - F,CM10
+1,Driver Encoder - Not Incrementing - RR,CM10
+1,Driving Order Impossible / Wil niet rijden,CM10
+1,Navigation Computer - 'n' transponders not found.,CM10
+1,PLC - ABB Error - Category 3 en 4,CM10
+1,Postition diffrence F-PLC - Navigation,CM10
+1,Power In-Feed - Circuit Braker Error,CM10
+1,route data error difference to  36,CM10
+1,Safe Load Exchange Time Out,CM10
+1,"Staat met 1 gelifte tafel voor het Rack, reageert nergens meer op",CM10
+1,Staat met gelfite tafels voor het Rack,CM10
+1,Staat omhoog met platform doet niks meer,CM10
+1,Staat onder het Rack bij ASC 201,CM10
+1,Staat onder het Rack Doet Niks Meer / Zonder Error,CM10
+1,Staat onder het Rack zonder Melding,CM10
+1,Staat zonder error onder het Rack wil niet meer rijden,CM10
+1,Navigation Computer - Main Contactot (-K52/-K53) Signal is Missing,CM10
+1,Navigation Computer - Main switch signal not responding,CM10
+1,Navigation Computer - Maximum Steering Angle is Incorrect-FR,CM10
+1,Navigation Computer - 'n'  Transponders Not Found,CM10
+1,Navigation Computer - Main Contactor (K51 - K52) Signal is Missing,CM10
+1,Navigation Computer - Main Contactor (-K51/-K52) is missing,CM10
+1,Navigation Computer - Too Far From Travel Path,CM10
+1,Navigation computer Corrupted,CM10
+1,navigation computer expected brake path to long,CM10
+1,Navigation computer: 'n' transponders missing (mod 17),CM10
+1,Navigation Computer: Transponders Not Found,CM10
+1,No-TC IP connect,CM10
+1,Ontbreken twee bouten rechts. Tbv olievulplug van planeetdrivewerk,CM10
+1,Op verzoek van OPS om de AGV op de parallelbuffer te zetten,CM10
+1,Operatie krijgt AGV niet meer gealloceerd,CM10
+1,Lift platform status: Rear is moving,CM10
+1,Lift Platorm - Cilinder Warnung - FML,CM10
+1,Lift Table Errors,CM10
+1,Lift tafels stonden beide omhoog op PB,CM10
+1,lifttafel raised en lowerd,CM10
+1,Lifttafels achterzijde willen niet zakken,CM10
+1,Lifttafels voorzijde willen niet zakken,CM10
+1,Lifttafels willen niet zakken (geen melding FMDS),CM10
+1,Losliggende plaat op AGV,CM10
+1,Met 1 tafel omhoog op rack,CM10
+1,Moving Platfom Position Error,CM10
+1,Navigation Computer - Brake Pathe Too Short,CM10
+1,Navigation Computer - Corrupted Data Index,CM10
+1,Lift Platform blocked - front -rear,CM10
+1,Lift platform komt niet op,CM10
+1,Lift Platform - Raising  Timeout - F,CM10
+1,Lift platform not raisesd,CM10
+1,Lift platform Raised,CM10
+1,Lift Platform Status - Both Raised,CM10
+1,Lift Platform - Cylinder Warmung - RR,CM10
+1,Inverter R-Drive Error/Navigation computer,CM10
+1,IP adres kwijt,CM10
+1,Kan de route niet vinden,CM10
+1,Last order invalid Undefinded state in BEC,CM10
+1,Lift Platform - Cilinder Warning - RR,CM10
+1,Inverter - Oil Cooler - Inverter 14,CM10
+1,Hoop rode meldingen,CM10
+1,Inverter - F+R-Drive - Overcurrent Error via PLC,CM10
+1,Handmatig uit BS1 gereden.,CM10
+1,E-Stop- Engaged - Bumper - F,CM10
+1,Transponder Antenna - Error - F&R,CM10
+1,Traction batterij onder 20%,CM10
+1,Traction Battery - Temperature > = 55 C,CM10
+1,Traction Battery - Temperature >= 50-55 graden,CM10
+1,Traction Battery Charge <= 20%,CM10
+1,System battery charge error,CM10
+1,"Tafel 1 staat geligt, tafel 2 niet.",CM10
+1,Te lage batterij spanning,CM10
+1,TEAMS- Error : Driving timeout,CM10
+1,Steering System - Steering Fault F,CM10
+1,steering system traction Error F,CM10
+1,Ultrasonic sensor -Rack Occupied Sensor error FML,CM10
+1,Undetermined Lift Platform State / Warnung Cilinder FMR,CM10
+1,Verkeerde asset ingevuld,CM10
+1,Verkerde Asset ingevuld - Diverse AGV's na opstart met Inverter Errors,CM10
+1,Weight System - Sensor Failure - RL,CM10
+1,Wil batterij  niet wisselen,CM10
+1,Wil met gelifte tafel het Rack inrijden,CM10
+1,Wil niet bijkomen na reset TD,CM10
+1,Wil niet wegrijden / Zonder error in FMDS en TEAMS,CM10
+1,Wil niet wegrijden uit de BES / Traction Battery Shutter Did Not Close,CM10

@@ -139,13 +139,39 @@ class EAD(object):
                 temp_str = temp_str[:-1] + '\n'
                 f.write(temp_str)
 
+    def DurationByType(self):
+        output = []
+        with open("C:\Code\ELCM\Data\Duration.csv", mode='r', encoding='utf-8-sig') as f:
+            fs = f.readlines()
+        for row in fs:
+            row = row.split(",")
+            row[0] = float(row[0]) / 3600
+            row[2] = row[2][1:-2].strip()
+            output.append(row)
+        with open("C:\Code\ELCM\Data\Duration2.csv", mode='w') as f:
+            for row in output:
+                for i, e in enumerate(row):
+                    if i == 2:
+                        try:
+                            f.write(str(e))
+                        except UnicodeError:
+                            f.write('Power In-Feed DC/DC Converter G23 Error')
+                    else:
+                        try:
+                            f.write(str(e) + ",")
+                        except UnicodeError:
+                            f.write('Power In-Feed DC/DC Converter G23 Error')
+                f.write("\n")
+
+    
+
 
 
 def main():
     # Boot
     print("Start analyzing ELCM data")
     S = EAD()
-    S.AllErrorTS()
+    S.DurationByType() 
     print("Analyzing finished")
 
 
