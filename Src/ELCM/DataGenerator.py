@@ -21,7 +21,9 @@ class DataGenerator():
             columns = [column[0] for column in cursor.description]
             work_descr = cursor.fetchall()[0][1]
             # select all work_order for the target work description
-            query2 = "SELECT * FROM dbo.MAXIMO_WORKORDERS WHERE WO_WORKTYPE = '{0}' AND WO_DESCR = '{1}' AND WO_REPORTDATE > '{2}' ORDER BY WO_REPORTDATE DESC".format(worktype, work_descr, analysis_date)
+            query2 = "SELECT \
+            TRIM([WO_NUM]) AS WO_NUM,[WO_DESCR],[WO_STATUS],[WO_WORKTYPE],[WO_CLASS],[WO_PRIO],TRIM([WO_LOCATION]) AS WO_LOCATION ,[WO_ASSET],[WO_PM],[WO_JOBPLAN],[WO_PROBLEMCODE],[WO_SUPERVISOR] ,[WO_LEAD],[WO_OWNER],[WO_FAILCODE],[WO_PROBLEM],[WO_REMEDY],[WO_CAUSE],[WO_REPORTDATE],[WO_ACTCOMP] \
+            FROM dbo.MAXIMO_WORKORDERS WHERE WO_WORKTYPE = '{0}' AND WO_DESCR = '{1}' AND WO_REPORTDATE > '{2}' ORDER BY WO_REPORTDATE DESC".format(worktype, work_descr, analysis_date)
             cursor.execute(query2)
             all_target_variables = cursor.fetchall()
             target_variables_columns = [column[0] for column in cursor.description]
@@ -31,9 +33,9 @@ class DataGenerator():
                 date = row[-2]
                 # select all events
                 events, events_columns = self.select_events(agv, date, window)
-                with open("C\Code\ELCM\TempData\{}".format(worktype + work_descr + str(number_of_points + '.csv'))) as f:
+                with open("C\Code\ELCM\TempData\{}".format(worktype + "_" + work_descr + "_" + str(number_of_points) + '.csv'), 'w') as f:
                     # writing target variable column
-                    f.wirte(",".join(target_variables_columns) + "\n")
+                    f.wirte(",".join(target_variables_columns) + "\n") 
                     # writing target variable
                     f.write(",".join(row) + "\n")
                     # writing event column
@@ -49,7 +51,9 @@ class DataGenerator():
             cursor = conn.cursor()
             date_end = datetime.strptime(date[:-1], "%Y-%m-%d %H:%M:%S.%f")
             date_start = date_end - timedelta(days = window)
-            query1 = "SELECT * FROM dbo.FMDS_EVENTS_2018 WHERE DEVICE_ID = '{0}' AND DATE_EVENT < '{1}' AND DATE_EVENT > '{2}' ORDER BY DATE_EVENT DESC".format(agv, str(date_end), str(date_start))
+            query1 = "SELECT \
+            [RECORD_ID], [DATE_EVENT], TRIM([DEVICE_ID]) AS DEVICE_ID ,TRIM([ITEMNAME]) AS ITEMNAME, TRIM([ITEMVALUE]) AS ITEMVALUE\
+            FROM dbo.FMDS_EVENTS_2018 WHERE DEVICE_ID = '{0}' AND DATE_EVENT < '{1}' AND DATE_EVENT > '{2}' ORDER BY DATE_EVENT DESC".format(agv, str(date_end), str(date_start))
             cursor.execute(query1)
             events = cursor.fetchall()
             events_columns = [column[0] for column in cursor.description]
