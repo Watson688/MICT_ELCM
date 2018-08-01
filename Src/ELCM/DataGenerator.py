@@ -4,6 +4,7 @@ import pandas
 from datetime import datetime
 from datetime import timedelta
 
+
 class DataGenerator():
     def __init__(self):
         self.connection_string = connection_string = "Driver={SQL Server};Server=princeton;Database=MICT_ELCM;UID=sa;PWD=%5qlish!;"
@@ -15,34 +16,36 @@ class DataGenerator():
         with pypyodbc.connect(connection_string, autocommit = True) as conn:
             cursor = conn.cursor()
             # select target work description
-            query1 = "SELECT TOP({}) COUNT(WO_DESCR) AS TOTAL, TRIM(WO_DESCR) AS WO_DESCR, TRIM(MAX(WO_WORKTYPE)) AS WO_WORKTYPE FROM \
+            query1 = "SELECT TOP({}) COUNT(WO_DESCR) AS TOTAL, WO_DESCR, MAX(WO_WORKTYPE) AS WO_WORKTYPE FROM \
             (SELECT * FROM dbo.MAXIMO_WORKORDERS WHERE WO_WORKTYPE = '{}') A GROUP BY WO_DESCR ORDER BY TOTAL DESC".format(str(n), worktype)
             cursor.execute(query1)
             columns = [column[0] for column in cursor.description]
             work_descr = cursor.fetchall()[0][1]
             # select all work_order for the target work description
-            query2 = "SELECT \
-            TRIM([WO_NUM]) AS WO_NUM,[WO_DESCR],[WO_STATUS],[WO_WORKTYPE],[WO_CLASS],[WO_PRIO],TRIM([WO_LOCATION]) AS WO_LOCATION ,[WO_ASSET],[WO_PM],[WO_JOBPLAN],[WO_PROBLEMCODE],[WO_SUPERVISOR] ,[WO_LEAD],[WO_OWNER],[WO_FAILCODE],[WO_PROBLEM],[WO_REMEDY],[WO_CAUSE],[WO_REPORTDATE],[WO_ACTCOMP] \
+            query2 = "SELECT * \
             FROM dbo.MAXIMO_WORKORDERS WHERE WO_WORKTYPE = '{0}' AND WO_DESCR = '{1}' AND WO_REPORTDATE > '{2}' ORDER BY WO_REPORTDATE DESC".format(worktype, work_descr, analysis_date)
             cursor.execute(query2)
             all_target_variables = cursor.fetchall()
+            print("{} points found".format(str(len(all_target_variables))))
             target_variables_columns = [column[0] for column in cursor.description]
             number_of_points = 0
-            for row in all_target_variables:
-                agv = row[6][:-1]
-                date = row[-2]
+            for r in all_target_variables:
+                agv = r[6][:-1]
+                date = r[-2]
                 # select all events
                 events, events_columns = self.select_events(agv, date, window)
-                with open("C\Code\ELCM\TempData\{}".format(worktype + "_" + work_descr + "_" + str(number_of_points) + '.csv'), 'w') as f:
-                    # writing target variable column
-                    f.wirte(",".join(target_variables_columns) + "\n") 
+                # writing target variable column
+                with open("C:\Code\ELCM\TempData\{}".format(worktype + "_" + work_descr + "_" + str(number_of_points)) + '.csv', "w") as f:
+                    f.write(",".join(target_variables_columns) + "\n") 
                     # writing target variable
-                    f.write(",".join(row) + "\n")
+                    f.write(",".join([str(rr) for rr in r]) + "\n")
                     # writing event column
                     f.write(",".join(events_columns) + "\n")
                     for row in events:
-                        f.write(".".join(row) + "\n")
-                    print("writing finished")
+                        f.write(".".join([str(rr) for rr in row]) + "\n")
+                number_of_points += 1
+                print("wrote {} files".format(str(number_of_points)))
+            print("writing finished")
 
     def select_events(self, agv, date, window):
         #SELECT * FROM dbo.FMDS_EVENTS_2018 WHERE DEVICE_ID = 'AGV538' AND DATE_EVENT < '2018-06-20 12:00:00.0000000' AND DATE_EVENT > '2018-06-15 00:00:00.0000000' ORDER BY DATE_EVENT DESC
