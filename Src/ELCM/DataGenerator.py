@@ -42,7 +42,7 @@ class DataGenerator():
                     # writing event column
                     f.write(",".join(events_columns) + "\n")
                     for row in events:
-                        f.write(".".join([str(rr) for rr in row]) + "\n")
+                        f.write(",".join([str(rr) for rr in row]) + "\n")
                 number_of_points += 1
                 print("wrote {} files".format(str(number_of_points)))
             print("writing finished")
