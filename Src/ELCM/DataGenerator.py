@@ -122,6 +122,7 @@ def main():
     # Boot
     print("Start Generating training data...")
     S = DataGenerator()
+    # start date, error message, window size, time delta type
     S.Generator_errormessage('2017-12-31 00:00:00.0000000', 'Management System - Direct Stop', 3, "hour") 
     print("Generating finished...")
 
