@@ -52,7 +52,7 @@ class DataGenerator():
         connection_string = self.connection_string
         with pypyodbc.connect(connection_string, autocommit = True) as conn:
             cursor = conn.cursor()
-            date_end = datetime.strptime(date[:-1], "%Y-%m-%d %H:%M:%S.%f")
+            date_end = datetime.strptime(str(date)[:-1], "%Y-%m-%d %H:%M:%S.%f")
             date_start = date_end - timedelta(days = window)
             query1 = "SELECT \
             [RECORD_ID], [DATE_EVENT], TRIM([DEVICE_ID]) AS DEVICE_ID ,TRIM([ITEMNAME]) AS ITEMNAME, TRIM([ITEMVALUE]) AS ITEMVALUE\
