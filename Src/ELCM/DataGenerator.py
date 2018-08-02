@@ -50,7 +50,7 @@ class DataGenerator():
             print("wrote {} files".format(str(number_of_points)))
         print("writing finished")
 
-    def Generator_errormessage(self, analysis_date, error_message, window):
+    def Generator_errormessage(self, analysis_date, error_message, window, windowtype):
         # construct training data set based on the error message
         connection_string = self.connection_string
         with pypyodbc.connect(connection_string, autocommit=True) as conn:
@@ -65,14 +65,14 @@ class DataGenerator():
         for f in files:
             os.remove(f)
         print("Removed old files")
-        with open(self.output_directory + "{}".format(error_message) + '.csv', "w") as f:
+        with open(self.output_directory + "{}".format(error_message) + "_" + str(window) + "_" + windowtype + ".csv", "w") as f:
             for target in all_target_variables:
                 agv = target[0]
                 date = target[1]
                 print("Selecting events")
-                events, events_columns = self.select_events(agv, date, window, "hour")
+                events, events_columns = self.select_events(agv, date, window, windowtype)
                 print("{} events in total".format(len(events)))
-                # initializing the role, use null to aviod confict with real 0s
+                # initializing the role, use null to aviod conficting with real 0s
                 for e in evnets_columns:
                     clustered_events[e] = ['NULL']
                 for e in events:
@@ -122,7 +122,7 @@ def main():
     # Boot
     print("Start Generating training data...")
     S = DataGenerator()
-    S.Generator_errormessage('2017-12-31 00:00:00.0000000', 'Management System - Direct Stop', 3) 
+    S.Generator_errormessage('2017-12-31 00:00:00.0000000', 'Management System - Direct Stop', 3, "hour") 
     print("Generating finished...")
 
 
