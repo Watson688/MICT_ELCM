@@ -83,7 +83,7 @@ class DataGenerator():
                 # write the row
                 temp_row = []
                 for c in events_columns:
-                    # need to change the aggregation function later, now just choose the first element
+                    # need to modify aggregation function later, now just choose the first non-null element
                     temp_row.append(self.aggregation(clustered_events[c]))
                     temp_row = [x.replace(",", " ") for x in temp_row]
                     f.write(",".join(temp_row) + "," + erorr_message + "\n")
