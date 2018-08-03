@@ -115,6 +115,7 @@ class DataGenerator():
         pass
 
     def aggregation(l):
+        # need more work
         return l[1]
 
     
