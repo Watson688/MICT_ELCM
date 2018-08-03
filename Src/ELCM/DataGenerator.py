@@ -116,6 +116,8 @@ class DataGenerator():
 
     def aggregation(l):
         # need more work
+        if len(l) == 1:
+            return l[0]
         return l[1]
 
     
