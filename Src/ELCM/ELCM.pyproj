@@ -12,6 +12,7 @@
     <OutputPath>.</OutputPath>
     <Name>ELCM</Name>
     <RootNamespace>MICT_ELCM</RootNamespace>
+    <IsWindowsApplication>False</IsWindowsApplication>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -26,6 +27,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="EDA.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ITEMNAME.csv" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
