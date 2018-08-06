@@ -12,7 +12,7 @@ class DataGenerator():
         self.connection_string = connection_string = "Driver={SQL Server};Server=princeton;Database=MICT_ELCM;UID=sa;PWD=%5qlish!;"
         self.output_directory = "C:\Code\ELCM\TempData\\"
 
-    def Generator_worktype(self, analysis_date, worktype, window, n = 1):
+    def generator_worktype(self, analysis_date, worktype, window, n = 1):
         # construct training data set based on the worktype
         connection_string = self.connection_string
         # select target work description
@@ -50,66 +50,69 @@ class DataGenerator():
             print("wrote {} files".format(str(number_of_points)))
         print("writing finished")
 
-    def Generator_errormessage(self, analysis_date, error_message, window, windowtype):
+    def generator_errormessage(self, analysis_date, error_message, window, windowtype):
         # construct training data set based on the error message
+        all_rows = []
         connection_string = self.connection_string
         with pypyodbc.connect(connection_string, autocommit=True) as conn:
             clustered_events = {}
             cursor = conn.cursor()
-            print("Selecting target variables")
+            print("selecting target variables")
             query1 = "SELECT  DEVICE, DATE_OCCURRED  FROM dbo.FMDS_ERRORS WHERE ERROR_MESSAGE = 'Management System - Direct Stop' ORDER BY DATE_OCCURRED DESC"
             cursor.execute(query1)
             all_target_variables = cursor.fetchall()
-        print("Removing old files")
-        files = glob.glob("C:\Code\ELCM\TempData\*")
-        for f in files:
-            os.remove(f)
-        print("Removed old files")
-        with open(self.output_directory + "{}".format(error_message) + "_" + str(window) + "_" + windowtype + ".csv", "w") as f:
+        with pypyodbc.connect(connection_string, autocommit = True) as conn:
+            cursor = conn.cursor()
             for target in all_target_variables:
                 agv = target[0]
                 date = target[1]
-                print("Selecting events")
-                events, events_columns = self.select_events(agv, date, window, windowtype)
+                print("selecting events")
+                events, events_columns = self.select_events(agv, date, window, windowtype, cursor)
                 print("{} events in total".format(len(events)))
                 # initializing the role, use null to aviod conficting with real 0s
-                for e in evnets_columns:
-                    clustered_events[e] = ['NULL']
+                for c in events_columns:
+                    clustered_events[c] = ['None']
                 for e in events:
-                    clustered_events[e[3]].append(e[4])
-                print("Start writing")
-                # write the header
-                f.write(",".join(events_columns) + "," + "target" + "\n")
-                # write the row
+                    if e == "PositionX,PositionY,Velocity,Arc" or e == "DefectTPX,DefectTPY,DefectTPDate,DefectTPTime,DefectTPAntennaPos"\
+                        or e == "Batt1StateOfCharge,Batt2StateOfCharge,Batt3StateOfCharge,Batt4StateOfCharge,Batt5StateOfCharge,Batt6StateOfCharge,Batt7StateOfCharge,Batt8StateOfCharge,Batt9StateOfCharge" \
+                        or e == "PLCBrakeResistorFrontTemperature"\
+                        or e == "PLCBrakeResistorRearTemperaturee":
+                        continue
+                    else:
+                        clustered_events[e[3]].append(e[4])
                 temp_row = []
                 for c in events_columns:
                     # need to modify aggregation function later, now just choose the first non-null element
                     temp_row.append(self.aggregation(clustered_events[c]))
-                    temp_row = [x.replace(",", " ") for x in temp_row]
-                    f.write(",".join(temp_row) + "," + erorr_message + "\n")
-        print("Generating finished")
+                    all_rows.append(",".join([x.replace(",", " ") for x in temp_row]) + "," + erorr_message + "\n")
 
-    def select_events(self, agv, date, window, windowtype):
+
+                print("start writing")
+            with open(self.output_directory + "{}".format(error_message) + "_" + str(window) + "_" + windowtype + ".csv", "w") as f:
+                # write the header
+                f.write(",".join(events_columns) + "," + "target" + "\n")
+                for r in all_rows:
+                    f.write(r)
+        print("generating finished")
+
+    def select_events(self, agv, date, window, windowtype, cursor):
         #SELECT * FROM dbo.FMDS_EVENTS_2018 WHERE DEVICE_ID = 'AGV538' AND DATE_EVENT < '2018-06-20 12:00:00.0000000' AND DATE_EVENT > '2018-06-15 00:00:00.0000000' ORDER BY DATE_EVENT DESC
-        connection_string = self.connection_string
-        with pypyodbc.connect(connection_string, autocommit = True) as conn:
-            cursor = conn.cursor()
-            date_end = datetime.strptime(str(date)[:-1], "%Y-%m-%d %H:%M:%S.%f")
-            if windowtype == "day":
-                date_start = date_end - timedelta(days = window)
-            if windowtype == "hour":
-                date_start = date_end - timedelta(hours = window)
-            if windowtype == "minute":
-                date_start = date_end - timedelta(minutes = window)
-            if windowtype == "second":
-                date_start = date_end - timedelta(seconds = window)
-            query1 = "SELECT\
-            [RECORD_ID], [DATE_EVENT], TRIM([DEVICE_ID]) AS DEVICE_ID ,TRIM([ITEMNAME]) AS ITEMNAME, TRIM([ITEMVALUE]) AS ITEMVALUE\
-            FROM dbo.FMDS_EVENTS_2018 WHERE DEVICE_ID = '{0}' AND DATE_EVENT < '{1}' AND DATE_EVENT > '{2}' ORDER BY DATE_EVENT DESC".format(agv, str(date_end), str(date_start))
-            cursor.execute(query1)
-            events = cursor.fetchall()
-            events_columns = [column[0] for column in cursor.description]
-            return events, events_columns
+        date_end = datetime.strptime(str(date)[:-1], "%Y-%m-%d %H:%M:%S.%f")
+        if windowtype == "day":
+            date_start = date_end - timedelta(days = window)
+        if windowtype == "hour":
+            date_start = date_end - timedelta(hours = window)
+        if windowtype == "minute":
+            date_start = date_end - timedelta(minutes = window)
+        if windowtype == "second":
+            date_start = date_end - timedelta(seconds = window)
+        query1 = "SELECT\
+        [RECORD_ID], [DATE_EVENT], TRIM([DEVICE_ID]) AS DEVICE_ID ,TRIM([ITEMNAME]) AS ITEMNAME, TRIM([ITEMVALUE]) AS ITEMVALUE\
+        FROM dbo.FMDS_EVENTS_2018 WHERE DEVICE_ID = '{0}' AND DATE_EVENT < '{1}' AND DATE_EVENT > '{2}' ORDER BY DATE_EVENT DESC".format(agv, str(date_end), str(date_start))
+        cursor.execute(query1)
+        events = cursor.fetchall()
+        events_columns = [column[0] for column in cursor.description]
+        return events, events_columns
 
     def select_errors(self, agv, window):
         pass
@@ -126,7 +129,7 @@ def main():
     print("Start Generating training data...")
     S = DataGenerator()
     # start date, error message, window size, time delta type
-    S.Generator_errormessage('2017-12-31 00:00:00.0000000', 'Management System - Direct Stop', 3, "hour") 
+    S.generator_errormessage('2017-12-31 00:00:00.0000000', 'Management System - Direct Stop', 10, "minute") 
     print("Generating finished...")
 
 

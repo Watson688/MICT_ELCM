@@ -8,7 +8,6 @@ BatStateOfChargePercentage
 BatStateOfChargePercentageTemperature
 Batt1BatteryID
 Batt1CumulatedAhInDischarge
-Batt1StateOfCharge,Batt2StateOfCharge,Batt3StateOfCharge,Batt4StateOfCharge,Batt5StateOfCharge,Batt6StateOfCharge,Batt7StateOfCharge,Batt8StateOfCharge,Batt9StateOfCharge
 Batt2CumulatedAhInDischarge
 Batt3CumulatedAhInDischarge
 Batt4CumulatedAhInDischarge
@@ -17,18 +16,14 @@ Batt6CumulatedAhInDischarge
 Batt7CumulatedAhInDischarge
 Batt8CumulatedAhInDischarge
 Batt9CumulatedAhInDischarge
-DefectTPX,DefectTPY,DefectTPDate,DefectTPTime,DefectTPAntennaPos
 DrivingDistanceBackward
 DrivingDistanceForward
 DrivingOpHours
 HighPressOpHours
 LiftStateFront
 LiftStateRear
-PLCBrakeResistorFrontTemperature
-PLCBrakeResistorRearTemperature
 PLCHydraulicCoolingOn
 PLCVersion
-PositionX,PositionY,Velocity,Arc
 TemperatureCabinetL1
 TemperatureCabinetL2
 TemperatureCabinetL3
