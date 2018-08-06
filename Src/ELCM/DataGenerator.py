@@ -85,8 +85,6 @@ class DataGenerator():
                     # need to modify aggregation function later, now just choose the first non-null element
                     temp_row.append(self.aggregation(clustered_events[c]))
                     all_rows.append(",".join([x.replace(",", " ") for x in temp_row]) + "," + erorr_message + "\n")
-
-
                 print("start writing")
             with open(self.output_directory + "{}".format(error_message) + "_" + str(window) + "_" + windowtype + ".csv", "w") as f:
                 # write the header
