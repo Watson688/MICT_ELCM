@@ -64,6 +64,7 @@ class DataGenerator():
             query1 = "SELECT TOP(1000) DEVICE, DATE_OCCURRED  FROM dbo.FMDS_ERRORS WHERE ERROR_MESSAGE = 'Management System - Direct Stop' ORDER BY DATE_OCCURRED DESC"
             cursor.execute(query1)
             all_target_variables = cursor.fetchall()
+            print("selected {} target variables".format(str(len(all_target_variables))))
         count = 1
         print("selecting events")
         for target in all_target_variables:
