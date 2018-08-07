@@ -1,8 +1,8 @@
 import os
 import glob
 import pypyodbc
-import numpy
-import pandas
+import numpy as np
+import pandas as pd
 from datetime import datetime
 from datetime import timedelta
 
@@ -82,7 +82,7 @@ class DataGenerator():
             for c in column_names:
                 # need to modify aggregation function later, now just choose the first non-null element
                 temp_row.append(self.aggregation(c, clustered_events[c], agv, trace_back_date))
-            all_rows.append(",".join([x.replace(",", " ") for x in temp_row]) + "," + error_message + "\n")
+            all_rows.append(",".join([str(x) for x in temp_row]) + "," + error_message + "\n")
             count += 1
         with open(self.output_directory + "{}".format(error_message) + "_" + str(window) + "_" + windowtype + ".csv", "w") as f:
             # write the header
@@ -121,7 +121,7 @@ class DataGenerator():
             # back trace
             try:
                 with pypyodbc.connect(self.connection_string, autocommit = True) as conn:
-                    cursor = conn.cursor()
+                    cursor = conn.cursor()  
                     query = "SELECT TOP(1) TRIM(ITEMVALUE) AS ITEMVALUE FROM dbo.FMDS_EVENTS_2018 WHERE DEVICE_ID = '{0}' AND DATE_EVENT < '{1}' AND DATE_EVENT > '{2}' AND ITEMNAME = '{3}' ORDER BY DATE_EVENT DESC".format(agv, end_date, start_date, event_type)
                     cursor.execute(query)
                     r = cursor.fetchall()[0][0]
@@ -129,7 +129,7 @@ class DataGenerator():
                 return 'None'
             return r
         else:
-            return l[1]
+            return np.mean([int(x) for x in l[1:]])
 
     
 def main():

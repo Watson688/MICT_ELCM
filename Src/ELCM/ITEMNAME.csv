@@ -1,12 +1,9 @@
 AgvOpHours
-AGVVersion
 AxleLoadFront
 AxleLoadRear
-BatIsEveryBatteryFullyCharged
 BatMinTemperature
 BatStateOfChargePercentage
 BatStateOfChargePercentageTemperature
-Batt1BatteryID
 Batt1CumulatedAhInDischarge
 Batt2CumulatedAhInDischarge
 Batt3CumulatedAhInDischarge
@@ -23,7 +20,6 @@ HighPressOpHours
 LiftStateFront
 LiftStateRear
 PLCHydraulicCoolingOn
-PLCVersion
 TemperatureCabinetL1
 TemperatureCabinetL2
 TemperatureCabinetL3
