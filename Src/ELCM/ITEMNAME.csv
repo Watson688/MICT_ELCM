@@ -29,11 +29,3 @@ TemperatureCabinetL2
 TemperatureCabinetL3
 TemperatureCabinetL4
 TimeBeingAllocated
-TirePressureFrontLeft
-TirePressureFrontRight
-TirePressureRearLeft
-TirePressureRearRight
-TireTempFrontLeft
-TireTempFrontRight
-TireTempRearLeft
-TireTempRearRight

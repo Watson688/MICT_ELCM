@@ -11,6 +11,8 @@ class DataGenerator():
     def __init__(self):
         self.connection_string = "Driver={SQL Server};Server=princeton;Database=MICT_ELCM;UID=sa;PWD=%5qlish!;"
         self.output_directory = "C:\Code\ELCM\TempData\\"
+        # maximum trace back days
+        self.trace_max = 3
 
     def generator_worktype(self, analysis_date, worktype, window, n = 1):
         # construct training data set based on the worktype
@@ -59,7 +61,7 @@ class DataGenerator():
             clustered_events = {}
             cursor = conn.cursor()
             print("selecting target variables")
-            query1 = "SELECT TOP(5) DEVICE, DATE_OCCURRED  FROM dbo.FMDS_ERRORS WHERE ERROR_MESSAGE = 'Management System - Direct Stop' ORDER BY DATE_OCCURRED DESC"
+            query1 = "SELECT TOP(1000) DEVICE, DATE_OCCURRED  FROM dbo.FMDS_ERRORS WHERE ERROR_MESSAGE = 'Management System - Direct Stop' ORDER BY DATE_OCCURRED DESC"
             cursor.execute(query1)
             all_target_variables = cursor.fetchall()
         count = 1
@@ -74,12 +76,7 @@ class DataGenerator():
             for c in column_names:
                 clustered_events[c] = ['None']
             for e in events:
-                if e[3] == "PositionX,PositionY,Velocity,Arc" or e[3] == "DefectTPX,DefectTPY,DefectTPDate,DefectTPTime,DefectTPAntennaPos"\
-                    or e[3] == "Batt1StateOfCharge,Batt2StateOfCharge,Batt3StateOfCharge,Batt4StateOfCharge,Batt5StateOfCharge,Batt6StateOfCharge,Batt7StateOfCharge,Batt8StateOfCharge,Batt9StateOfCharge" \
-                    or e[3] == "PLCBrakeResistorFrontTemperature"\
-                    or e[3] == "PLCBrakeResistorRearTemperature":
-                    continue
-                else:
+                if e[3] in column_names:
                     clustered_events[e[3]].append(e[4])
             temp_row = []
             for c in column_names:
@@ -118,15 +115,19 @@ class DataGenerator():
         pass
 
     def aggregation(self, event_type, l, agv, end_date):
+        start_date = end_date - timedelta(days=self.trace_max)
         # need more work 
         if len(l) == 1:
             # back trace
-            with pypyodbc.connect(self.connection_string, autocommit = True) as conn:
-                cursor = conn.cursor()
-                query = "SELECT TOP(1) TRIM(ITEMVALUE) AS ITEMVALUE FROM dbo.FMDS_EVENTS_2018 WHERE DEVICE_ID = '{0}' AND DATE_EVENT < '{1}' AND ITEMNAME = '{2}' ORDER BY DATE_EVENT DESC".format(agv, end_date, event_type)
-                cursor.execute(query)
-                r = cursor.fetchall()
-            return r[0][0]
+            try:
+                with pypyodbc.connect(self.connection_string, autocommit = True) as conn:
+                    cursor = conn.cursor()
+                    query = "SELECT TOP(1) TRIM(ITEMVALUE) AS ITEMVALUE FROM dbo.FMDS_EVENTS_2018 WHERE DEVICE_ID = '{0}' AND DATE_EVENT < '{1}' AND DATE_EVENT > '{2}' AND ITEMNAME = '{3}' ORDER BY DATE_EVENT DESC".format(agv, end_date, start_date, event_type)
+                    cursor.execute(query)
+                    r = cursor.fetchall()[0][0]
+            except Exception as e:
+                return 'None'
+            return r
         else:
             return l[1]
 
@@ -138,7 +139,7 @@ def main():
     print(str(datetime.now()))
     S = DataGenerator()
     # start date, error message, window size, time delta type
-    S.generator_errormessage('2017-12-31 00:00:00.0000000', 'Management System - Direct Stop', 20, "minute") 
+    S.generator_errormessage('2017-12-31 00:00:00.0000000', 'Management System - Direct Stop', 30, "minute") 
     print(str(datetime.now()))
     print("generating finished...")
 
