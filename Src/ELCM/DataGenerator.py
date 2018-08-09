@@ -13,6 +13,7 @@ class DataGenerator():
         self.output_directory = "C:\Code\ELCM\TempData\\"
         # maximum trace back days
         self.trace_max = 3
+        self.all_query_parameters = []
     
     # not in use now
     def generator_worktype(self, analysis_date, worktype, window, n = 1):
@@ -54,25 +55,39 @@ class DataGenerator():
         print("writing finished")
 
     def generator_errormessage(self, analysis_start_date, error_message, window_size, windowtype):
+        all_rows = []
+        # 1. get all feature we need
         with open("ITEMNAME.csv") as f:
             column_names = [ x.strip() for x in f.readlines()]
-        # construct training data set based on the error message
-        all_rows = []
+        # 2. select all target variables
         with pypyodbc.connect(self.connection_string, autocommit=True) as conn:
             clustered_events = {}
             cursor = conn.cursor()
-            print("selecting target variables")
             query1 = "SELECT TOP(1000) DEVICE, DATE_OCCURRED FROM dbo.FMDS_ERRORS WHERE ERROR_MESSAGE = '{0}' ORDER BY DATE_OCCURRED DESC".format(error_message)
             cursor.execute(query1)
             all_target_variables = cursor.fetchall()
             print("selected {} target variables".format(str(len(all_target_variables))))
-        count = 1
-        print("selecting events")
+        # 3. construct queries for abnormal cases
+        print("construct queries for abnormal cases")
         for target in all_target_variables:
             agv = target[0]
             date = target[1]
-            # select events
-            events, trace_back_date = self.select_events(agv, date, window_size, windowtype)
+            end_date = datetime.strptime(str(date)[:-1], "%Y-%m-%d %H:%M:%S.%f")
+            exec("print(end_date)")
+            expression = "start_date = end_date - timedelta({0} = {1})".format(windowtype, str(window_size))
+            exec(expression, {'timedelta': timedelta})
+            self.all_query_parameters.append([agv, start_date, end_date])
+        # 4. constrcut queries for normal cases
+        print("construct queries for normal cases")
+        self.normal_event_detector(analysis_start_date, error_message, all_target_variables, window_size, window_type)
+        # 5. start selecting events, and clean the selected data
+        count = 1
+        print("selecting events")
+        for parameters in self.all_query_parameters:
+            agv = parameters[0]
+            start_date = parameters[1]
+            end_date = parameters[2]
+            events = self.select_events(agv, start_date, end_date)
             print( "{} events in the row".format(len(events)) + " , " +  "{0} / {1}".format(str(count), str(len(all_target_variables))) )
             # initializing the role, use null to aviod conficting with real 0s
             for c in column_names:
@@ -82,27 +97,26 @@ class DataGenerator():
                     clustered_events[e[3]].append(e[4])
             temp_row = []
             for c in column_names:
-                # need to modify aggregation function later, now just choose the first non-null element
-                temp_row.append(self.aggregation(c, clustered_events[c], agv, trace_back_date))
+                temp_row.append(self.aggregation(c, clustered_events[c], agv, start_date))
             all_rows.append(",".join([str(x) for x in temp_row]) + "," + error_message + "\n")
             count += 1
         file_name = self.output_directory + "{}".format(error_message) + "_" + str(window_size) + "_" + windowtype + ".csv"
+        # 6. write to the file
         with open(file_name, "w") as f:
             # write the header
             f.write(",".join(column_names) + "," + "target" + "\n")
             for r in all_rows:
                 f.write(r)
-        # write down the normal case without error to the same file
-        self.normal_event_detector(analysis_start_date, error_message, all_target_variable, file_name, window_size)
 
-    def normal_event_detector(self, analysis_start_date, error_message, all_target_variable, file, window_size, window_type):
+    def normal_event_detector(self, analysis_start_date, error_message, all_target_variable, window_size, window_type):
         """ use to generate normal case, part of the generator_errormessage
         """
         for target in all_target_variable:
+            agv = target[0]
             # 1. select all dates that the error_message happened for that agv, want to know the time gap between each error, so we can find out the time window that the avg works normally
             with pypyodbc.connect(self.connection_string) as conn:
                 cursor = conn.cursor()
-                query = "SELECT DATE_OCCURRED FROM FMDS_ERRORS WHERE DEVICE = '{0}' AND ERROR_MESSAGE = '{1}' AND DATE_OCCURRED BETWEEN '{3}' AND {4} ORDER BY DATE_OCCURRED DESC".format(target[0], error_message, analysis_start_date, target[1])
+                query = "SELECT DATE_OCCURRED FROM FMDS_ERRORS WHERE DEVICE = '{0}' AND ERROR_MESSAGE = '{1}' AND DATE_OCCURRED BETWEEN '{3}' AND {4} ORDER BY DATE_OCCURRED DESC".format(agv, error_message, analysis_start_date, target[1])
                 cursor.execute()
                 all_dates = cursor.fetchall()
                 if len(all_dates) != 0:
@@ -118,36 +132,30 @@ class DataGenerator():
                         if delta_time >= 2 * size:
                             start_date = t2
                             end_date = t2 + size
+                            self.all_query_parameters.append([agv, start_date, end_date])
                             break
-
-
-
-
-
-
-    def select_events(self, agv, date, window, windowtype):
+                    
+    def select_events(self, agv, start_date, end_date):
         with pypyodbc.connect(self.connection_string, autocommit = True) as conn:
             cursor = conn.cursor()
             #SELECT * FROM dbo.FMDS_EVENTS_2018 WHERE DEVICE_ID = 'AGV538' AND DATE_EVENT < '2018-06-20 12:00:00.0000000' AND DATE_EVENT > '2018-06-15 00:00:00.0000000' ORDER BY DATE_EVENT DESC
-            date_end = datetime.strptime(str(date)[:-1], "%Y-%m-%d %H:%M:%S.%f")
-            exec("date_start = date_end - timedelta({0} = {1})".format(windowtype, window))
             query1 = "SELECT\
             [RECORD_ID], [DATE_EVENT], TRIM([DEVICE_ID]) AS DEVICE_ID ,TRIM([ITEMNAME]) AS ITEMNAME, TRIM([ITEMVALUE]) AS ITEMVALUE\
-            FROM dbo.FMDS_EVENTS_2018 WHERE DEVICE_ID = '{0}' AND DATE_EVENT < '{1}' AND DATE_EVENT > '{2}' ORDER BY DATE_EVENT DESC".format(agv, str(date_end), str(date_start))
+            FROM dbo.FMDS_EVENTS_2018 WHERE DEVICE_ID = '{0}' AND DATE_EVENT between '{1}' AND '{2}' ORDER BY DATE_EVENT DESC".format(agv, str(start_date), str(end_date))
             cursor.execute(query1)
             events = cursor.fetchall()
         events_columns = [column[0] for column in cursor.description]
-        return events, date_start
+        return events
 
-    def aggregation(self, event_type, l, agv, end_date):
-        start_date = end_date - timedelta(days=self.trace_max)
+    def aggregation(self, event_type, l, agv, traceback_end_date):
+        start_date = traceback_end_date - timedelta(days=self.trace_max)
         # need more work 
         if len(l) == 1:
             # back trace
             try:
                 with pypyodbc.connect(self.connection_string, autocommit = True) as conn:
                     cursor = conn.cursor()  
-                    query = "SELECT TOP(1) TRIM(ITEMVALUE) AS ITEMVALUE FROM dbo.FMDS_EVENTS_2018 WHERE DEVICE_ID = '{0}' AND DATE_EVENT < '{1}' AND DATE_EVENT > '{2}' AND ITEMNAME = '{3}' ORDER BY DATE_EVENT DESC".format(agv, end_date, start_date, event_type)
+                    query = "SELECT TOP(1) TRIM(ITEMVALUE) AS ITEMVALUE FROM dbo.FMDS_EVENTS_2018 WHERE DEVICE_ID = '{0}' AND DATE_EVENT < '{1}' AND DATE_EVENT > '{2}' AND ITEMNAME = '{3}' ORDER BY DATE_EVENT DESC".format(agv, traceback_end_date, start_date, event_type)
                     cursor.execute(query)
                     r = cursor.fetchall()[0][0]
             except Exception as e:
@@ -158,14 +166,14 @@ class DataGenerator():
 
 def main():
     # Boot
-
-    print("start Generating training data...")
-    print(str(datetime.now()))
+    print("start generating training data...")
+    print("time: " + str(datetime.now()))
     S = DataGenerator()
     # start date, error message, window size, time delta type
     S.generator_errormessage('2017-12-31 00:00:00.0000000', 'Management System - Direct Stop', 2, "hours") 
     print(str(datetime.now()))
     print("generating finished...")
+    print("time: " + str(datetime.now()))
 
 
 if __name__ == '__main__':
