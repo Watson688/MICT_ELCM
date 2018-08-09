@@ -73,9 +73,12 @@ class DataGenerator():
             agv = target[0]
             date = target[1]
             end_date = datetime.strptime(str(date)[:-1], "%Y-%m-%d %H:%M:%S.%f")
-            exec("print(end_date)")
-            expression = "start_date = end_date - timedelta({0} = {1})".format(windowtype, str(window_size))
-            exec(expression, {'timedelta': timedelta})
+            if windowtype == "minutes":
+                start_date = end_date - timedelta(minutes=window_size)
+            if windowtype == "hours":
+                start_date = end_date - timedelta(hours=window_size)
+            if windowtype == "days":
+                start_date = end_date - timedelta(days=window_size)
             self.all_query_parameters.append([agv, start_date, end_date])
         # 4. constrcut queries for normal cases
         print("construct queries for normal cases")
@@ -97,6 +100,7 @@ class DataGenerator():
                     clustered_events[e[3]].append(e[4])
             temp_row = []
             for c in column_names:
+                # aggregation and back-tracing
                 temp_row.append(self.aggregation(c, clustered_events[c], agv, start_date))
             all_rows.append(",".join([str(x) for x in temp_row]) + "," + error_message + "\n")
             count += 1
@@ -128,7 +132,12 @@ class DataGenerator():
                         delta_time = t2 - t1
                         # how large the delta time we need depends on the window size, now we gonna check it
                         # we want the delta_time is at least two time larger than the window size
-                        exec("size = timedelta({0} = {1})".format(window_type, window_size))
+                        if windowtype == "minutes":
+                            size = timedelta(minutes=window_size)
+                        if windowtype == "hours":
+                            size = timedelta(hours=window_size)
+                        if windowtype == "days":
+                            size = timedelta(days=window_size)
                         if delta_time >= 2 * size:
                             start_date = t2
                             end_date = t2 + size
