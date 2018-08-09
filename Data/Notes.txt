@@ -1,0 +1,3 @@
+Normal Case
+	1. what case is "normal case", how normal the selected cases are?
+
