@@ -92,7 +92,7 @@ class DataGenerator():
             start_date = parameters[1]
             end_date = parameters[2]
             events = self.select_events(agv, start_date, end_date)
-            print( "{} events in the row".format(len(events)) + " , " +  "{0} / {1}".format(str(count), str(len(self.all_query_parameters))) )
+            print(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S")) + "  {} events in the row".format(len(events)) + " , " +  "{0} / {1}".format(str(count), str(len(self.all_query_parameters))) )
             # initializing the role, use null to aviod conficting with real 0s
             for c in column_names:
                 clustered_events[c] = ['None']
