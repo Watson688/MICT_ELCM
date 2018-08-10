@@ -54,7 +54,7 @@ class DataGenerator():
             print("wrote {} files".format(str(number_of_points)))
         print("writing finished")
 
-    def generator_errormessage(self, analysis_start_date, error_message, window_size, windowtype):
+    def generator_errormessage(self, analysis_start_date, error_message, window_size, window_type):
         all_rows = []
         # 1. get all feature we need
         with open("ITEMNAME.csv") as f:
@@ -68,21 +68,22 @@ class DataGenerator():
             all_target_variables = cursor.fetchall()
             print("selected {} target variables".format(str(len(all_target_variables))))
         # 3. construct queries for abnormal cases
-        print("construct queries for abnormal cases")
+        print("construct queries for abnormal events")
         for target in all_target_variables:
             agv = target[0]
             date = target[1]
             end_date = datetime.strptime(str(date)[:-1], "%Y-%m-%d %H:%M:%S.%f")
-            if windowtype == "minutes":
+            if window_type == "minutes":
                 start_date = end_date - timedelta(minutes=window_size)
-            if windowtype == "hours":
+            if window_type == "hours":
                 start_date = end_date - timedelta(hours=window_size)
-            if windowtype == "days":
+            if window_type == "days":
                 start_date = end_date - timedelta(days=window_size)
             self.all_query_parameters.append([agv, start_date, end_date])
         # 4. constrcut queries for normal cases
-        print("construct queries for normal cases")
+        print("construct queries for normal events")
         self.normal_event_detector(analysis_start_date, error_message, all_target_variables, window_size, window_type)
+        print("total abnormal events: {0}, total normal events: {1}".format(len(all_target_variables), len(self.all_query_parameters)-len(all_target_variables)))
         # 5. start selecting events, and clean the selected data
         count = 1
         print("selecting events")
@@ -91,7 +92,7 @@ class DataGenerator():
             start_date = parameters[1]
             end_date = parameters[2]
             events = self.select_events(agv, start_date, end_date)
-            print( "{} events in the row".format(len(events)) + " , " +  "{0} / {1}".format(str(count), str(len(all_target_variables))) )
+            print( "{} events in the row".format(len(events)) + " , " +  "{0} / {1}".format(str(count), str(len(self.all_query_parameters))) )
             # initializing the role, use null to aviod conficting with real 0s
             for c in column_names:
                 clustered_events[c] = ['None']
@@ -120,8 +121,8 @@ class DataGenerator():
             # 1. select all dates that the error_message happened for that agv, want to know the time gap between each error, so we can find out the time window that the avg works normally
             with pypyodbc.connect(self.connection_string) as conn:
                 cursor = conn.cursor()
-                query = "SELECT DATE_OCCURRED FROM FMDS_ERRORS WHERE DEVICE = '{0}' AND ERROR_MESSAGE = '{1}' AND DATE_OCCURRED BETWEEN '{3}' AND {4} ORDER BY DATE_OCCURRED DESC".format(agv, error_message, analysis_start_date, target[1])
-                cursor.execute()
+                query = "SELECT DATE_OCCURRED FROM FMDS_ERRORS WHERE DEVICE = '{0}' AND ERROR_MESSAGE = '{1}' AND DATE_OCCURRED BETWEEN '{2}' AND '{3}' ORDER BY DATE_OCCURRED DESC".format(agv, error_message, analysis_start_date, target[1])
+                cursor.execute(query)
                 all_dates = cursor.fetchall()
                 if len(all_dates) != 0:
                     all_dates = [d[0] for d in all_dates]
@@ -132,11 +133,11 @@ class DataGenerator():
                         delta_time = t2 - t1
                         # how large the delta time we need depends on the window size, now we gonna check it
                         # we want the delta_time is at least two time larger than the window size
-                        if windowtype == "minutes":
+                        if window_type == "minutes":
                             size = timedelta(minutes=window_size)
-                        if windowtype == "hours":
+                        if window_type == "hours":
                             size = timedelta(hours=window_size)
-                        if windowtype == "days":
+                        if window_type == "days":
                             size = timedelta(days=window_size)
                         if delta_time >= 2 * size:
                             start_date = t2
@@ -179,7 +180,7 @@ def main():
     print("time: " + str(datetime.now()))
     S = DataGenerator()
     # start date, error message, window size, time delta type
-    S.generator_errormessage('2017-12-31 00:00:00.0000000', 'Management System - Direct Stop', 2, "hours") 
+    S.generator_errormessage('2017-12-31 00:00:00.0000000', 'Management System - Direct Stop', 20, "minutes") 
     print(str(datetime.now()))
     print("generating finished...")
     print("time: " + str(datetime.now()))
