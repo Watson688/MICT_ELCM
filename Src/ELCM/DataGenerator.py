@@ -13,7 +13,7 @@ class DataGenerator():
         self.output_directory = "C:\Code\ELCM\TempData\\"
         # maximum trace back days
         self.trace_max = 3
-        self.all_query_parameters = []
+        self.all_query_parameters = {"normal":[], "abnormal":[]}
     
     # not in use now
     def generator_worktype(self, analysis_date, worktype, window, n = 1):
@@ -79,33 +79,39 @@ class DataGenerator():
                 start_date = end_date - timedelta(hours=window_size)
             if window_type == "days":
                 start_date = end_date - timedelta(days=window_size)
-            self.all_query_parameters.append([agv, start_date, end_date])
+            self.all_query_parameters["abnormal"].append([agv, start_date, end_date])
         # 4. constrcut queries for normal cases
         print("construct queries for normal events")
         self.normal_event_detector(analysis_start_date, error_message, all_target_variables, window_size, window_type)
-        print("total abnormal events: {0}, total normal events: {1}".format(len(all_target_variables), len(self.all_query_parameters)-len(all_target_variables)))
+        number_normal_events = len(self.all_query_parameters["normal"])
+        number_abnormal_events = len(self.all_query_parameters["abnormal"])
+        print("total abnormal events: {0}, total normal events: {1}".format(number_abnormal_events, number_normal_events))
         # 5. start selecting events, and clean the selected data
         count = 1
         print("selecting events")
-        for parameters in self.all_query_parameters:
-            agv = parameters[0]
-            start_date = parameters[1]
-            end_date = parameters[2]
-            events = self.select_events(agv, start_date, end_date)
-            print(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S")) + "  {} events in the row".format(len(events)) + " , " +  "{0} / {1}".format(str(count), str(len(self.all_query_parameters))) )
-            # initializing the role, use null to aviod conficting with real 0s
-            for c in column_names:
-                clustered_events[c] = ['None']
-            for e in events:
-                if e[3] in column_names:
-                    clustered_events[e[3]].append(e[4])
-            temp_row = []
-            for c in column_names:
-                # aggregation and back-tracing
-                temp_row.append(self.aggregation(c, clustered_events[c], agv, start_date))
-            all_rows.append(",".join([str(x) for x in temp_row]) + "," + error_message + "\n")
-            count += 1
-        file_name = self.output_directory + "{}".format(error_message) + "_" + str(window_size) + "_" + windowtype + ".csv"
+        for k, v in self.all_query_parameters.items():
+            for parameters in v:
+                agv = parameters[0]
+                start_date = parameters[1]
+                end_date = parameters[2]
+                events = self.select_events(agv, start_date, end_date)
+                print(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S")) + "  {} events in the row".format(len(events)) + " , " +  "{0} / {1}".format(str(count), str(number_abnormal_events+number_normal_events)))
+                # initializing the role, use null to aviod conficting with real 0s
+                for c in column_names:
+                    clustered_events[c] = ['None']
+                for e in events:
+                    if e[3] in column_names:
+                        clustered_events[e[3]].append(e[4])
+                temp_row = []
+                for c in column_names:
+                    # aggregation and back-tracing
+                    temp_row.append(self.aggregation(c, clustered_events[c], agv, start_date))
+                if k =="abnormal":
+                    all_rows.append(",".join([str(x) for x in temp_row]) + "," + "1" + "\n")
+                if k == "normal":
+                    all_rows.append(",".join([str(x) for x in temp_row]) + "," + "0" + "\n")
+                count += 1
+        file_name = self.output_directory + "{}".format(error_message) + "_" + str(window_size) + "_" + window_type + ".csv"
         # 6. write to the file
         with open(file_name, "w") as f:
             # write the header
@@ -142,7 +148,7 @@ class DataGenerator():
                         if delta_time >= 2 * size:
                             start_date = t2
                             end_date = t2 + size
-                            self.all_query_parameters.append([agv, start_date, end_date])
+                            self.all_query_parameters["normal"].append([agv, start_date, end_date])
                             break
                     
     def select_events(self, agv, start_date, end_date):
@@ -176,14 +182,11 @@ class DataGenerator():
 
 def main():
     # Boot
-    print("start generating training data...")
-    print("time: " + str(datetime.now()))
+    print(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S")) + "  start generating training data")
     S = DataGenerator()
     # start date, error message, window size, time delta type
     S.generator_errormessage('2017-12-31 00:00:00.0000000', 'Management System - Direct Stop', 20, "minutes") 
-    print(str(datetime.now()))
-    print("generating finished...")
-    print("time: " + str(datetime.now()))
+    print(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S")) + "  generating finished")
 
 
 if __name__ == '__main__':
