@@ -235,7 +235,7 @@ def main():
     print(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S")) + "  start generating training data")
     S = DataGenerator()
     # start date, error message, window size, time delta type
-    S.generator_errormessage('2017-12-31 00:00:00.0000000', 'Management System - Direct Stop', 4, "hours", 5000) 
+    S.generator_errormessage('2017-12-31 00:00:00.0000000', 'Management System - Direct Stop', 4, "hours", 1000) 
     print(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S")) + "  generating finished")
 
 
