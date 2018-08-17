@@ -15,9 +15,11 @@ class DataGenerator():
         self.output_directory = "C:\Code\ELCM\TempData\\"
         # maximum trace back days
         self.trace_max = 3
+        self.all_query_parameters = collections.OrderedDict()
         self.all_query_parameters = {"normal":[], "abnormal":[]}
         self.additional_columns = collections.OrderedDict()
-        self.additional_columns = {"AVERAGESPEED": None, "STOPS": None}
+        self.additional_columns = {"AVERAGESPEED": None, "STOPS": None, "DISTANCE": None}
+
     # not in use now
     def generator_worktype(self, analysis_date, worktype, window, n = 1):
         # construct training data set based on the worktype
@@ -66,7 +68,7 @@ class DataGenerator():
         with pypyodbc.connect(self.connection_string, autocommit=True) as conn:
             clustered_events = {}
             cursor = conn.cursor()
-            query1 = "SELECT TOP(50) DEVICE, DATE_OCCURRED FROM dbo.FMDS_ERRORS WHERE ERROR_MESSAGE = '{0}' ORDER BY DATE_OCCURRED DESC".format(error_message)
+            query1 = "SELECT TOP(5) DEVICE, DATE_OCCURRED FROM dbo.FMDS_ERRORS WHERE ERROR_MESSAGE = '{0}' ORDER BY DATE_OCCURRED DESC".format(error_message)
             cursor.execute(query1)
             all_target_variables = cursor.fetchall()
             print("selected {} target variables".format(str(len(all_target_variables))))
@@ -97,21 +99,23 @@ class DataGenerator():
                 agv = parameters[0]
                 start_date = parameters[1]
                 end_date = parameters[2]
-                # select events function
+                # select events
                 events = self.select_events(agv, start_date, end_date)
                 print(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S")) + "  {} events in the row".format(len(events)) + " , " +  "{0} / {1}".format(str(count), str(number_abnormal_events+number_normal_events)))
                 # initializing the role, use null to aviod conficting with real 0s
                 for c in column_names:
                     clustered_events[c] = ['None']
                 for e in events:
-                    if e[3] in column_names:
-                        clustered_events[e[3]].append(e[4])
+                    feature = e[3]
+                    if feature in column_names:
+                        clustered_events[feature].append(e[4])
                 temp_row = []
                 for c in column_names:
                     # aggregation and back-tracing
                     element = self.aggregation(c, clustered_events[c], agv, start_date)
                     temp_row.append(element)
                 additional = ",".join([str(ex) for ex in list(self.additional_columns.values())])
+                self.reset()
                 if k =="abnormal":
                     all_rows.append(",".join([str(x) for x in temp_row]) + "," + additional + "," + "1" + "\n")
                 if k == "normal":
@@ -121,6 +125,7 @@ class DataGenerator():
         # 6. write to the file
         with open(file_name, "w") as f:
             # write the header
+            column_names = [x.replace(",", " ") for x in column_names]
             f.write(",".join(column_names) + "," + ",".join(list(self.additional_columns))+ "," + "target" + "\n")
             # write the rows
             for r in all_rows:
@@ -171,20 +176,7 @@ class DataGenerator():
 
     def aggregation(self, event_type, series, agv, traceback_end_date):
         start_date = traceback_end_date - timedelta(days=self.trace_max)
-        # need more work 
-        if len(series) == 1:
-            # back trace
-            try:
-                with pypyodbc.connect(self.connection_string, autocommit = True) as conn:
-                    cursor = conn.cursor()  
-                    query = "SELECT TOP(1) TRIM(ITEMVALUE) AS ITEMVALUE FROM dbo.FMDS_EVENTS_2018 WHERE DEVICE_ID = '{0}' AND DATE_EVENT < '{1}' AND DATE_EVENT > '{2}' AND ITEMNAME = '{3}' ORDER BY DATE_EVENT DESC".format(agv, traceback_end_date, start_date, event_type)
-                    cursor.execute(query)
-                    r = cursor.fetchall()[0][0]
-            except Exception as e:
-                return 'None'
-            return r
-        # calculate distance traveled
-        elif event_type == "PositionX,PositionY,Velocity,Arc":
+        if event_type == "PositionX,PositionY,Velocity,Arc":
             if len(series) > 2:
                 distance = 0
                 stop = 0
@@ -202,15 +194,41 @@ class DataGenerator():
                         stop += 1
                     speed += float(p[2])
                     # Euclidean distance
-                    distance += math.sqrt(((float(x_now) - float(x_pre))**2 + (float(y_now)) -float(y_pre))**2)
+                    distance += self.calculate_distance(x_now, y_now, x_pre, y_pre)
+                # for straight-line distance
+                temp_last = series[-1].split(",")
+                temp_first = series[1].split(",")
+                x_now = temp_last[0]
+                y_now = temp_last[1]
+                x_pre = temp_first[0]
+                y_pre = temp_last[1]
+                self.additional_columns["DISTANCE"] = self.calculate_distance(x_now, y_now, x_pre, y_pre)
                 self.additional_columns["AVERAGESPEED"] = speed / (len(series) - 1)
                 self.additional_columns["STOPS"] = stop
                 return distance
             else:
                 # only 1 position data, which means didn't move
                 return 0
+        elif len(series) == 1:
+            # back trace
+            try:
+                with pypyodbc.connect(self.connection_string, autocommit = True) as conn:
+                    cursor = conn.cursor()  
+                    query = "SELECT TOP(1) TRIM(ITEMVALUE) AS ITEMVALUE FROM dbo.FMDS_EVENTS_2018 WHERE DEVICE_ID = '{0}' AND DATE_EVENT < '{1}' AND DATE_EVENT > '{2}' AND ITEMNAME = '{3}' ORDER BY DATE_EVENT DESC".format(agv, traceback_end_date, start_date, event_type)
+                    cursor.execute(query)
+                    r = cursor.fetchall()[0][0]
+            except Exception as e:
+                return 'None'
+            return r
+        # calculate distance traveled
         else:
             return np.mean([int(x) for x in series[1:]])
+    
+    def calculate_distance(self, x_1, y_1, x_2, y_2):
+        return math.sqrt( (float(x_1) - float(x_2))**2 + (float(y_1) - float(y_2))**2 )
+
+    def reset(self):
+        self.additional_columns = {"AVERAGESPEED": None, "STOPS": None, "DISTANCE": None}
 
 def main():
     # Boot

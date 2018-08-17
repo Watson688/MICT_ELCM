@@ -2,7 +2,7 @@ AgvOpHours
 AxleLoadFront
 AxleLoadRear
 BatMinTemperature
-PositionX PositionY Velocity Arc
+PositionX,PositionY,Velocity,Arc
 BatStateOfChargePercentage
 BatStateOfChargePercentageTemperature
 Batt1CumulatedAhInDischarge
