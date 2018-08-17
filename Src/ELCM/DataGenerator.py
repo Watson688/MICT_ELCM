@@ -18,6 +18,7 @@ class DataGenerator():
         self.all_query_parameters = collections.OrderedDict()
         self.all_query_parameters = {"normal":[], "abnormal":[]}
         self.additional_columns = collections.OrderedDict()
+        # TO DO: AVERAGE TPX ERROR GAP, VARIANCE OF THE GAP 
         self.additional_columns = {"AVERAGESPEED": None, "STOPS": None, "DISTANCE": None}
 
     # not in use now
