@@ -121,7 +121,7 @@ class DataGenerator():
                 if k == "normal":
                     all_rows.append(",".join([str(x) for x in temp_row]) + "," + additional + "," + "0" + "\n")
                 count += 1
-        file_name = self.output_directory + "{}".format(error_message) + "_" + str(window_size) + "_" + window_type + ".csv"
+        file_name = self.output_directory + "{}".format(error_message) + "_" + str(window_size) + "_" + window_type + "_" + str(2*number_of_data) + ".csv"
         # 6. write to the file
         with open(file_name, "w") as f:
             # write the header
@@ -220,7 +220,6 @@ class DataGenerator():
             except Exception as e:
                 return 'None'
             return r
-        # calculate distance traveled
         else:
             return np.mean([int(x) for x in series[1:]])
     
@@ -228,14 +227,15 @@ class DataGenerator():
         return math.sqrt( (float(x_1) - float(x_2))**2 + (float(y_1) - float(y_2))**2 )
 
     def reset(self):
-        self.additional_columns = {"AVERAGESPEED": None, "STOPS": None, "DISTANCE": None}
+        for k, v in self.additional_columns.items():
+            self.additional_columns[k] = None
 
 def main():
     # Boot
     print(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S")) + "  start generating training data")
     S = DataGenerator()
     # start date, error message, window size, time delta type
-    S.generator_errormessage('2017-12-31 00:00:00.0000000', 'Management System - Direct Stop', 4, "hours", 1000) 
+    S.generator_errormessage('2017-12-31 00:00:00.0000000', 'Management System - Direct Stop', 4, "hours", 10) 
     print(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S")) + "  generating finished")
 
 
