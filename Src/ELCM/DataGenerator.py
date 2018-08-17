@@ -59,7 +59,7 @@ class DataGenerator():
             print("wrote {} files".format(str(number_of_points)))
         print("writing finished")
 
-    def generator_errormessage(self, analysis_start_date, error_message, window_size, window_type):
+    def generator_errormessage(self, analysis_start_date, error_message, window_size, window_type, number_of_data):
         all_rows = []
         # 1. get all feature we need
         with open("ITEMNAME.csv") as f:
@@ -68,7 +68,7 @@ class DataGenerator():
         with pypyodbc.connect(self.connection_string, autocommit=True) as conn:
             clustered_events = {}
             cursor = conn.cursor()
-            query1 = "SELECT TOP(50) DEVICE, DATE_OCCURRED FROM dbo.FMDS_ERRORS WHERE ERROR_MESSAGE = '{0}' ORDER BY DATE_OCCURRED DESC".format(error_message)
+            query1 = "SELECT TOP({0}) DEVICE, DATE_OCCURRED FROM dbo.FMDS_ERRORS WHERE ERROR_MESSAGE = '{1}' ORDER BY DATE_OCCURRED DESC".format(str(number_of_data), error_message)
             cursor.execute(query1)
             all_target_variables = cursor.fetchall()
             print("selected {} target variables".format(str(len(all_target_variables))))
@@ -235,7 +235,7 @@ def main():
     print(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S")) + "  start generating training data")
     S = DataGenerator()
     # start date, error message, window size, time delta type
-    S.generator_errormessage('2017-12-31 00:00:00.0000000', 'Management System - Direct Stop', 20, "minutes") 
+    S.generator_errormessage('2017-12-31 00:00:00.0000000', 'Management System - Direct Stop', 4, "hours", 5000) 
     print(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S")) + "  generating finished")
 
 
