@@ -1,6 +1,8 @@
 import os
 import glob
+import math
 import pypyodbc
+import collections
 import numpy as np
 import pandas as pd
 from datetime import datetime
@@ -14,7 +16,8 @@ class DataGenerator():
         # maximum trace back days
         self.trace_max = 3
         self.all_query_parameters = {"normal":[], "abnormal":[]}
-    
+        self.additional_columns = collections.OrderedDict()
+        self.additional_columns = {"AVERAGESPEED": None, "STOPS": None}
     # not in use now
     def generator_worktype(self, analysis_date, worktype, window, n = 1):
         # construct training data set based on the worktype
@@ -58,12 +61,12 @@ class DataGenerator():
         all_rows = []
         # 1. get all feature we need
         with open("ITEMNAME.csv") as f:
-            column_names = [ x.strip() for x in f.readlines()]
+            column_names = [x.strip() for x in f.readlines()]
         # 2. select all target variables
         with pypyodbc.connect(self.connection_string, autocommit=True) as conn:
             clustered_events = {}
             cursor = conn.cursor()
-            query1 = "SELECT TOP(1000) DEVICE, DATE_OCCURRED FROM dbo.FMDS_ERRORS WHERE ERROR_MESSAGE = '{0}' ORDER BY DATE_OCCURRED DESC".format(error_message)
+            query1 = "SELECT TOP(50) DEVICE, DATE_OCCURRED FROM dbo.FMDS_ERRORS WHERE ERROR_MESSAGE = '{0}' ORDER BY DATE_OCCURRED DESC".format(error_message)
             cursor.execute(query1)
             all_target_variables = cursor.fetchall()
             print("selected {} target variables".format(str(len(all_target_variables))))
@@ -94,6 +97,7 @@ class DataGenerator():
                 agv = parameters[0]
                 start_date = parameters[1]
                 end_date = parameters[2]
+                # select events function
                 events = self.select_events(agv, start_date, end_date)
                 print(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S")) + "  {} events in the row".format(len(events)) + " , " +  "{0} / {1}".format(str(count), str(number_abnormal_events+number_normal_events)))
                 # initializing the role, use null to aviod conficting with real 0s
@@ -105,17 +109,20 @@ class DataGenerator():
                 temp_row = []
                 for c in column_names:
                     # aggregation and back-tracing
-                    temp_row.append(self.aggregation(c, clustered_events[c], agv, start_date))
+                    element = self.aggregation(c, clustered_events[c], agv, start_date)
+                    temp_row.append(element)
+                additional = ",".join([str(ex) for ex in list(self.additional_columns.values())])
                 if k =="abnormal":
-                    all_rows.append(",".join([str(x) for x in temp_row]) + "," + "1" + "\n")
+                    all_rows.append(",".join([str(x) for x in temp_row]) + "," + additional + "," + "1" + "\n")
                 if k == "normal":
-                    all_rows.append(",".join([str(x) for x in temp_row]) + "," + "0" + "\n")
+                    all_rows.append(",".join([str(x) for x in temp_row]) + "," + additional + "," + "0" + "\n")
                 count += 1
         file_name = self.output_directory + "{}".format(error_message) + "_" + str(window_size) + "_" + window_type + ".csv"
         # 6. write to the file
         with open(file_name, "w") as f:
             # write the header
-            f.write(",".join(column_names) + "," + "target" + "\n")
+            f.write(",".join(column_names) + "," + ",".join(list(self.additional_columns))+ "," + "target" + "\n")
+            # write the rows
             for r in all_rows:
                 f.write(r)
 
@@ -160,13 +167,12 @@ class DataGenerator():
             FROM dbo.FMDS_EVENTS_2018 WHERE DEVICE_ID = '{0}' AND DATE_EVENT between '{1}' AND '{2}' ORDER BY DATE_EVENT DESC".format(agv, str(start_date), str(end_date))
             cursor.execute(query1)
             events = cursor.fetchall()
-        events_columns = [column[0] for column in cursor.description]
         return events
 
-    def aggregation(self, event_type, l, agv, traceback_end_date):
+    def aggregation(self, event_type, series, agv, traceback_end_date):
         start_date = traceback_end_date - timedelta(days=self.trace_max)
         # need more work 
-        if len(l) == 1:
+        if len(series) == 1:
             # back trace
             try:
                 with pypyodbc.connect(self.connection_string, autocommit = True) as conn:
@@ -177,8 +183,34 @@ class DataGenerator():
             except Exception as e:
                 return 'None'
             return r
+        # calculate distance traveled
+        elif event_type == "PositionX,PositionY,Velocity,Arc":
+            if len(series) > 2:
+                distance = 0
+                stop = 0
+                speed = 0
+                for i, p in enumerate(series):
+                    # start from the 3rd elements
+                    if i < 2:
+                        continue
+                    p = p.split(",")
+                    x_now = p[0]
+                    y_now = p[1]
+                    x_pre = series[i-1].split(",")[0]
+                    y_pre = series[i-1].split(",")[1]
+                    if float(p[2]) == 0:
+                        stop += 1
+                    speed += float(p[2])
+                    # Euclidean distance
+                    distance += math.sqrt(((float(x_now) - float(x_pre))**2 + (float(y_now)) -float(y_pre))**2)
+                self.additional_columns["AVERAGESPEED"] = speed / (len(series) - 1)
+                self.additional_columns["STOPS"] = stop
+                return distance
+            else:
+                # only 1 position data, which means didn't move
+                return 0
         else:
-            return np.mean([int(x) for x in l[1:]])
+            return np.mean([int(x) for x in series[1:]])
 
 def main():
     # Boot
@@ -191,3 +223,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+     
