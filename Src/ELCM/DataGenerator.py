@@ -18,7 +18,7 @@ class DataGenerator():
         self.all_query_parameters = collections.OrderedDict()
         self.all_query_parameters = {"normal":[], "abnormal":[]}
         self.additional_columns = collections.OrderedDict()
-        # TO DO: AVERAGE TPX ERROR GAP, VARIANCE OF THE GAP 
+        # TO DO: AVERAGE TPX ERROR GAP, VARIANCE OF THE GAP, nearest tpx error position
         self.additional_columns = {"AVERAGESPEED": None, "STOPS": None, "DISTANCE": None}
 
     # not in use now
@@ -69,7 +69,7 @@ class DataGenerator():
         with pypyodbc.connect(self.connection_string, autocommit=True) as conn:
             clustered_events = {}
             cursor = conn.cursor()
-            query1 = "SELECT DEVICE, DATE_OCCURRED FROM dbo.FMDS_ERRORS WHERE ERROR_MESSAGE = '{1}' AND DATE_OCCURRED > '2018-01-01 00:00:00.0000000' ORDER BY DATE_OCCURRED DESC".format(str(number_of_data), error_message)
+            query1 = "SELECT DEVICE, DATE_OCCURRED, OPERATIONAL_MODE FROM dbo.FMDS_ERRORS WHERE ERROR_MESSAGE = '{0}' AND DATE_OCCURRED > '2018-01-01 00:00:00.0000000' AND (OPERATIONAL_MODE = 'Activated' OR OPERATIONAL_MODE = 'Allocated' OR OPERATIONAL_MODE = 'Driving') ORDER BY DATE_OCCURRED DESC".format(error_message)
             cursor.execute(query1)
             all_target_variables = cursor.fetchall()
             print("selected {} target variables".format(str(len(all_target_variables))))
