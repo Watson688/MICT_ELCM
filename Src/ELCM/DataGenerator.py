@@ -69,7 +69,7 @@ class DataGenerator():
         with pypyodbc.connect(self.connection_string, autocommit=True) as conn:
             clustered_events = {}
             cursor = conn.cursor()
-            query1 = "SELECT TOP({0}) DEVICE, DATE_OCCURRED FROM dbo.FMDS_ERRORS WHERE ERROR_MESSAGE = '{1}' ORDER BY DATE_OCCURRED DESC".format(str(number_of_data), error_message)
+            query1 = "SELECT DEVICE, DATE_OCCURRED FROM dbo.FMDS_ERRORS WHERE ERROR_MESSAGE = '{1}' AND DATE_OCCURRED > '2018-01-01 00:00:00.0000000' ORDER BY DATE_OCCURRED DESC".format(str(number_of_data), error_message)
             cursor.execute(query1)
             all_target_variables = cursor.fetchall()
             print("selected {} target variables".format(str(len(all_target_variables))))
