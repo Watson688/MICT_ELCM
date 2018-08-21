@@ -26,3 +26,4 @@ TemperatureCabinetL2
 TemperatureCabinetL3
 TemperatureCabinetL4
 TimeBeingAllocated
+DefectTPX,DefectTPY,DefectTPDate,DefectTPTime,DefectTPAntennaPos

@@ -125,6 +125,8 @@ class DataGenerator():
         file_name = self.output_directory + "{}".format(error_message) + "_" + str(window_size) + "_" + window_type + "_" + str(2*number_of_data) + ".csv"
         # 6. write to the file
         with open(file_name, "w") as f:
+            # cleanup the header
+            column_names = self.clean_column_names(column_names)
             # write the header
             column_names = [x.replace(",", " ") for x in column_names]
             f.write(",".join(column_names) + "," + ",".join(list(self.additional_columns))+ "," + "target" + "\n")
@@ -176,6 +178,8 @@ class DataGenerator():
         return events
 
     def aggregation(self, event_type, series, agv, traceback_end_date):
+        """ This is the aggregation function used for aggregate a event time series to one single data
+        """
         start_date = traceback_end_date - timedelta(days=self.trace_max)
         if event_type == "PositionX,PositionY,Velocity,Arc":
             if len(series) > 2:
@@ -210,6 +214,18 @@ class DataGenerator():
             else:
                 # only 1 position data, which means didn't move
                 return 0
+        elif event_type == "DefectTPX,DefectTPY,DefectTPDate,DefectTPTime,DefectTPAntennaPos":
+            if len(series) > 1:
+                aver_tpx_err = []
+                for s in series[1:]:
+                    temp_time = s.split(",")
+                    tt = temp_time[2] + "." + temp_time[3]
+                    aver_tpx_err.append(datetime.strptime(tt, "%d.%m.%Y.%H:%M:%S.%f"))
+                test_ = list(zip(aver_tpx_err[:-1], aver_tpx_err[1:]))
+                aver_tpx_err = [(i-j).total_seconds() for i, j in zip(aver_tpx_err[:-1], aver_tpx_err[1:])]
+                return np.mean(aver_tpx_err)
+            else:
+                return -1
         elif len(series) == 1:
             # back trace
             try:
@@ -221,6 +237,7 @@ class DataGenerator():
             except Exception as e:
                 return 'None'
             return r
+        # all other event type that length longer that 1
         else:
             return np.mean([int(x) for x in series[1:]])
     
@@ -231,12 +248,19 @@ class DataGenerator():
         for k, v in self.additional_columns.items():
             self.additional_columns[k] = None
 
+    def clean_column_names(self, header):
+        for i, name in enumerate(header):
+            if name == "DefectTPX,DefectTPY,DefectTPDate,DefectTPTime,DefectTPAntennaPos":
+                header[i] = "AVERAGE TPX ERROR GAP"
+        return header
+
+
 def main():
     # Boot
     print(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S")) + "  start generating training data")
     S = DataGenerator()
     # start date, error message, window size, time delta type
-    S.generator_errormessage('2017-12-31 00:00:00.0000000', 'Management System - Direct Stop', 4, "hours", 10) 
+    S.generator_errormessage('2017-12-31 00:00:00.0000000', 'Management System - Direct Stop', 4, "hours", 10000) 
     print(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S")) + "  generating finished")
 
 
