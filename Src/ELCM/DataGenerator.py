@@ -59,7 +59,7 @@ class DataGenerator():
             print("wrote {} files".format(str(number_of_points)))
         print("writing finished")
 
-    def generator_errormessage(self, analysis_start_date, error_message, window_size, window_type, number_of_data=None):
+    def generator_errormessage(self, analysis_start_date, error_message, window_size, window_type, normal_case_type, number_of_data=None):
         all_rows = []
         # 1. get all feature we need
         with open("ITEMNAME.csv") as f:
@@ -69,7 +69,7 @@ class DataGenerator():
             clustered_events = {}
             cursor = conn.cursor()
             if number_of_data is not None:
-                query1 = "SELECT TOP({0}) DEVICE, DATE_OCCURRED, POSITION FROM dbo.FMDS_ERRORS WHERE ERROR_MESSAGE = '{1}' AND DATE_OCCURRED > '2018-01-01 00:00:00.0000000' AND (OPERATIONAL_MODE = 'Activated' OR OPERATIONAL_MODE = 'Allocated' OR OPERATIONAL_MODE = 'Driving') ORDER BY DATE_OCCURRED DESC".format(number_of_data, error_message)
+                query1 = "SELECT TOP({0}) DEVICE, DATE_OCCURRED, POSITION FROM dbo.FMDS_ERRORS WHERE ERROR_MESSAGE = '{1}' AND (OPERATIONAL_MODE = 'Activated' OR OPERATIONAL_MODE = 'Allocated' OR OPERATIONAL_MODE = 'Driving') ORDER BY DATE_OCCURRED DESC".format(number_of_data, error_message)
             else:
                 query1 = "SELECT DEVICE, DATE_OCCURRED, POSITION FROM dbo.FMDS_ERRORS WHERE ERROR_MESSAGE = '{0}' AND DATE_OCCURRED > '{1}' AND (OPERATIONAL_MODE = 'Activated' OR OPERATIONAL_MODE = 'Allocated' OR OPERATIONAL_MODE = 'Driving') ORDER BY DATE_OCCURRED DESC".format(error_message, analysis_start_date)
             cursor.execute(query1)
@@ -91,7 +91,10 @@ class DataGenerator():
             self.all_query_parameters["abnormal"].append([agv, start_date, end_date, t_position])
         # 4. constrcut queries for normal cases
         print("construct queries for normal events")
-        self.normal_event_detector(analysis_start_date, error_message, all_target_variables, window_size, window_type)
+        if normal_case_type == 1:
+            self.normal_event_detector_1(analysis_start_date, error_message, all_target_variables, window_size, window_type)
+        if normal_case_type == 2:
+            self.normal_event_detector_2(analysis_start_date, error_message, self.all_query_parameters["abnormal"], window_size, window_type)
         number_normal_events = len(self.all_query_parameters["normal"])
         number_abnormal_events = len(self.all_query_parameters["abnormal"])
         print("total abnormal events: {0}, total normal events: {1}".format(number_abnormal_events, number_normal_events))
@@ -142,7 +145,7 @@ class DataGenerator():
             for r in all_rows:
                 f.write(r)
 
-    def normal_event_detector(self, analysis_start_date, error_message, all_target_variable, window_size, window_type):
+    def normal_event_detector_1(self, analysis_start_date, error_message, all_target_variable, window_size, window_type):
         """ use to generate normal case, part of the generator_errormessage
         """
         for target in all_target_variable:
@@ -173,7 +176,43 @@ class DataGenerator():
                             end_date = t2 + size
                             self.all_query_parameters["normal"].append([agv, start_date, end_date, target[2].split(",")])
                             break
-                    
+
+    def normal_event_detector_2(self, analysis_start_date, error_message, query_list, window_size, window_type):
+        # choose the agv with maximum events
+        for target in query_list:
+            agv = target[0]
+            start_date = target[1]
+            end_date = target[2]
+            if window_type == "minutes":
+                size = timedelta(minutes=window_size)
+            if window_type == "hours":
+                size = timedelta(hours=window_size)
+            if window_type == "days":
+                size = timedelta(days=window_size)
+            end_date_ = end_date + size
+            with pypyodbc.connect(self.connection_string) as conn:
+                cursor = conn.cursor()
+                query1 = "SELECT * FROM dbo.FMDS_ERRORS \
+                WHERE DATE_OCCURRED between '{0}' AND '{1}' AND ERROR_MESSAGE = '{2}' AND DEVICE != '{3}'".format(start_date, end_date_, error_message, agv)
+                cursor.execute(query1)
+                all_errors = cursor.fetchall()
+                black_list = [x[1] for x in all_errors if x[1] != agv]
+                agv_events = {}
+                max_ = [0, None]
+                query2 = "SELECT TRIM(DEVICE_ID) AS DEVICE_ID, COUNT(DEVICE_ID) AS TOTAL_ FROM dbo.FMDS_EVENTS_2018 WHERE DATE_EVENT between '{0}' AND '{1}' GROUP BY DEVICE_ID ORDER BY TOTAL_ DESC".format(start_date, end_date)
+                cursor.execute(query2)
+                all_agvs =cursor.fetchall()
+                for aa in all_agvs:
+                    if aa[0] not in black_list:
+                        # get the position for the agv
+                        query3 = "SELECT TOP(1) TRIM(ITEMVALUE) FROM dbo.FMDS_EVENTS_2018 WHERE DEVICE_ID = '{2}' AND ITEMNAME = 'PositionX,PositionY,Velocity,Arc' AND DATE_EVENT BETWEEN '{0}' AND '{1}' ORDER BY DATE_EVENT DESC".format(start_date, end_date, aa[0])
+                        cursor.execute(query3)
+                        position = cursor.fetchall()[0][0].split(",")
+                        self.all_query_parameters["normal"].append([agv, start_date, end_date, position])
+                        break
+
+                
+
     def select_events(self, agv, start_date, end_date):
         with pypyodbc.connect(self.connection_string, autocommit = True) as conn:
             cursor = conn.cursor()
@@ -282,7 +321,7 @@ def main():
     # number of data can be a int or None
     # if None, the program will return all the errors after the start date, for example: 2018-01-01 00:00:00.0000000
     # int means the total failed cases you want
-    S.generator_errormessage('2018-01-01 00:00:00.0000000', 'Management System - Direct Stop', 4, "hours") 
+    S.generator_errormessage('2018-01-01 00:00:00.0000000', 'Management System - Direct Stop', 4, "hours", 1, 10) 
     print(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S")) + "  generating finished")
 
 
