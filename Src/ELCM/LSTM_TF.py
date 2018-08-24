@@ -14,9 +14,11 @@ class lstm():
     def tf_lstm(self):
         # read data
         df_events = pd.read_csv(str(Path(os.path.realpath(__file__)).parent.parent.parent / 'Data/LSTM_Data/events_data_for_RF.csv'), index_col=0)
-        df_events= df_events.dropna(axis=0).rename(columns={"DEVICE":"device"})
+        df_events = df_events.dropna(axis=0).rename(columns={"DEVICE":"device"})
         df_errors = pd.read_csv(str(Path(os.path.realpath(__file__)).parent.parent.parent / 'Data/LSTM_Data/errors_data_for_RF.csv'), index_col=0)[['device', 'date', 'Management System - Direct Stop']]
         df_merged = df_events.merge(df_errors, how='left', on=['device','date'])
+        df_merged.sort_values(by=['device','date'], inplace=True)
+        print(1)
 
 
 
