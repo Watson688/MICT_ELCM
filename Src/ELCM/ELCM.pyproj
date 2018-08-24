@@ -27,6 +27,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="EDA.py" />
+    <Compile Include="LSTM_TF.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="module_1.py">
       <SubType>Code</SubType>
     </Compile>
