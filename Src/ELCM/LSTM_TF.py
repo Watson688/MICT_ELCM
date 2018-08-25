@@ -18,7 +18,16 @@ class lstm():
         df_errors = pd.read_csv(str(Path(os.path.realpath(__file__)).parent.parent.parent / 'Data/LSTM_Data/errors_data_for_RF.csv'), index_col=0)[['device', 'date', 'Management System - Direct Stop']]
         df_merged = df_events.merge(df_errors, how='left', on=['device','date'])
         df_merged.sort_values(by=['device','date'], inplace=True)
-        print(1)
+        agvs = df_merged.device.unique()
+        groupby_agv = {}
+        print("grouping")
+        for a in agvs:
+            groupby_agv[a] = df_merged[df_merged['device'] == a]
+        # iterate over 
+        for agv in groupby_agv.keys():
+            for row in groupby_agv[agv]:
+                pass
+
 
 
 
