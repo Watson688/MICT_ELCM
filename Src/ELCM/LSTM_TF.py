@@ -21,8 +21,9 @@ class lstm():
         df_merged.sort_values(by=['device','date'], inplace=True)
         agvs = df_merged.device.unique()
         groupby_agv = {}
-        abnormal = []
-        normal =[]
+        x_abnormal = []
+        x_normal =[]
+        y_data = []
         size_of_input = 10
         print("grouping")
         for a in agvs:
@@ -31,14 +32,15 @@ class lstm():
         # abnormal
         print("abnormal")
         for agv in groupby_agv.keys():
+            last_position = None
             for row in groupby_agv[agv].itertuples(index=True):
-                last_position = None
                 if row.Index - size_of_input + 1 < 0:
                     continue
                 if row[-1] == 1 and (last_position is None or row.Index - last_position >= size_of_input):
-                    abnormal.append(groupby_agv[agv].iloc[row.Index - size_of_input + 1:row.Index+1])
+                    x_abnormal.append(groupby_agv[agv].iloc[row.Index - size_of_input + 1:row.Index+1,:-2])
                     last_position = row.Index
-
+        for x in x_abnormal:
+            print(x.shape[0])
         print("normal")
         for agv in groupby_agv.keys():
             start = None
@@ -46,24 +48,45 @@ class lstm():
                 if row[-1] == 0.0:
                     if not start:
                         start = row.Index
-                    elif row.Index - start == 9:
-                        normal.append(groupby_agv[agv].loc[start:row.Index])
+                    elif row.Index - start == size_of_input - 1:
+                        x_normal.append(groupby_agv[agv].loc[start:row.Index,:-2])
+                        y_data.append(groupby_agv[agv].iloc[row.Index-1,-1])
                         start = None
                 else:
                     start = None
         # balance the data
-        balanced_normal = random.sample(normal, len(abnormal))
-        return abnormal + balanced_normal
+        balanced_normal = random.sample(x_normal, len(x_abnormal))
+        return x_abnormal + balanced_normal
     
     def tf_lstm(self):
         data = self.tf_lstm_preprocessing()
-        lr = 0.001
-        training_iters = 10000
-        batch_size = 128
-        n_inputs = 9
+        xs = tf.placeholder(tf.float32, [None, len(data[0])])
+        ys = tf.placeholder(tf.float32, [None, 1])
+        # add layer
+        l1 = add_layer(data, len(data[0]), 20, activation_function=tf.nn.relu)
+        prediction = add_layer(l1, 20, 1, activation_function=None)
 
-        x = tf.placeholder(tf.float32, [None, n_steps, n_inputs])
-        y = tf.placeholder(tf.float32, [None, n_classes])
+        loss = tf.reduct_mean(tf.reduct_sum(tf.square(y_data - prediction), reduction_indices=[1]))
+        train_step = tf.train.GradientDescentOptimizer(0.1).minimize(loss)
+        init = tf.initialize_all_tables()
+        sess = tf.Session()
+        sesss.run(init)
+        for i in range(1000):
+            sess.run(tarin_step, feed_dict={xs:x_data, ys:y_data})
+            if i%50 == 0:
+                print(sess.run(loss, feed_dict={xs: x_data, ys: y_data}))
+
+    def add_layer(self, in_size, out_size, activation_function=None):
+        Weights = tf.Variable(tf.random_normal(in_size, out_size))
+        bias = tf.Variable(tf.zeros([1, out_size]) + 0.1)
+        Wx_plus_b = tf.matmul(intputs, Weights) + biases
+        if activation_function is None:
+            outputs = Wx_plus_b
+        else:
+            outputs = activation_function(Wx_plus_b)
+        return outputs
+
+
 
 
 
