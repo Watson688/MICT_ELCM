@@ -1,4 +1,5 @@
 import os
+import random
 import numpy as np
 import pandas as pd
 import tensorflow as tf
@@ -20,25 +21,25 @@ class lstm():
         df_merged.sort_values(by=['device','date'], inplace=True)
         agvs = df_merged.device.unique()
         groupby_agv = {}
-        x_abnormal = []
-        x_normal =[]
+        abnormal = []
+        normal =[]
         size_of_input = 10
         print("grouping")
         for a in agvs:
             groupby_agv[a] = df_merged[df_merged['device'] == a]
         # iterate over each agv
         # abnormal
-        print("iterating 1")
+        print("abnormal")
         for agv in groupby_agv.keys():
             for row in groupby_agv[agv].itertuples(index=True):
                 last_position = None
                 if row.Index - size_of_input + 1 < 0:
                     continue
                 if row[-1] == 1 and (last_position is None or row.Index - last_position >= size_of_input):
-                    x_abnormal.append(groupby_agv[agv].iloc[row.Index - size_of_input + 1:row.Index+1])
+                    abnormal.append(groupby_agv[agv].iloc[row.Index - size_of_input + 1:row.Index+1])
                     last_position = row.Index
 
-        print("iterating 2")
+        print("normal")
         for agv in groupby_agv.keys():
             start = None
             for row in groupby_agv[agv].itertuples(index=True):
@@ -46,14 +47,16 @@ class lstm():
                     if not start:
                         start = row.Index
                     elif row.Index - start == 9:
-                        x_normal.append(groupby_agv[agv].loc[start:row.Index])
+                        normal.append(groupby_agv[agv].loc[start:row.Index])
                         start = None
                 else:
                     start = None
-        return x_abnormal, x_normal
+        # balance the data
+        balanced_normal = random.sample(normal, len(abnormal))
+        return abnormal + balanced_normal
     
     def tf_lstm(self):
-
+        data = self.tf_lstm_preprocessing()
         lr = 0.001
         training_iters = 10000
         batch_size = 128
