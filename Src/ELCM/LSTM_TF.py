@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd
 import tensorflow as tf
 from pathlib import Path
+from collections import Counter
 from datetime import datetime
 from sklearn.model_selection import train_test_split
 
@@ -23,7 +24,8 @@ class lstm():
         groupby_agv = {}
         x_abnormal = []
         x_normal =[]
-        y_data = []
+        y_normal = []
+        y_abnormal = []
         size_of_input = 10
         print("grouping")
         for a in agvs:
@@ -33,38 +35,41 @@ class lstm():
         print("abnormal")
         for agv in groupby_agv.keys():
             last_position = None
-            for row in groupby_agv[agv].itertuples(index=True):
-                if row.Index - size_of_input + 1 < 0:
+            for index, row in enumerate(groupby_agv[agv].itertuples()):
+                if index - size_of_input + 1 < 0:
                     continue
-                if row[-1] == 1 and (last_position is None or row.Index - last_position >= size_of_input):
-                    x_abnormal.append(groupby_agv[agv].iloc[row.Index - size_of_input + 1:row.Index+1,:-2])
-                    last_position = row.Index
-        for x in x_abnormal:
-            print(x.shape[0])
+                if row[-1] == 1 and (last_position is None or index - last_position >= size_of_input):
+                    x_abnormal.append(groupby_agv[agv].iloc[index - size_of_input + 1:index+1,:-2])
+                    y_abnormal.append(groupby_agv[agv].iloc[index,-1])
         print("normal")
         for agv in groupby_agv.keys():
             start = None
-            for row in groupby_agv[agv].itertuples(index=True):
-                if row[-1] == 0.0:
+            for index, row in enumerate(groupby_agv[agv].itertuples()):
+                if row[-1] == 0:
                     if not start:
-                        start = row.Index
-                    elif row.Index - start == size_of_input - 1:
-                        x_normal.append(groupby_agv[agv].loc[start:row.Index,:-2])
-                        y_data.append(groupby_agv[agv].iloc[row.Index-1,-1])
+                        start = index
+                    elif index - start == size_of_input - 1:
+                        x_normal.append(groupby_agv[agv].iloc[start:index+1,:-2])
+                        y_normal.append(groupby_agv[agv].iloc[index,-1])
                         start = None
                 else:
                     start = None
         # balance the data
-        balanced_normal = random.sample(x_normal, len(x_abnormal))
-        return x_abnormal + balanced_normal
+        random.seed(617)
+        index = sorted(random.sample(range(len(x_normal)), len(x_abnormal)))
+        x_normal = [x_normal[i] for i in index]
+        y_normal = [y_normal[i] for i in index]
+        a = [x.shape[0] for x in x_abnormal+x_normal]
+        return x_abnormal + x_normal, y_abnormal + y_normal
     
     def tf_lstm(self):
-        data = self.tf_lstm_preprocessing()
-        xs = tf.placeholder(tf.float32, [None, len(data[0])])
+        x_data, y_data = self.tf_lstm_preprocessing()
+        xs = tf.placeholder(tf.float32, [None, len(x_data[0])])
         ys = tf.placeholder(tf.float32, [None, 1])
         # add layer
-        l1 = add_layer(data, len(data[0]), 20, activation_function=tf.nn.relu)
-        prediction = add_layer(l1, 20, 1, activation_function=None)
+        l1 = self.add_layer(x_data, len(x_data[0]), 20, activation_function=tf.nn.relu)
+
+        prediction = self.add_layer(l1, 20, 1, activation_function=None)
 
         loss = tf.reduct_mean(tf.reduct_sum(tf.square(y_data - prediction), reduction_indices=[1]))
         train_step = tf.train.GradientDescentOptimizer(0.1).minimize(loss)
