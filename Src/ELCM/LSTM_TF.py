@@ -69,6 +69,10 @@ class lstm():
     
     def tf_lstm(self):
         x_train, y_train, x_test, y_test = self.tf_lstm_preprocessing()
+        for x_ in x_train:
+            x_ = x_.iloc[:,:-1]
+        for x_ in x_test:
+            x_ = x_.iloc[:,:-1]
         xs = tf.placeholder(tf.float32, [None, len(x_data[0])])
         ys = tf.placeholder(tf.float32, [None, 1])
         # add layer
