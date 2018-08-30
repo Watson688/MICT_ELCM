@@ -39,7 +39,7 @@ class lstm():
                 if index - size_of_input + 1 < 0:
                     continue
                 if row[-1] == 1 and (last_position is None or index - last_position >= size_of_input):
-                    x_abnormal.append(groupby_agv[agv].iloc[index - size_of_input + 1:index+1,:-2])
+                    x_abnormal.append(groupby_agv[agv].iloc[index - size_of_input + 1:index+1,:-1])
                     y_abnormal.append(groupby_agv[agv].iloc[index,-1])
         print("normal")
         for agv in groupby_agv.keys():
@@ -49,21 +49,26 @@ class lstm():
                     if not start:
                         start = index
                     elif index - start == size_of_input - 1:
-                        x_normal.append(groupby_agv[agv].iloc[start:index+1,:-2])
+                        x_normal.append(groupby_agv[agv].iloc[start:index+1,:-1])
                         y_normal.append(groupby_agv[agv].iloc[index,-1])
                         start = None
                 else:
                     start = None
-        # balance the data
-        random.seed(617)
-        index = sorted(random.sample(range(len(x_normal)), len(x_abnormal)))
-        x_normal = [x_normal[i] for i in index]
-        y_normal = [y_normal[i] for i in index]
-        a = [x.shape[0] for x in x_abnormal+x_normal]
-        return x_abnormal + x_normal, y_abnormal + y_normal
+        # balance the data, split to training and testing
+        index = int(len(x_abnormal) * 0.7)
+        index_time = x_abnormal[index].iloc[-1,-1]
+        x_train = x_abnormal[:index] + x_normal[:index]
+        y_train = y_abnormal[:index] + y_normal[:index]
+        print("last timestamp of x_train:")
+        print(x_train[-1].iloc[-1][-1])
+        x_test = x_abnormal[-index:-1] + x_normal[-index:-1]
+        y_test = y_abnormal[-index:-1] + y_abnormal[-index:-1]
+        print("first timestamp of x_test:")
+        print(x_test[0].iloc[-1][-1])
+        return x_train, y_train, x_test, y_test
     
     def tf_lstm(self):
-        x_data, y_data = self.tf_lstm_preprocessing()
+        x_train, y_train, x_test, y_test = self.tf_lstm_preprocessing()
         xs = tf.placeholder(tf.float32, [None, len(x_data[0])])
         ys = tf.placeholder(tf.float32, [None, 1])
         # add layer
