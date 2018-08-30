@@ -70,34 +70,32 @@ class lstm():
     def tf_lstm(self):
         x_train, y_train, x_test, y_test = self.tf_lstm_preprocessing()
         for x_ in x_train:
-            x_ = x_.iloc[:,:-1]
+            x_ = x_.iloc[:,:-1].transpose()
         for x_ in x_test:
             x_ = x_.iloc[:,:-1]
-        xs = tf.placeholder(tf.float32, [None, len(x_data[0])])
+        xs = tf.placeholder(tf.float32, [None, 31])
         ys = tf.placeholder(tf.float32, [None, 1])
         # add layer
-        l1 = self.add_layer(x_data, len(x_data[0]), 20, activation_function=tf.nn.relu)
-
+        l1 = self.add_layer(xs, 31, 20, activation_function=tf.nn.relu)
         prediction = self.add_layer(l1, 20, 1, activation_function=None)
-
-        loss = tf.reduct_mean(tf.reduct_sum(tf.square(y_data - prediction), reduction_indices=[1]))
+        loss = tf.reduce_mean(tf.reduce_sum(tf.square(ys - prediction), reduction_indices=[1]))
         train_step = tf.train.GradientDescentOptimizer(0.1).minimize(loss)
         init = tf.initialize_all_tables()
         sess = tf.Session()
-        sesss.run(init)
+        sess.run(init)
         for i in range(1000):
-            sess.run(tarin_step, feed_dict={xs:x_data, ys:y_data})
-            if i%50 == 0:
-                print(sess.run(loss, feed_dict={xs: x_data, ys: y_data}))
+            sess.run(train_step, feed_dict={xs:x_train, ys:y_train})
+            if i % 50 == 0:
+                print(sess.run(loss, feed_dict={xs: x_train, ys: y_train}))
 
-    def add_layer(self, in_size, out_size, activation_function=None):
-        Weights = tf.Variable(tf.random_normal(in_size, out_size))
-        bias = tf.Variable(tf.zeros([1, out_size]) + 0.1)
-        Wx_plus_b = tf.matmul(intputs, Weights) + biases
+    def add_layer(self, inputs, in_size, out_size, activation_function=None):
+        Weights = tf.Variable(tf.random_normal([in_size, out_size]))
+        biases = tf.Variable(tf.zeros([1, out_size]) + 0.1,)
+        Wx_plus_b = tf.matmul(inputs, Weights) + biases
         if activation_function is None:
             outputs = Wx_plus_b
         else:
-            outputs = activation_function(Wx_plus_b)
+            outputs = activation_function(Wx_plus_b,)
         return outputs
 
 
