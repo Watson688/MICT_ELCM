@@ -13,7 +13,8 @@ class lstm():
     def __init__(self):
         pass
 
-    def tf_lstm_preprocessing(self):
+    @staticmethod
+    def preprocessing():
         # read data
         df_events = pd.read_csv(str(Path(os.path.realpath(__file__)).parent.parent.parent / 'Data/LSTM_Data/events_data_for_RF.csv'), index_col=0)
         df_events = df_events.dropna(axis=0).rename(columns={"DEVICE":"device"})
@@ -53,7 +54,7 @@ class lstm():
                         y_normal.append(groupby_agv[agv].iloc[index,-1])
                         start = None
                 else:
-                    start = None
+                    start = None  
         # balance the data, split to training and testing
         index = int(len(x_abnormal) * 0.7)
         index_time = x_abnormal[index].iloc[-1,-1]
@@ -65,10 +66,13 @@ class lstm():
         y_test = y_abnormal[-index:-1] + y_abnormal[-index:-1]
         print("first timestamp of x_test:")
         print(x_test[0].iloc[-1][-1])
+        # removed the timestamp
+        x_train = [x.iloc[:,:-1] for x in x_train]
+        y_train = [x.iloc[:,:-1] for x in x_test]
         return x_train, y_train, x_test, y_test
     
     def tf_lstm(self):
-        x_train, y_train, x_test, y_test = self.tf_lstm_preprocessing()
+        x_train, y_train, x_test, y_test = preprocessing()
         for x_ in x_train:
             x_ = x_.iloc[:,:-1].transpose()
         for x_ in x_test:

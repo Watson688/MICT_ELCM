@@ -5,7 +5,7 @@
     <ProjectGuid>02c067f2-2a62-48ab-a942-8e6244f99cc4</ProjectGuid>
     <ProjectHome>
     </ProjectHome>
-    <StartupFile>LSTM_TF.py</StartupFile>
+    <StartupFile>LR.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -28,6 +28,9 @@
     </Compile>
     <Compile Include="DataAnalysis.py" />
     <Compile Include="LSTM_TF.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LR.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Module_1.py">
