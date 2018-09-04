@@ -5,7 +5,7 @@
     <ProjectGuid>02c067f2-2a62-48ab-a942-8e6244f99cc4</ProjectGuid>
     <ProjectHome>
     </ProjectHome>
-    <StartupFile>LR.py</StartupFile>
+    <StartupFile>LR_test.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -27,6 +27,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DataAnalysis.py" />
+    <Compile Include="LR_test.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="LSTM_TF.py">
       <SubType>Code</SubType>
     </Compile>

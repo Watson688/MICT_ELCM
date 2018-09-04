@@ -19,7 +19,7 @@ class RNN():
         x_train, y_train, x_test, y_test = lstm.preprocessing()
         lstm_cell = tf.contrib.rnn.BasicLSTMCell(n_hidden)
         init_state = lstm_cell.zero_state(batch_size, dtype=tf.float32)
-        outputs, final_state = tf.nn.dynamic_rnn(lstm_cell, x_train, initial_state=init_state, time_major=False)
+        outputs, final_state = tf.nn.dynamic_rnn(lstm_cell, X_in, initial_state=init_state, time_major=False)
         results = tf.matmul(final_state[1], weights['out']) + biases['out']
         return results
 
