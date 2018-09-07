@@ -1,38 +1,76 @@
-import pypyodbc
+import numpy as np
+import tensorflow as tf
+from tensorflow.examples.tutorials.mnist import input_data
+from LSTM_TF import lstm
+"""
+    training_set, testing_set = lstm.preprocessing()
+    x_train = []
+    y_train = []
+    for t in training_set:
+        x_train.append(t[0])
+        if t[1] == 1:
+            y_train.append(np.array([[1,0]]))
+        if t[1] == 0:
+            y_train.append(np.array([[0,1]]))
+    x_train = np.dstack(x_train)
+    y_train = np.dstack(y_train)
+"""
 
 
-connection_string = "Driver={SQL Server};Server=princeton;Database=MICT_ELCM;UID=sa;PWD=%5qlish!;"
-with pypyodbc.connect(connection_string) as conn:
-    columns = "RECORD_ID,DATE_EVENT,DEVICE_ID,ITEMNAME,DEFECTX,DEFECTY,DEFECTTIME,TYPE,X,Y,VOLOCITY,ARC"
-    cursor = conn.cursor()
-    query1 = "SELECT TOP (1000000) * FROM [MICT_ELCM].[dbo].[FMDS_EVENTS_2018] WHERE ITEMNAME = 'DefectTPX,DefectTPY,DefectTPDate,DefectTPTime,DefectTPAntennaPos' ORDER BY DATE_EVENT DESC"
-    print("selecting")
-    cursor.execute(query1)
-    all_events = cursor.fetchall()
-    print("selected {} events".format(str(len(all_events))))
-    output = []
-    item_name = 'PositionX,PositionY,Velocity,Arc'
-    for row in all_events:
-        temp = [str(r).strip() for r in row]
-        date_event = row[1]
-        agv = row[2]
-        sub_list = temp[-1].split(",")
-        temp = temp[:-1] + [sub_list[0]] + [sub_list[1]] + [sub_list[2] + " " + sub_list[3]] + [sub_list[4]]
-        temp[3] = temp[3].replace(",", " ")
-        query2 = "SELECT TOP(1) ITEMVALUE FROM [MICT_ELCM].[dbo].[FMDS_EVENTS_2018] WHERE DEVICE_ID = '{0}' AND ITEMNAME = '{1}' AND DATE_EVENT < '{2}' ORDER BY DATE_EVENT DESC".format(agv, item_name, date_event)
-        cursor.execute(query2)
-        position = cursor.fetchall()
-        if position:
-            coordinates = position[0][0].strip().split(",")
-            for j in coordinates:
-                temp.append(j)
-        temp.append('\n')
-        output.append(",".join(temp))
-    print("writing...")
-    with open("defect_position.csv", 'w') as f:
-        f.write(columns + '\n')
-        for r in output:
-            f.write(r)
-    print("finished")
+mnist  = input_data.read_data_sets('MNIST_data/', one_hot=True)
 
-    
+lr = 0.001
+training_inter = 100000
+batch_size = 100
+# display_step = 10 #
+
+n_input = 28 # w
+n_step = 28 # h
+n_hidden = 128
+n_classes = 10
+
+# placeholder
+x = tf.placeholder(tf.float32, [None, n_input, n_step])
+y = tf.placeholder(tf.float32, [None, n_classes])
+
+weights = {
+    'in': tf.Variable(tf.random_normal([n_input, n_hidden])), # (28, 128)
+    'out': tf.Variable(tf.random_normal([n_hidden, n_classes])) # (128, 10)
+}
+biases = {
+    'in': tf.Variable(tf.constant(0.1, shape=[n_hidden])),
+    'out': tf.Variable(tf.constant(0.1, shape=[n_classes]))
+}
+
+def RNN(x, weights, biases):
+    # 原始的x是3维,需要将其变为2为的，才能和weight矩阵乘法
+    # x=(128, 28, 28) ->> (128*28, 28)
+    X = tf.reshape(x, [-1, n_input])
+    X_in = tf.matmul(X, weights['in']) + biases['in'] # (128*28, 128)
+    X_in = tf.reshape(X_in, [-1, n_step, n_hidden]) # (128, 28, 128)
+    # 定义LSTMcell
+    lstm_cell = tf.contrib.rnn.BasicLSTMCell(n_hidden)
+    init_state = lstm_cell.zero_state(batch_size, dtype=tf.float32)
+    outputs, final_state = tf.nn.dynamic_rnn(lstm_cell, X_in, initial_state=init_state, time_major=False)
+    results = tf.matmul(final_state[1], weights['out']) + biases['out']
+    return results
+
+pre = RNN(x, weights, biases)
+cost = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(labels=y, logits=pre))
+train_op = tf.train.AdamOptimizer(lr).minimize(cost)
+
+correct_pred = tf.equal(tf.argmax(pre, 1), tf.argmax(y, 1))
+accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))
+
+init = tf.global_variables_initializer()
+
+with tf.Session() as sess:
+    sess.run(init)
+    step = 0
+    while step*batch_size < training_inter:
+        batch_xs, batch_ys = mnist.train.next_batch(batch_size)
+        batch_xs = batch_xs.reshape([batch_size, n_step, n_input])
+        sess.run([train_op], feed_dict={x: batch_xs, y: batch_ys})
+        if step % 20 == 0:
+            print(sess.run(accuracy, feed_dict={x: batch_xs, y: batch_ys}))
+        step += 1

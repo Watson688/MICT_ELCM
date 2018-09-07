@@ -3,8 +3,9 @@ import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
 from LSTM_TF import lstm
 
-mnist  = input_data.read_data_sets('MNIST_data/', one_hot=True)
-print(mnist.train.images.shape)
+
+x_train = np.load("x_train.npy")
+y_train = np.load("y_train.npy")
 # 使用LSTM来实现mnist的分类，将输入28*28的图像每一行看作输入像素序列，行行之间具有时间信息。即step=28
 # 设置超参数
 # 超参数
@@ -13,19 +14,24 @@ training_inter = 100000
 batch_size = 128
 # display_step = 10 #
 
-n_input = 28 # w
-n_step = 28 # h
+#x_train, y_train, x_test, y_test = lstm.preprocessing()
+# np.save("x_train", x_train)
+# np.save("y_train", y_train)
+n_input = 30 # w
+n_step = 10 # h
 n_hidden = 128
-n_classes = 10
+n_classes = 2
+
 
 # placeholder
-x = tf.placeholder(tf.float32, [None, n_input, n_step])
+x = tf.placeholder(tf.float32, [None, n_input, n_step]) # 30, 10
 y = tf.placeholder(tf.float32, [None, n_classes])
-x_train, y_train, x_test, y_test = lstm.preprocessing()
+
 weights = {
-    'in': tf.Variable(tf.random_normal([n_input, n_hidden])), # (28, 128)
-    'out': tf.Variable(tf.random_normal([n_hidden, n_classes])) # (128, 10)
+    'in': tf.Variable(tf.random_normal([n_input, n_hidden])), # (30, 128)
+    'out': tf.Variable(tf.random_normal([n_hidden, n_classes])) # (128, 2)
 }
+
 biases = {
     'in': tf.Variable(tf.constant(0.1, shape=[n_hidden])),
     'out': tf.Variable(tf.constant(0.1, shape=[n_classes]))
@@ -55,7 +61,11 @@ init = tf.global_variables_initializer()
 
 with tf.Session() as sess:
     sess.run(init)
-    for i in range(training_inter):
-        sess.run([train_op], feed_dict={x: x_train, y: y_train})
+    step = 0
+    while step*batch_size < training_inter:
+        batch_xs, batch_ys = mnist.train.next_batch(batch_size)
+        batch_xs = batch_xs.reshape([batch_size, n_step, n_input])
+        sess.run([train_op], feed_dict={x: batch_xs, y: batch_ys})
         if step % 20 == 0:
-            print(sess.run(accuracy, feed_dict={x: x_train, y: y_train}))
+            print(sess.run(accuracy, feed_dict={x: batch_xs, y: batch_ys}))
+        step += 1

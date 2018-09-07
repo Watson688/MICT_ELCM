@@ -5,7 +5,7 @@
     <ProjectGuid>02c067f2-2a62-48ab-a942-8e6244f99cc4</ProjectGuid>
     <ProjectHome>
     </ProjectHome>
-    <StartupFile>LR_test.py</StartupFile>
+    <StartupFile>Module_1.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>

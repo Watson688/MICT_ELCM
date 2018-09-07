@@ -1,5 +1,6 @@
 import os
 import random
+from datetime import datetime
 import numpy as np
 import pandas as pd
 import tensorflow as tf
@@ -33,7 +34,7 @@ class lstm():
             groupby_agv[a] = df_merged[df_merged['device'] == a]
         # iterate over each agv
         # abnormal
-        print("abnormal")
+        print("generating abnormal cases")
         for agv in groupby_agv.keys():
             last_position = None
             for index, row in enumerate(groupby_agv[agv].itertuples()):
@@ -42,7 +43,7 @@ class lstm():
                 if row[-1] == 1 and (last_position is None or index - last_position >= size_of_input):
                     x_abnormal.append(groupby_agv[agv].iloc[index - size_of_input + 1:index+1,:-1])
                     y_abnormal.append(groupby_agv[agv].iloc[index,-1])
-        print("normal")
+        print("generating normal cases")
         for agv in groupby_agv.keys():
             start = None
             for index, row in enumerate(groupby_agv[agv].itertuples()):
@@ -56,20 +57,41 @@ class lstm():
                 else:
                     start = None  
         # balance the data, split to training and testing
-        index = int(len(x_abnormal) * 0.7)
-        index_time = x_abnormal[index].iloc[-1,-1]
-        x_train = x_abnormal[:index] + x_normal[:index]
-        y_train = y_abnormal[:index] + y_normal[:index]
-        print("last timestamp of x_train:")
-        print(x_train[-1].iloc[-1][-1])
-        x_test = x_abnormal[-index:-1] + x_normal[-index:-1]
-        y_test = y_abnormal[-index:-1] + y_abnormal[-index:-1]
-        print("first timestamp of x_test:")
-        print(x_test[0].iloc[-1][-1])
-        # removed the timestamp
-        x_train = [x.iloc[:,:-1] for x in x_train]
-        y_train = [x.iloc[:,:-1] for x in x_test]
-        return x_train, y_train, x_test, y_test
+        normal = list(zip(x_normal, y_normal))
+        abnormal = list(zip(x_abnormal, y_abnormal))
+
+        c_1 = Counter([x.shape for x in x_abnormal])
+        c_2 = Counter([x.shape for x in x_normal])
+
+        number_of_training = int(len(abnormal) * 0.7)
+        boundary_time = datetime.strptime(abnormal[number_of_training - 1][0].iloc[-1,-1], '%Y-%m-%d %H:%M:%S')
+
+        normal_pre_boundary = []
+        normal_post_boundary = []
+        for data_point in normal:
+            if datetime.strptime(data_point[0].iloc[-1,-1], '%Y-%m-%d %H:%M:%S') <= boundary_time:
+                normal_pre_boundary.append(data_point)
+            if datetime.strptime(data_point[0].iloc[0,-1], '%Y-%m-%d %H:%M:%S') > boundary_time:
+                normal_post_boundary.append(data_point)
+
+        training_set = abnormal[:number_of_training] + random.sample(normal_pre_boundary, number_of_training)
+        testing_set = abnormal[number_of_training:] + random.sample(normal_post_boundary, len(abnormal[number_of_training:]))
+
+        print("last timestamp of training_set:")
+        print(abnormal[number_of_training-1][0].iloc[0][-1])
+        print("first timestamp of testing_set:")
+        print(abnormal[number_of_training][0].iloc[0][-1])
+        # removed the timestamp, device
+        c_1 = Counter([x[0].shape for x in training_set])
+        c_2 = Counter([x[0].shape for x in testing_set])
+        print(c_1)
+        print(c_2)
+        for data_tuple in training_set:
+            data_tuple[0].drop(['device', 'date'], axis=1, inplace=True)
+        for data_tuple in testing_set:
+            data_tuple[0].drop(['device', 'date'], axis=1, inplace=True)
+
+        return training_set, testing_set
     
     def tf_lstm(self):
         x_train, y_train, x_test, y_test = preprocessing()
