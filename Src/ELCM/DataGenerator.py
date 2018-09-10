@@ -12,7 +12,7 @@ from datetime import timedelta
 class DataGenerator():
     def __init__(self):
         self.connection_string = "Driver={SQL Server};Server=princeton;Database=MICT_ELCM;UID=sa;PWD=%5qlish!;"
-        self.output_directory = "C:\Code\ELCM\TempData\\"
+        self.output_directory = "C:\Code\MICT_ELCM\TempData\\"
         # maximum trace back days
         self.trace_max = 3
         self.all_query_parameters = collections.OrderedDict()
@@ -20,12 +20,11 @@ class DataGenerator():
         self.additional_columns = collections.OrderedDict()
         self.additional_columns = {"AVERAGESPEED": None, "STOPS": None, "DISTANCE": None, "D_To_TPX": None, "T_To_TPX": None}
 
-    # not in use now
+    # This function is not in use now
     def generator_worktype(self, analysis_date, worktype, window, n = 1):
         # construct training data set based on the worktype
-        connection_string = self.connection_string
         # select target work description
-        with pypyodbc.connect(connection_string, autocommit = True) as conn:
+        with pypyodbc.connect(self.connection_string, autocommit = True) as conn:
             cursor = conn.cursor()
             # select target work description
             query1 = "SELECT TOP({}) COUNT(WO_DESCR) AS TOTAL, WO_DESCR, MAX(WO_WORKTYPE) AS WO_WORKTYPE FROM \
@@ -61,7 +60,7 @@ class DataGenerator():
 
     def generator_errormessage(self, analysis_start_date, error_message, window_size, window_type, normal_case_type, number_of_data=None):
         all_rows = []
-        # 1. get all feature we need
+        # 1. get all features we need
         with open("ITEMNAME.csv") as f:
             column_names = [x.strip() for x in f.readlines()]
         # 2. select all target variables
@@ -211,8 +210,6 @@ class DataGenerator():
                         self.all_query_parameters["normal"].append([agv, start_date, end_date, position])
                         break
 
-                
-
     def select_events(self, agv, start_date, end_date):
         with pypyodbc.connect(self.connection_string, autocommit = True) as conn:
             cursor = conn.cursor()
@@ -312,6 +309,60 @@ class DataGenerator():
                 header[i] = "AVERAGE TPX ERROR GAP"
         return header
 
+    def minute_interval_events(self, start_date, interval_size):
+        output = []
+        start_date = datetime.strptime(start_date[:-1], "%Y-%m-%d %H:%M:%S.%f")
+        # temporary end date
+        end_date = datetime.strptime('2018-06-28 00:00:00.000000', "%Y-%m-%d %H:%M:%S.%f")
+        """
+            with pypyodbc.connect(self.connection_string, autocommit = True) as conn:
+                cursor = conn.cursor()
+                query1 = "SELECT TOP(1) DATE_EVENT FROM [MICT_ELCM].[dbo].[FMDS_EVENTS_2018] ORDER BY DATE_EVENT DESC"
+                cursor.execute(query1)
+                end_date = datetime.strptime(cursor.fetchall()[0][0][:-1], "%Y-%m-%d %H:%M:%S.%f")
+        """
+        with open("AGVNAMES.csv") as f:
+            AGV = [x.strip() for x in f.readlines()]
+        with pypyodbc.connect(self.connection_string, autocommit = True) as conn:
+            cursor = conn.cursor()
+            interval_start = start_date
+            interval_end = start_date + timedelta(minutes=interval_size)
+            while interval_end <= end_date:
+                print("current interval: {0} to {1}".format(interval_start, interval_end))
+                for index, agv in enumerate(AGV):
+                    query = "SELECT DATE_EVENT, TRIM(DEVICE_ID) AS DEVICE_ID, TRIM(ITEMNAME) AS ITEMNAME, TRIM(ITEMVALUE) AS ITEMVALUE FROM [MICT_ELCM].[dbo].[FMDS_EVENTS_2018] WHERE DEVICE_ID = '{0}' \
+                    AND ITEMNAME = 'PositionX,PositionY,Velocity,Arc' AND DATE_EVENT BETWEEN '{1}' AND '{2}' ORDER BY DATE_EVENT".format(agv, interval_start, interval_end)
+                    cursor.execute(query)
+                    events = cursor.fetchall()
+                    if events:
+                        if len(events) == 1:
+                            if events[0][-1].split(',')[-2] == '0':
+                                output.append(str(interval_start) + ',' + str(agv) + ',' + '0' + ',' + '1')
+                            else:
+                                output.append(str(interval_start) + ',' + str(agv) + ',' + '0' + ',' + '0')
+                        else:
+                            distance = 0
+                            coordinates = []
+                            stops = 0
+                            for row in events:
+                                itemvalues = row[-1].split(",")
+                                coordinates.append((itemvalues[0], itemvalues[1]))
+                                if itemvalues[-2] == 0:
+                                    stops += 1
+                            for i, c in enumerate(coordinates):
+                                if i == 0:
+                                    continue
+                                else:
+                                    distance += self.calculate_distance(coordinates[i-1][0], coordinates[i-1][1], c[0], c[1])
+                            output.append(str(interval_start) + ',' + str(agv) + ',' + str(distance) + ',' + str(stops))
+                interval_start = interval_end + timedelta(seconds=1)
+                interval_end = interval_end + timedelta(minutes=interval_size)
+        with open(self.output_directory + str(start_date.date()) + "_" + str(end_date.date()) + "_" + str(interval_size) + ".csv", "w") as f:
+            f.write("date,device,distance,stops\n")
+            for o in output:
+                f.write(o + '\n')
+
+
 
 def main():
     # Boot
@@ -321,7 +372,8 @@ def main():
     # number of data can be a int or None
     # if None, the program will return all the errors after the start date, for example: 2018-01-01 00:00:00.0000000
     # int means the total failed cases you want
-    S.generator_errormessage('2018-01-01 00:00:00.0000000', 'Management System - Direct Stop', 4, "hours", 1, 10) 
+    #S.generator_errormessage('2018-01-01 00:00:00.0000000', 'Management System - Direct Stop', 4, "hours", 1, 10) 
+    S.minute_interval_events('2018-01-01 00:00:00.0000000', 120)
     print(str(datetime.now().strftime("%Y-%m-%d %H:%M:%S")) + "  generating finished")
 
 
