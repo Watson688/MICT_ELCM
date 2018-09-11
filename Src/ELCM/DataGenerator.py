@@ -313,7 +313,7 @@ class DataGenerator():
         output = []
         start_date = datetime.strptime(start_date[:-1], "%Y-%m-%d %H:%M:%S.%f")
         # temporary end date
-        end_date = datetime.strptime('2018-06-28 00:00:00.000000', "%Y-%m-%d %H:%M:%S.%f")
+        end_date = datetime.strptime('2018-06-01 00:00:00.000000', "%Y-%m-%d %H:%M:%S.%f")
         """
             with pypyodbc.connect(self.connection_string, autocommit = True) as conn:
                 cursor = conn.cursor()
@@ -321,12 +321,14 @@ class DataGenerator():
                 cursor.execute(query1)
                 end_date = datetime.strptime(cursor.fetchall()[0][0][:-1], "%Y-%m-%d %H:%M:%S.%f")
         """
+        # Get all the agv names, if more agv added, should run query again to retrieve all agv names
         with open("AGVNAMES.csv") as f:
             AGV = [x.strip() for x in f.readlines()]
         with pypyodbc.connect(self.connection_string, autocommit = True) as conn:
             cursor = conn.cursor()
             interval_start = start_date
             interval_end = start_date + timedelta(minutes=interval_size)
+            # for each time interval, iterate each agv, get all position events and aggregated it.
             while interval_end <= end_date:
                 print("current interval: {0} to {1}".format(interval_start, interval_end))
                 for index, agv in enumerate(AGV):
@@ -335,11 +337,13 @@ class DataGenerator():
                     cursor.execute(query)
                     events = cursor.fetchall()
                     if events:
+                        # if only 1 event, there is no distance travelled in this time period, stopped or not depends on the data.
                         if len(events) == 1:
                             if events[0][-1].split(',')[-2] == '0':
                                 output.append(str(interval_start) + ',' + str(agv) + ',' + '0' + ',' + '1')
                             else:
                                 output.append(str(interval_start) + ',' + str(agv) + ',' + '0' + ',' + '0')
+                        # if more than one event, calculate the distance use Euclidean distance, speed 0 be treated as a stop.
                         else:
                             distance = 0
                             coordinates = []
@@ -355,6 +359,7 @@ class DataGenerator():
                                 else:
                                     distance += self.calculate_distance(coordinates[i-1][0], coordinates[i-1][1], c[0], c[1])
                             output.append(str(interval_start) + ',' + str(agv) + ',' + str(distance) + ',' + str(stops))
+                # add one second to aviod overlap
                 interval_start = interval_end + timedelta(seconds=1)
                 interval_end = interval_end + timedelta(minutes=interval_size)
         with open(self.output_directory + str(start_date.date()) + "_" + str(end_date.date()) + "_" + str(interval_size) + ".csv", "w") as f:
