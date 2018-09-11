@@ -347,7 +347,7 @@ class DataGenerator():
                             for row in events:
                                 itemvalues = row[-1].split(",")
                                 coordinates.append((itemvalues[0], itemvalues[1]))
-                                if itemvalues[-2] == 0:
+                                if itemvalues[-2] == '0':
                                     stops += 1
                             for i, c in enumerate(coordinates):
                                 if i == 0:
